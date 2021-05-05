@@ -1,0 +1,376 @@
+<style type="text/css">
+
+
+.round-button-gray {
+display:block;
+width:30px;
+height:30px;
+line-height:20px;
+border: 2px solid white;
+border-radius: 50%;
+color:#bababa;
+text-align:center;
+text-decoration:none;
+background: #bababa;
+box-shadow: 0 0 3px gray;
+font-size:20px;
+font-weight:bold;
+/*margin:auto;*/
+float:right;
+}
+
+.round-button-yellow {
+display:block;
+width:30px;
+height:30px;
+line-height:20px;
+border: 2px solid #bababa;
+border-radius: 50%;
+color:#f7a54a;
+text-align:center;
+text-decoration:none;
+background: #f7a54a;
+box-shadow: 0 0 3px gray;
+font-size:20px;
+font-weight:bold;
+/*margin:auto;*/
+float:right;}
+
+.round-button-red {
+display:block;
+width:30px;
+height:30px;
+line-height:20px;
+border: 2px solid #bababa;
+border-radius: 50%;
+color:#ec4758;
+text-align:center;
+text-decoration:none;
+background: #ec4758;
+box-shadow: 0 0 3px gray;
+font-size:20px;
+font-weight:bold;
+/*margin:auto;*/
+float:right;
+}
+.round-button-green {
+display:block;
+width:30px;
+height:30px;
+line-height:20px;
+border: 2px solid #bababa;
+border-radius: 50%;
+color:#18a689;
+text-align:center;
+text-decoration:none;
+background: #18a689;
+box-shadow: 0 0 3px gray;
+font-size:20px;
+font-weight:bold;
+/*margin:auto;*/
+float:right;
+}
+
+.round-button:hover {
+background: #262626;
+}
+.marquee-with-options{
+  text-shadow: 1px 1px black; 
+}
+.latestUpdate{
+  /*text-shadow: 1px 1px white; 
+  color: cyan;*/
+}
+h4.modal-title{
+  color: :white;
+}
+.modal-header{
+  background: #345;
+  
+}
+.modal-footer{
+  background: #345;
+  color: :white;
+}
+.popover-title{
+    background: black;
+    color: white;
+}
+.popover-content{
+  background: #345;
+  color:white;
+}
+body{
+  color: #eee;
+}
+
+table.table-bordered-blue > thead > tr > th{
+  border:0px solid blue;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+table.table-bordered-blue > tbody > tr  {
+   /*border:0px;*/
+  border-bottom:0.5px solid #17193b;
+
+}
+
+table.table-bordered-blue > tbody > tr >td{
+   /*border:0px;*/
+  border:0px;
+
+}
+
+/*default data start*/
+.thSeq{
+  width: 50px;
+}
+.thMission{
+  width: 200px;
+}
+.thDetail{
+  width: 200px;
+}
+.thInfo{
+  width: 50px;
+}
+.thResponse{
+  width: 100px;
+}
+.thTime{
+  width: 100px;
+}
+.thManage{
+  width: 100px;
+}
+
+
+.profile_tag{
+      float: left;
+    }
+#titleH{
+  margin-top:12px;
+}
+/*default date end*/
+@media (max-width: 767px) {
+    /* phones */
+    .profile_tag{
+      float: right;
+    }
+    .thMission{
+      width: 300px;
+    }
+    .thInfo{
+      width: 50px;
+    }
+    .thResponse{
+      width: 50px;
+    }
+    .thManage{
+      width: 50px;
+    }
+
+    #titleH{
+      font-size: 18px;
+      background: #17193b;
+      padding: 10px;
+      margin-top:10px;
+    }
+    
+}
+@media (max-width: 991px) {
+    /* tablets */
+    
+}
+@media (max-width: 1199px) {
+    /* desktops */
+}
+@media (max-width: 99999999px) {
+  /*large desktops*/
+
+}
+/*.profile_tag*/
+
+
+</style>
+    <div class='row' style="font-size: 16px;">
+	        	<div class="col-lg-12">
+
+
+	        		
+
+                   <div class="ibox1 float-e-margins1" >
+
+
+                       <div class="ibox-title" style="">
+
+                          <div class="row  container-fluid">
+                            <div class="col-sm-6">
+                              <h2 id="titleH" >
+                                <span >
+                                ติดตามผลปฎิบัติงาน<span id='currentDate'></span>
+                                </span>
+                             </h2>
+                            </div>
+
+
+
+                          <div class="navbar-collapse collapse" id="navbar3">
+
+                            <div class="col-lg-6 pull-right col-xs-12">
+                              
+                              <!-- -->
+                                  <div class="form-group " style="padding-top: 12px;">
+
+                                    <div class="col-lg-4" style="display: none;">
+                                      <select style=" background: #17193b; " class="form-control m-b-sm" name="checkListDate" id="checkListDate">
+                                      </select>  
+                                    </div>
+
+                                    <!--  <div class="col-sm-4 " style="text-align: right;">
+                                      <input class="pull-right" id="refresh" type="checkbox" checked data-toggle="toggle" data-on="รีเฟรช" data-off="หยุด" data-onstyle="info" data-offstyle="danger">
+                                    </div> -->
+
+                                    <div class="col-lg-4 col-lg-offset-4">
+                                      <select style=" background: #17193b;" class="form-control m-b-sm" name="checkListType" id="checkListType">
+                                        
+                                      </select>
+                                    </div>
+
+                                    <div class="col-lg-4">
+                                      <select style=" background: #17193b;" class="form-control m-b-sm" name="checkListStatus" id="checkListStatus">
+                                          <option value="all">เลือกสถานะภารกิจ</option>
+                                          <option value="1">มอบหมาย</option>
+                                          <option value="2">กำลังทำงาน</option>
+                                          <option value="3">ไม่เสร็จ</option>
+                                          <option value="4">เสร็จ</option>
+                                          
+                                      </select>
+                                    </div>
+
+                                    
+                                 
+                                </div>
+
+                                <!-- -->
+
+
+                            </div>
+
+                          </div>
+
+
+                          </div>
+
+                           
+                         
+                           
+                       </div>
+
+
+                       <div class="ibox-content1" style="padding: 0px; padding-top: 10px; padding-right: 5px; padding-left: 5px; ">
+                       
+                       
+                       
+
+                       
+		                    
+                    
+			             	<div class="row">
+			             		
+
+			             		
+			             	</div>
+
+			                <div style="overflow-x:auto;">
+                           <table id='tableCheckList' class="table table-bordered-blue  no-margins  " >
+                               <thead >
+                               
+                               <tr>
+                               <!-- 
+                               		<th style='background:#fcf8e3; text-align:center;' >
+                                   Picture
+                                   </th>
+                                    -->
+                                    <th class="thSeq" style='background:#040620; color: white;  text-align: center;'>
+                                   	ลำดับ
+                                   </th>
+                                   <th class="thMission" style='background:#040620; color: white; '>
+                                  	 ภารกิจ
+                                   </th>
+
+                                    
+                                  	
+                                   <th  style='background:#040620; color: white;'  class="hidden-xs thDetail">
+                                   	รายละเอียด<span class="hidden-xs">/ข้อขัดข้อง</span>
+                                   </th>
+                                   
+                                   <th class="thInfo" style='background:#040620; color: white; '>
+                                    
+                                   </th>
+                                   <th  class="thResponse" style='background:#040620; color: white; text-align:left; ' >
+                                    <!-- ผู้รับผิดชอบ -->
+                                   </th>
+                                   <th  style='background:#040620; color: white; width:100px;' class='hidden-xs thTime'>
+                                    
+                                   </th>
+                                   <th class="thManage" style='background:#040620; color: white; text-align:right; width:50px;'><span class='hidden-xs'>สถานะ</span></th>
+                                   
+                                   
+                                  
+                                   
+                               </tr>
+                               </thead>
+                               <tbody id="checkListReportArea">
+                               </tbody>
+                           </table>
+                         </div>
+                       </div>
+                   </div>
+               </div>
+	        </div>
+        </div>
+
+
+        <!--modal profile start-->
+   <div class="modal inmodal fade" id="profileModal" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog ">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                  <h4 style="color: white;" class="modal-title">ผู้รับผิดชอบ</h4>
+                  <!-- <small class="font-bold">กรอกภารกิจประจำวัน</small> -->
+              </div>
+              <div class="modal-body">
+                
+
+              
+                  อีเมลล์:<span style="font-weight: bold;" id="tagEmail"></span><br>
+                  ชื่อ:<span id="tagfullName"></span><br>
+                  ตำแหน่ง:<span id="tagPosition"></span><br>
+            
+          
+
+                 
+
+              </div>
+
+              <div class="modal-footer">
+                  
+                  <button type="button" class="btn btn-white" data-dismiss="modal">ปิด</button>
+                
+              </div>
+          </div>
+      </div>
+  </div>
+  <!--modal profile end-->
+
+
+<!-- <script src="../Controller/cSetting.js"></script> -->
+<script src="../Controller/fontEnd/cFontEndCheckListReport.js"></script>    
+
+
+
+
+
+
+

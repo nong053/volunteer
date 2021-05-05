@@ -1,0 +1,414 @@
+
+<link rel="stylesheet" href="css/jquery-ui.css">
+<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+
+<style>
+.form-group {
+    margin-bottom: 5px;
+}
+
+.table > tbody > tr > td{
+  padding-bottom: 3px;
+    padding-top: 3px;
+}
+.float-e-margins .btn {
+    margin-bottom: 5px;
+}
+
+</style>
+
+
+
+
+
+
+<div class='row'>
+            <div class="col-lg-12">
+
+
+              
+
+                   <div class="ibox float-e-margins">
+
+
+                       <div class="ibox-title">
+                           <h1>รายการตรวจสอบฟังก์ชั่นในส่วนของ Commander Application</h1>
+                           
+                           
+                       </div>
+                       <div class="ibox-content">
+                       
+                       
+                       <div class="row">
+                          <!-- 
+                       <form class="form-inline" role="form" style='margin-bottom:5px'>
+                               
+                                <div class="form-group">
+                                    <label class="sr-only" for="exampleInputPassword2">Search</label>
+                                    <input type="text" class="form-control" id="exampleInputPassword2" placeholder="Search">
+                                </div>
+                                
+                                <button  style='margin-bottom:0px' type="submit" class="btn btn-primary">Search</button>
+                            </form>
+                             -->
+
+                             <div class="form-group">
+                                    
+                                    <div class="col-sm-2">
+                                      <select style="font-size: 18px;" class="form-control m-b" name="checkListType" id="checkListType">
+                                          <!-- <option value="all">หัวข้อการตรวจสอบ</option> -->
+                                          <option value="1">Commander</option>
+                                          <option value="11">Staft A1</option>
+                                          <option value="12">Staft A2</option>
+                                          <option value="13">Staft A3</option>
+                                          <option value="14">Staft A4</option>
+                                          <option value="15">Staft A5</option>
+                                          <option value="16">Staft A6</option>
+                                          <option value="2">Admin</option>
+                                      </select>
+                                    </div>
+
+                                    <div class="col-sm-2">
+                                      <select style="font-size: 18px;" class="form-control m-b" name="checkListStatus" id="checkListStatus">
+                                          <option value="all">สถานะ</option>
+                                          <option value="true">พร้อม</option>
+                                          <option value="false">ไม่พร้อม</option>
+                                          
+                                      </select>
+                                    </div>
+
+                                    <div class="col-sm-2">
+                                      <button id='sendReport' class="btn btn-primary" style="font-size: 14px;">
+                                      <i class='fa fa-bullhorn'></i>
+                                        ส่งรายงาน
+                                      </button>
+                                    </div>
+
+                                   
+                                </div>
+
+                        
+                            
+                   
+                   
+                           <table id='tableUser' class="table table-hover no-margins  ">
+                               <thead>
+                               
+                               <tr>
+                               <!-- 
+                                  <th style='background:#fcf8e3; text-align:center;' >
+                                   Picture
+                                   </th>
+                                    -->
+                                    <th style='background:#fcf8e3; width:5%; text-align: center;'>
+                                    ลำดับ
+                                   </th>
+                                   <th style='background:#fcf8e3; width:35%;'>
+                                    รายการตรวจสอบ
+                                   </th>
+
+                                    <th style='background:#fcf8e3; text-align:center; width:200px;'>สถานะ</th>
+                                  
+                                   <th style='background:#fcf8e3; width:45%;'>
+                                    หมายเหตุ
+                                   </th>
+                                   
+                                  
+                                   
+                               </tr>
+                               </thead>
+                               <tbody id="listDataEnrollmentArea1">
+
+                                <tr>
+                                  <td style="text-align: center;">
+                                  <!-- sequence -->
+                                  1
+                                  </td>
+                                  <td class="listDetailText" id="listDetailText-1">
+                                  <!-- list detail -->
+                                  เข้าโปรแกรม NCOC Portal ผ่าน URL http://10.235.236.140/ncoc
+                                  </td>
+                                  
+                                  <td style="text-align: center;">
+                                    <input type="checkbox" class="checkList" id="checkListId-1" checked data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-on="พร้อม" data-off="ไม่พร้อม">
+                                  </td>
+                                  <td>
+                                    <font class ="readyStatusText" id='readyStatusText-1' color="green">
+                                      <!-- warning -->
+                                      แสดงหน้า Web NCOC Portal
+                                    </font>
+                                    <input type="text" style="width: 100%;display: none;" name="" class="notReadyStatusText" id="notReadyStatusText-1" style="width: 100%;display: none;" >
+                                  </td>
+                                </tr>
+
+                                <tr>
+                                  <td style="text-align: center;">2</td>
+                                  <td class="listDetailText" id="listDetailText-2">Log in Commande Application ด้วยชื่อผู้ใช้งานและรหัสผ่าน</td>
+                                  
+                                  <td style="text-align: center;">
+                                    <input type="checkbox" class="checkList" id="checkListId-2" checked data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-on="พร้อม" data-off="ไม่พร้อม">
+                                  </td>
+                                  <td>
+                                    <font class ="readyStatusText" id='readyStatusText-2' color="green">แสดงชื่อและรายละเอียดของ Scenario</font>
+                                    <!-- <font class="notReadyStatusText-1" color="red">ไม่พร้อม:</font> -->
+                                    <!-- <textarea style="width: 100%;display: none;" name="" class="notReadyStatusText-1"></textarea> -->
+                                    <input type="text" style="width: 100%;display: none;" name="" id="notReadyStatusText-2" class="notReadyStatusText"  style="width: 100%;display: none;" >
+                                  </td>
+                                </tr>
+
+                                <tr>
+                                  <td style="text-align: center;">
+                                  <!-- sequence -->
+                                  3
+                                  </td>
+                                  <td class="listDetailText" id="listDetailText-3">
+                                  <!-- list detail -->
+                                  ตรวจสอบการเลือก Scenario
+                                  </td>
+                                  
+                                  <td style="text-align: center;">
+                                    <input type="checkbox" class="checkList" id="checkListId-3" checked data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-on="พร้อม" data-off="ไม่พร้อม">
+                                  </td>
+                                  <td>
+                                    <font class ="readyStatusText" id='readyStatusText-3' color="green">
+                                      <!-- warning -->
+                                      แสดงเมนูข้อมูลฝ่ายเสธฯ ทั้ง 6 ฝ่าย (A1-A6)
+                                    </font>
+                                    <input type="text" style="width: 100%;display: none;" name="" id="notReadyStatusText-3" class="notReadyStatusText" style="width: 100%;display: none;" >
+                                  </td>
+                                </tr>
+
+                                <tr>
+                                  <td style="text-align: center;">
+                                  <!-- sequence -->
+                                  4
+                                  </td>
+                                  <td class="listDetailText" id="listDetailText-4">
+                                  <!-- list detail -->
+                                  ตรวจสอบเมนู ด้านกาลังพล (A1)
+                                  </td>
+                                  
+                                  <td style="text-align: center;">
+                                    <input type="checkbox" class="checkList" id="checkListId-4" checked data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-on="พร้อม" data-off="ไม่พร้อม">
+                                  </td>
+                                  <td>
+                                    <font class ="readyStatusText" id='readyStatusText-4' color="green">
+                                      <!-- warning -->
+                                      แสดงข้อมูลผู้บังคับบัญชารวมถึงรายละเอียด ของแต่ละข้อมูล
+                                    </font>
+                                    <input type="text" style="width: 100%;display: none;" name="" id="notReadyStatusText-4" class="notReadyStatusText" style="width: 100%;display: none;" >
+                                  </td>
+                                </tr>
+
+                                <tr>
+                                  <td style="text-align: center;">
+                                  <!-- sequence -->
+                                  5
+                                  </td>
+                                  <td class="listDetailText" id="listDetailText-5">
+                                  <!-- list detail -->
+                                  ตรวจสอบเมนู ด้านการข่าว (A2)
+                                  </td>
+                                  
+                                  <td style="text-align: center;">
+                                    <input type="checkbox" class="checkList" id="checkListId-5" checked data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-on="พร้อม" data-off="ไม่พร้อม">
+                                  </td>
+                                  <td>
+                                    <font class ="readyStatusText" id='readyStatusText-5' color="green">
+                                      <!-- warning -->
+                                      แสดงข้อมูลบัญชีเป้าหมายรวมถึงรายละเอียด
+                                    </font>
+                                    <input type="text" style="width: 100%;display: none;" name="" id="notReadyStatusText-5" class="notReadyStatusText" style="width: 100%;display: none;" >
+                                  </td>
+                                </tr>
+
+                                <tr>
+                                  <td style="text-align: center;">
+                                  <!-- sequence -->
+                                  6
+                                  </td>
+                                  <td class="listDetailText" id="listDetailText-6">
+                                  <!-- list detail -->
+                                  ตรวจสอบเมนู ด้านยุทธการ (A3)
+                                  </td>
+                                  
+                                  <td style="text-align: center;">
+                                    <input type="checkbox" class="checkList" id="checkListId-6" checked data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-on="พร้อม" data-off="ไม่พร้อม">
+                                  </td>
+                                  <td>
+                                    <font class ="readyStatusText" id='readyStatusText-6' color="green">
+                                      <!-- warning -->
+                                      แสดงแผนที่รวมถึงสามารถเลือกดูข้อมูลที่ เกี่ยวข้องให้ปรากฏบนแผนที่
+                                    </font>
+                                    <input type="text" style="width: 100%;display: none;" name="" id="notReadyStatusText-6" class="notReadyStatusText" style="width: 100%;display: none;" >
+                                  </td>
+                                </tr>
+
+                                <tr>
+                                  <td style="text-align: center;">
+                                  <!-- sequence -->
+                                  7
+                                  </td>
+                                  <td class="listDetailText" id="listDetailText-7">
+                                  <!-- list detail -->
+                                  ตรวจสอบเมนู ด้านส่งกาลังบารุง (A4)
+                                  </td>
+                                  
+                                  <td style="text-align: center;">
+                                    <input type="checkbox" class="checkList" id="checkListId-7" checked data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-on="พร้อม" data-off="ไม่พร้อม">
+                                  </td>
+                                  <td>
+                                    <font class ="readyStatusText" id='readyStatusText-7' color="green">
+                                      <!-- warning -->
+                                      แสดงข้อมูลสถานภาพอากาศยานรวมถึง รายละเอียดของแต่ละข้อมูล
+                                    </font>
+                                    <input type="text" style="width: 100%;display: none;" name="" id="notReadyStatusText-7" class="notReadyStatusText" style="width: 100%;display: none;" >
+                                  </td>
+                                </tr>
+
+                                <tr>
+                                  <td style="text-align: center;">
+                                  <!-- sequence -->
+                                  8
+                                  </td>
+                                  <td class="listDetailText" id="listDetailText-8">
+                                  <!-- list detail -->
+                                  ตรวจสอบเมนู ด้านกิจการพลเรือน (A5)
+                                  </td>
+                                  
+                                  <td style="text-align: center;">
+                                    <input type="checkbox" class="checkList" id="checkListId-8" checked data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-on="พร้อม" data-off="ไม่พร้อม">
+                                  </td>
+                                  <td>
+                                    <font class ="readyStatusText" id='readyStatusText-8' color="green">
+                                      <!-- warning -->
+                                      แสดงข้อมูลบัญชีทรัพยากร ศูนย์อพยพ รวมถึง รายละเอียดของแต่ละข้อมูล
+                                    </font>
+                                    <input type="text" style="width: 100%;display: none;" name="" id="notReadyStatusText-8" class="notReadyStatusText" style="width: 100%;display: none;" >
+                                  </td>
+                                </tr>
+
+                                <tr>
+                                  <td style="text-align: center;">
+                                  <!-- sequence -->
+                                  9
+                                  </td>
+                                  <td class="listDetailText" id="listDetailText-9">
+                                  <!-- list detail -->
+                                  ตรวจสอบเมนู ด้านสื่อสารและ สารสนเทศ (A6)
+                                  </td>
+                                  
+                                  <td style="text-align: center;">
+                                    <input type="checkbox" class="checkList" id="checkListId-9" checked data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-on="พร้อม" data-off="ไม่พร้อม">
+                                  </td>
+                                  <td>
+                                    <font class ="readyStatusText" id='readyStatusText-9' color="green">
+                                      <!-- warning -->
+                                      แสดงสถานภาพเทคโนโลยีสารสนเทศและการ สื่อสาร รวมถึงรายละเอียดของแต่ละข้อมูล
+                                    </font>
+                                    <input type="text" style="width: 100%;display: none;" name="" id="notReadyStatusText-9" class="notReadyStatusText" style="width: 100%;display: none;" >
+                                  </td>
+                                </tr>
+
+                                <tr>
+                                  <td style="text-align: center;">
+                                  <!-- sequence -->
+                                  10
+                                  </td>
+                                  <td class="listDetailText" id="listDetailText-10">
+                                  <!-- list detail -->
+                                  ตรวจสอบเมนู เส้นแนวการยุทธ์
+                                  </td>
+                                  
+                                  <td style="text-align: center;">
+                                    <input type="checkbox" class="checkList" id="checkListId-10" checked data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-on="พร้อม" data-off="ไม่พร้อม">
+                                  </td>
+                                  <td>
+                                    <font class ="readyStatusText" id='readyStatusText-10' color="green">
+                                      <!-- warning -->
+                                       แสดงรายละเอียดเส้นแนวการยุทธ์
+                                    </font>
+                                    <input type="text" style="width: 100%;display: none;" name="" id="notReadyStatusText-10" class="notReadyStatusText" style="width: 100%;display: none;" >
+                                  </td>
+                                </tr>
+
+                                <tr>
+                                  <td style="text-align: center;">
+                                  <!-- sequence -->
+                                  11
+                                  </td>
+                                  <td class="listDetailText" id="listDetailText-11">
+                                  <!-- list detail -->
+                                  ตรวจสอบเมนู การกาหนดแนวการ ปฏิบัติทางอากาศ
+                                  </td>
+                                  
+                                  <td style="text-align: center;">
+                                    <input type="checkbox" class="checkList" id="checkListId-11" checked data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-on="พร้อม" data-off="ไม่พร้อม">
+                                  </td>
+                                  <td>
+                                    <font class ="readyStatusText" id='readyStatusText-11' color="green">
+                                      <!-- warning -->
+                                      แสดงรายการคาแนะนาการปฏิบัติ และ รายละเอียดแต่ละคาแนะนาการปฏิบัติ
+                                    </font>
+                                    <input type="text" style="width: 100%;display: none;" name="" id="notReadyStatusText-11" class="notReadyStatusText" style="width: 100%;display: none;" >
+                                  </td>
+                                </tr>
+
+                                <tr>
+                                  <td style="text-align: center;">
+                                  <!-- sequence -->
+                                  12
+                                  </td>
+                                  <td class="listDetailText" id="listDetailText-12">
+                                  <!-- list detail -->
+                                  ตรวจสอบเมนู COP
+                                  </td>
+                                  
+                                  <td style="text-align: center;">
+                                    <input type="checkbox" class="checkList" id="checkListId-12" checked data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-on="พร้อม" data-off="ไม่พร้อม">
+                                  </td>
+                                  <td>
+                                    <font class ="readyStatusText" id='readyStatusText-12' color="green">
+                                      <!-- warning -->
+                                      แสดง แผนที่ แถบเครื่องมือรูปแบบแผนที่ และ ประเภทข้อมูลการแสดงผล
+                                    </font>
+                                    <input type="text" style="width: 100%;display: none;" name="" id="notReadyStatusText-12" class="notReadyStatusText" style="width: 100%;display: none;" >
+                                  </td>
+                                </tr>
+
+                                <tr>
+                                  <td style="text-align: center;">
+                                  <!-- sequence -->
+                                  13
+                                  </td>
+                                  <td class="listDetailText" id="listDetailText-13">
+                                  <!-- list detail -->
+                                  ตรวจสอบเมนู ACCS (ในหน้าจอ COP)
+                                  </td>
+                                  
+                                  <td style="text-align: center;">
+                                    <input type="checkbox" class="checkList" id="checkListId-13" checked data-toggle="toggle" data-onstyle="primary" data-offstyle="danger" data-on="พร้อม" data-off="ไม่พร้อม">
+                                  </td>
+                                  <td>
+                                    <font class="readyStatusText" id='readyStatusText-13' color="green">
+                                      <!-- warning -->
+                                      แสดงข้อมูลเป้าหมายทางอากาศจากระบบ ACCS รวมถึงดูรายละเอียดในแต่ละเป้าหมาย
+                                    </font>
+                                    <input type="text" style="width: 100%;display: none;" name="" id="notReadyStatusText-13" class="notReadyStatusText" style="width: 100%;display: none;" >
+                                  </td>
+                                </tr>
+
+
+                               </tbody>
+                           </table>
+                       </div>
+                   </div>
+               </div>
+          </div>
+        </div>
+
+  
+
+  <!-- <script src="../Controller/cSetting.js"></script> -->
+  <script src="../Controller/fontEnd/cCommanderFormCheck.js"></script>      

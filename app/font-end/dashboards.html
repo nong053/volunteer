@@ -1,0 +1,221 @@
+<!-- Dashboard here...... -->
+<style type="text/css">
+
+       /*
+            Use the DejaVu Sans font for display and embedding in the PDF file.
+            The standard PDF fonts have no support for Unicode characters.
+        */
+        .k-grid {
+            font-family: "DejaVu Sans", "Arial", sans-serif;
+        }
+
+
+
+    /*--blue: #1870dc;
+    --indigo: #6610f2;
+    --purple: #a700ae;
+    --pink: #e671b8;
+    --red: #f45722;
+    --orange: #f0af03;
+    --yellow: #ffc107;
+    --green: #58d777;
+    --teal: #4ebfbb;
+    --cyan: #17a2b8;
+    --white: #f4f4f5;
+    --gray: #798892;
+    --gray-dark: #3c484f;
+    --primary: #1870dc;
+    --secondary: rgba(244,244,245,0.9);
+    --success: #58d777;
+    --info: #4ebfbb;
+    --warning: #f0af03;
+    --danger: #f45722;
+    --light: #f8f9fa;
+    --dark: #495057;
+    --inverse: #30314e;
+    --gray: #595d78;
+    --default: #474d84;*/
+
+    
+    .day{
+        cursor: pointer;
+    }
+     .k-content {
+      background:none;
+    }
+     html .k-grid tr:hover {
+      background: transparent;
+    }
+
+    html .k-grid tr.k-alt:hover {
+      background: rgba(33,37,41,.03);
+    }
+    body{
+        color: #ccc;
+    }
+
+    .k-grid table {
+       color: #ccc !important;
+    }
+
+    .k-filter-row th, .k-grid-header th.k-header{
+    font-weight: bold !important;
+    background: #17193b;
+    color: #ccc !important;
+}
+    .k-link{
+        color: #ccc !important; 
+    }
+    }
+
+    a.k-grid-pdf {
+        color: #ccc !important; 
+    }
+
+  
+}
+
+</style>
+<div class="ibox-title">
+  
+
+    <div class="row container-fluid">  
+        <div class="col-sm-6">
+           <h2 style="margin-top:12px; line-height:;"> สรุปผลการปฏิบัติภารกิจ<span id='currentDate'></span></h2>
+        </div>
+
+
+        <div class="navbar-collapse collapse" id="navbar2">
+                
+        <div class="col-sm-6">
+
+
+
+            <span style="float: right; padding-top: 12px; ">
+                <div class="form-group">
+
+                    <div class="col-sm-4 col-xs-12">
+                        <select style="background: #17193b" class="form-control " name="checkListTypeDashboard" id="checkListTypeDashboard">
+                            
+                        </select>
+                    </div>
+
+                    <div class="col-sm-4 col-xs-12">
+                        <input type="text"  style=" cursor: pointer; background: #17193b" id="startDate" class="form-control datepicker " name="startDate" value="" placeholder="Start Date">
+                    </div>
+
+                    <div class="col-sm-4 col-xs-12">
+                      
+                      <input type="text" style=" cursor: pointer; background: #17193b"  class="form-control datepicker " id="endDate" name="endDate" value="" placeholder="End Date">
+                      
+                    </div>
+
+                    
+
+                    
+                </div>
+            </span>
+           
+
+
+        </div>
+
+        </div>
+    </div>
+
+    
+
+    
+   
+    
+
+
+    
+</div>
+
+<div class='row' style=" padding: 5px; margin-top:1px;" >
+	<div class="col-md-4">
+
+		<div  class="demo-section k-content wide">
+            <div style="font-size: 16px; color: white; text-align: center;padding: 5px; padding-top: 15px;">ผลปฏิบัติภารกิจโดยรวม</div>
+        	<div id="overviewPeformanceGuage"  style="height: 200px;"></div>
+    	</div>
+	</div>
+
+	<div class="col-md-8">
+		<div id="dailyPerformanceBarChart" style="height: 300px;"></div>
+	</div>
+	<div class="col-md-4">
+		<div id="cateTypePerfomancePiechart" style="height: 300px;"></div>
+	</div>
+	<div class="col-md-8">
+		<div id="empPeformanceBarChart" style="height: 300px;"></div>
+	</div>
+	<!-- <div class="col-md-4">
+		<div id="chart3" style="height: 300px;"></div>
+	</div> -->
+
+    <hr>
+	<div class="col-md-12" style="margin-top:10px; ">
+		<div  style="font-size: 16px;font-weight: bold; color: white; text-align: center; padding: 20px;">ผลปฏิบัติภารกิจจำแนกตามพนักงาน(ตาราง) 
+            <form id="formExportExcel" action="" method="post"
+                class="pull-right " style="margin-bottom: 0px; margin-left: 5px">
+                <button id="btnExportExcel" class="btn btn-success btn-sm"
+                    type="button">
+                    <i class="fa fa-download"></i><liferay-ui:message key="export"/>
+                </button>
+            </form>
+            
+        </div>
+        <div id="empPerformanceGridArea">
+		
+        </div>
+	</div>
+
+
+<div class="col-md-12">
+
+    <!-- check_list_name: "รับเช็ค"
+check_list_normal_status: "กรุนด์ฟอส, ทูซิส, โนเบิล, อนันดา, กรุงสยาม, กรุงเทพบ้าน"
+not_ready_status: ""
+check_list_status: "4"
+fullname: "กองสิน อารมณ์สวะ"
+position: "หัวหน้าบัญชี"
+date: "2020-04-05" -->
+		<div style="font-size: 16px; font-weight: bold; color: white; text-align: center; padding: 20px;">ผลปฏิบัติงานจำแนกตามภารกิจ
+         <form id="formExportMissionExcel" action="" method="post"
+            class="pull-right " style="margin-bottom: 0px; margin-left: 5px">
+            <button id="btnExportMissionExcel" class="btn btn-success btn-sm"
+                type="button">
+                <i class="fa fa-download"></i><liferay-ui:message key="export"/>
+            </button>
+        </form>
+        </div>
+        <div id="missionPerformanceGridArea" >
+		  
+        </div>
+	</div>
+
+    
+</div>
+
+ <script>
+// Import DejaVu Sans font for embedding
+
+// NOTE: Only required if the Kendo UI stylesheets are loaded
+// from a different origin, e.g. kendo.cdn.telerik.com
+kendo.pdf.defineFont({
+    "DejaVu Sans"             : "https://kendo.cdn.telerik.com/2020.1.406/styles/fonts/DejaVu/DejaVuSans.ttf",
+    "DejaVu Sans|Bold"        : "https://kendo.cdn.telerik.com/2020.1.406/styles/fonts/DejaVu/DejaVuSans-Bold.ttf",
+    "DejaVu Sans|Bold|Italic" : "https://kendo.cdn.telerik.com/2020.1.406/styles/fonts/DejaVu/DejaVuSans-Oblique.ttf",
+    "DejaVu Sans|Italic"      : "https://kendo.cdn.telerik.com/2020.1.406/styles/fonts/DejaVu/DejaVuSans-Oblique.ttf"
+});
+</script>
+<script src="https://kendo.cdn.telerik.com/2020.1.406/js/jszip.min.js"></script>
+<!-- Load Pako ZLIB library to enable PDF compression -->
+<script src="//kendo.cdn.telerik.com/2020.1.406/js/pako_deflate.min.js"></script>
+
+
+<script src="../Controller/fontEnd/cFontEndDashboard.js"></script> 
+
+

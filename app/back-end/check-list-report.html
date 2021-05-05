@@ -1,0 +1,201 @@
+Check list report...
+<div class='row'>
+	        	<div class="col-lg-12">
+
+
+	        		
+
+                   <div class="ibox float-e-margins">
+
+
+                       <div class="ibox-title">
+                           <h5><div class="round-button-red"></div> รายการตรวจสอบสถานะภาพความพร้อมของของโปรแกรมบูรณาการ ศปก.ทอ.</h5>
+                           
+                           
+                       </div>
+                       <div class="ibox-content">
+                        <h2>ตรวจสอบ Web-service ทั้ง 6 ด้านอัตโนมัติ (AUTOBOT)</h2>
+                       <div class="row">
+                        <div>
+                          <table style="width: 100%;">
+                          <tr>
+
+                              <td style="width: 33.33%">
+
+                                  <div class="box box--container">
+                                          <!-- <div class="font-title">A1(กพ.)</div> -->
+                                          <!-- <div class="box box--chat">
+                                              <ul id="chat-history1" class="chat-history">
+                                              </ul>
+                                          </div> -->
+                                          <div id="chart-container1"></div>
+                                  </div>
+                              </td>
+                              <td style="width: 33.33%">
+                                  
+                                  <div class="box box--container">
+                                      <!-- <div class="font-title">A2(ขว.)</div> -->
+                                         <!--  <div class="box box--chat">
+                                              <ul id="chat-history2" class="chat-history">
+                                              </ul>
+                                          </div> -->
+                                          <div id="chart-container2"></div>
+                                  </div>
+
+                              </td>
+                              <td style="width: 33.33%">
+                                  
+                                  <div class="box box--container">
+                                      <!-- <div class="font-title">A3(ยก.,ศยอ.ศยพ.)</div> -->
+                                          <!-- <div class="box box--chat">
+                                               <ul id="chat-history3" class="chat-history">
+                                              </ul>
+                                          </div> -->
+                                          <div id="chart-container3" ></div>
+                                  </div>
+
+                              </td>
+                          </tr>
+                          <tr>
+                              <td>
+                                  
+                                  <div class="box box--container">
+                                      <!-- <div class="font-title">A4(กบ.)</div> -->
+                                      <!-- <div class="box box--chat">
+                                           <ul id="chat-history4" class="chat-history">
+                                          </ul>
+                                      </div> -->
+                                      <div id="chart-container4"></div>
+                              </div>
+
+                              </td>
+                              <td>
+                                  
+
+                                  <div class="box box--container">
+                                      <!-- <div class="font-title">A5(กร.)</div> -->
+                                          <!-- <div class="box box--chat">
+                                               <ul id="chat-history5" class="chat-history">
+                                              </ul>
+                                          </div> -->
+                                          <div id="chart-container5"></div>
+                                  </div>
+
+
+                              </td>
+                              <td>
+                                  
+                                  <div class="box box--container">
+                                      <!-- <div class="font-title">A6(ทสส.)</div> -->
+                                          <!-- <div class="box box--chat">
+                                               <ul id="chat-history6" class="chat-history">
+                                              </ul>
+                                          </div> -->
+                                          <div id="chart-container6"></div>
+                                  </div>
+
+                              </td>
+                          </tr>
+
+
+                      </table>
+                      <br style="clear: both;">
+                    </div>
+
+                       </div>
+                       <hr>
+
+                       <h2>ตรวจสอบความพร้อมโปรแกรมบูรณาการข้อมูลโดยฝ่ายเสธฯ ศปก.ทอ.</h2>
+                       
+                       <div class="row">
+							
+                             <div class="alert alert-success" style="display: none;" id="worningSuccess">
+		                        ข้อมูลประจำวันที่<b class='currentDate'> </b> <br>ส่งรายงานสถานะภาพความพร้อมการใช้งานโปรแกรมบูรณาการข้อมูลเรียบร้อยแล้ว
+		                    </div>
+		                    <div class="alert alert-danger" id="worningNotSuccess">
+		                         <i class="fa fa-warning fa-4x"></i>
+		                         <span style="font-size: 16px; color:black;">ข้อมูลประจำวันที่<b class='currentDate'> </b> </span>
+		                        ยังไม่ส่งรายงานสถานะภาพความพร้อมการใช้งานโปรแกรมบูรณาการข้อมูล
+		                         <span style="color:green; font-weight: bold;" id="latestReportUpdateDate"></span> 
+		                    </div>
+		                    
+                    
+			             	<div class="form-horizontal">
+			             		
+
+			             		<div class="form-group">
+			             			<!-- <label class="col-sm-2 control-label">Select</label> -->
+                                    <div class="col-sm-2">
+                                    	<select class="form-control m-b" name="checkListType" id="checkListType">
+	                                        <option value="all">เลือกหัวข้อการตรวจสอบ</option>
+	                                        <option value="1">Commander</option>
+	                                        <option value="11">Staft A1</option>
+	                                        <option value="12">Staft A2</option>
+	                                        <option value="13">Staft A3</option>
+	                                        <option value="14">Staft A4</option>
+	                                        <option value="15">Staft A5</option>
+	                                        <option value="16">Staft A6</option>
+	                                        <option value="2">Admin</option>
+                                    	</select>
+                                    </div>
+
+                                    <div class="col-sm-2">
+                                    	<select class="form-control m-b" name="checkListStatus" id="checkListStatus">
+	                                        <option value="all">เลือกสถานะ</option>
+	                                        <option value="true">พร้อม</option>
+	                                        <option value="false">ไม่พร้อม</option>
+	                                        
+                                    	</select>
+                                    </div>
+
+                                    <!--
+                                    <div class="col-sm-2">
+                                    	<div class="input-group date">
+		                                    <span class="input-group-addon">
+		                                    	<i class="fa fa-calendar"></i>
+		                                    </span>
+		                                    <input type="text" class="form-control" value="">
+		                                </div>
+                                	</div>
+									-->
+                                </div>
+			             	</div>
+
+			             
+                           <table id='tableCheckList' class="table table-hover no-margins  ">
+                               <thead>
+                               
+                               <tr>
+                               <!-- 
+                               		<th style='background:#fcf8e3; text-align:center;' >
+                                   Picture
+                                   </th>
+                                    -->
+                                    <th style='background:#fcf8e3; width:5%; text-align: center;'>
+                                   	ลำดับ
+                                   </th>
+                                   <th style='background:#fcf8e3; width:35%;'>
+                                  	รายการตรวจสอบ
+                                   </th>
+
+                                    <th style='background:#fcf8e3; text-align:center; width:200px;'>สถานะ</th>
+                                  	<th style='background:#fcf8e3; width: 10%;' >
+                                   	ส่งรายงานล่าสุด
+                                   </th>
+                                   <th style='background:#fcf8e3; width:45%;'>
+                                   	หมายเหตุ
+                                   </th>
+                                   
+                                   
+                                  
+                                   
+                               </tr>
+                               </thead>
+                               <tbody id="checkListReportArea">
+                               </tbody>
+                           </table>
+                       </div>
+                   </div>
+               </div>
+	        </div>
+        </div>
