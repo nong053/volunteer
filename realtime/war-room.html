@@ -1,0 +1,523 @@
+<html>
+	
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<script src="socket.io-1.3.3.js"></script>
+	<script src="jquery-2.1.3.min.js"></script>
+	<meta name='viewport', content="initial-scale=1" charset="UTF-8">
+	<head>
+		<title>War Room</title>
+
+
+         <!-- jQuery -->
+            <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+            <!-- FusionCharts -->
+            <script type="text/javascript" src="https://cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.js"></script>
+            <!-- jQuery-FusionCharts -->
+            <script type="text/javascript" src="https://rawgit.com/fusioncharts/fusioncharts-jquery-plugin/develop/dist/fusioncharts.jqueryplugin.min.js"></script>
+            <!-- Fusion Theme -->
+            <script type="text/javascript" src="https://cdn.fusioncharts.com/fusioncharts/latest/themes/fusioncharts.theme.fusion.js"></script>
+
+
+
+	</head>
+	<body>
+			<!-- <div class="box box--container">
+					<div class="box box--chat">
+						<ul id="chat-history">
+						</ul>
+						<br style="clear: both;">
+						<form id="chat-form">
+								<input type="text" name="" id="chat-message" class="box" autocomplete="off", placeholder="Enter message here...">
+						</form>
+					</div>
+			</div> -->
+
+
+            <table style="width: 100%;">
+                
+                <tr>
+
+                    <td style="width: 33.33%">
+
+                        <div class="box box--container">
+                                <div class="font-title">A1(กพ.)</div>
+                                <!-- <div class="box box--chat">
+                                    <ul id="chat-history1" class="chat-history">
+                                    </ul>
+                                </div> -->
+                                <div id="chart-container1"></div>
+                        </div>
+                    </td>
+                    <td style="width: 33.33%">
+                        
+                        <div class="box box--container">
+                            <div class="font-title">A2(ขว.)</div>
+                               <!--  <div class="box box--chat">
+                                    <ul id="chat-history2" class="chat-history">
+                                    </ul>
+                                </div> -->
+                                <div id="chart-container2"></div>
+                        </div>
+
+                    </td>
+                    <td style="width: 33.33%">
+                        
+                        <div class="box box--container">
+                            <div class="font-title">A3(ยก.,ศยอ.ศยพ.)</div>
+                                <!-- <div class="box box--chat">
+                                     <ul id="chat-history3" class="chat-history">
+                                    </ul>
+                                </div> -->
+                                <div id="chart-container3"></div>
+                        </div>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        
+                        <div class="box box--container">
+                            <div class="font-title">A4(กบ.)</div>
+                            <!-- <div class="box box--chat">
+                                 <ul id="chat-history4" class="chat-history">
+                                </ul>
+                            </div> -->
+                            <div id="chart-container4"></div>
+                    </div>
+
+                    </td>
+                    <td>
+                        
+
+                        <div class="box box--container">
+                            <div class="font-title">A5(กร.)</div>
+                                <!-- <div class="box box--chat">
+                                     <ul id="chat-history5" class="chat-history">
+                                    </ul>
+                                </div> -->
+                                <div id="chart-container5"></div>
+                        </div>
+
+
+                    </td>
+                    <td>
+                        
+                        <div class="box box--container">
+                            <div class="font-title">A6(ทสส.)</div>
+                                <!-- <div class="box box--chat">
+                                     <ul id="chat-history6" class="chat-history">
+                                    </ul>
+                                </div> -->
+                                <div id="chart-container6"></div>
+                        </div>
+
+                    </td>
+                </tr>
+
+
+            </table>
+			
+	</body>
+</html>
+
+<script src="Controllers/cSetting.js"></script>
+<script>
+    // เอา Socket.IO มาใช้งาน
+
+            var socket = io.connect(ipAndPortSocket);
+            //var socket = io();
+
+
+// var diaplayAllData = function(dataFromA){
+    // a1 start
+            // var chatForm = $('#chat-form');
+            // var chatHistory = $("#chat-history");
+            // var inputMessage = $('#chat-message');
+            // inputMessage.focus();
+            // var username = Math.floor((Math.random() * 100) + 1);
+            // socket.emit('chat1', {
+            //     username: username, 
+            //     message: 'I\'m connected.'
+            // });
+            // chatForm.submit(function() {
+            //     socket.emit('chat1', {
+            //         username: username, 
+            //         message: inputMessage.val()
+            //     });
+            //     $(this)[0].reset();
+            //     return false;
+            // });
+            var chatHistory1 = $("#chat-history1");
+            socket.on('chat1', function(data) {
+                //chatHistory1.append($('<li class="message">').text(data.username + ': ' + data.message));
+                //chatHistory1[0].scrollTop = chatHistory1[0].scrollHeight;
+                dialChartFn(1,parseInt(data.message));
+            });
+            var chatHistory2 = $("#chat-history2");
+            socket.on('chat2', function(data) {
+                //chatHistory2.append($('<li class="message">').text(data.username + ': ' + data.message));
+                //chatHistory2[0].scrollTop = chatHistory2[0].scrollHeight;
+                dialChartFn(2,parseInt(data.message));
+            });
+
+            var chatHistory3 = $("#chat-history3");
+            socket.on('chat3', function(data) {
+                //chatHistory3.append($('<li class="message">').text(data.username + ': ' + data.message));
+                //chatHistory3[0].scrollTop = chatHistory3[0].scrollHeight;
+                dialChartFn(3,parseInt(data.message));
+            });
+              var chatHistory4 = $("#chat-history4");
+            socket.on('chat4', function(data) {
+                //chatHistory4.append($('<li class="message">').text(data.username + ': ' + data.message));
+                //chatHistory4[0].scrollTop = chatHistory4[0].scrollHeight;
+                dialChartFn(4,parseInt(data.message));
+            });
+              var chatHistory5 = $("#chat-history5");
+            socket.on('chat5', function(data) {
+                //chatHistory5.append($('<li class="message">').text(data.username + ': ' + data.message));
+                //chatHistory5[0].scrollTop = chatHistory5[0].scrollHeight;
+                dialChartFn(5,parseInt(data.message));
+            });
+              var chatHistory6 = $("#chat-history6");
+            socket.on('chat6', function(data) {
+                //chatHistory6.append($('<li class="message">').text(data.username + ': ' + data.message));
+                dialChartFn(6,parseInt(data.message));
+                //chatHistory6[0].scrollTop = chatHistory6[0].scrollHeight;
+            });
+
+
+    // a1 start
+
+// }
+
+
+
+
+//1 Dial Chart Start
+var dialChartFn = function(chartID,value){
+    $("#chart-container"+chartID).insertFusionCharts({
+      type: "angulargauge",
+      width: "100%",
+      height: "40%",
+      dataFormat: "json",
+      dataSource: {
+        chart: {
+          caption: "Web-service Status",
+          lowerlimit: "0",
+          upperlimit: "100",
+          showvalue: "1",
+          numbersuffix: "%",
+          theme: "candy",
+          showtooltip: "0"
+        },
+        colorrange: {
+          color: [
+            {
+              minvalue: "0",
+              maxvalue: "50",
+              code: "#F2726F"
+            },
+            {
+              minvalue: "50",
+              maxvalue: "75",
+              code: "#FFC533"
+            },
+            {
+              minvalue: "75",
+              maxvalue: "100",
+              code: "#62B58F"
+            }
+          ]
+        },
+        dials: {
+          dial: [
+            {
+              value: value
+            }
+          ]
+        }
+      }
+    });
+}
+
+// $("#chart-container1").insertFusionCharts({
+//   type: "angulargauge",
+//   width: "100%",
+//   height: "290",
+//   dataFormat: "json",
+//   dataSource: {
+//     chart: {
+//       caption: "Web-service Status",
+//       lowerlimit: "0",
+//       upperlimit: "100",
+//       showvalue: "1",
+//       numbersuffix: "%",
+//       theme: "candy",
+//       showtooltip: "0"
+//     },
+//     colorrange: {
+//       color: [
+//         {
+//           minvalue: "0",
+//           maxvalue: "50",
+//           code: "#F2726F"
+//         },
+//         {
+//           minvalue: "50",
+//           maxvalue: "75",
+//           code: "#FFC533"
+//         },
+//         {
+//           minvalue: "75",
+//           maxvalue: "100",
+//           code: "#62B58F"
+//         }
+//       ]
+//     },
+//     dials: {
+//       dial: [
+//         {
+//           value: "89"
+//         }
+//       ]
+//     }
+//   }
+// });
+// //1Dial Chart End
+
+
+
+// //2 Dial Chart Start
+// $("#chart-container2").insertFusionCharts({
+//   type: "angulargauge",
+//   width: "100%",
+//   height: "290",
+//   dataFormat: "json",
+//   dataSource: {
+//     chart: {
+//       caption: "Web-service Status",
+//       lowerlimit: "0",
+//       upperlimit: "100",
+//       showvalue: "1",
+//       numbersuffix: "%",
+//       theme: "candy",
+//       showtooltip: "0"
+//     },
+//     colorrange: {
+//       color: [
+//         {
+//           minvalue: "0",
+//           maxvalue: "50",
+//           code: "#F2726F"
+//         },
+//         {
+//           minvalue: "50",
+//           maxvalue: "75",
+//           code: "#FFC533"
+//         },
+//         {
+//           minvalue: "75",
+//           maxvalue: "100",
+//           code: "#62B58F"
+//         }
+//       ]
+//     },
+//     dials: {
+//       dial: [
+//         {
+//           value: "99"
+//         }
+//       ]
+//     }
+//   }
+// });
+// //2Dial Chart End
+
+
+// //3 Dial Chart Start
+// $("#chart-container3").insertFusionCharts({
+//   type: "angulargauge",
+//   width: "100%",
+//   height: "290",
+//   dataFormat: "json",
+//   dataSource: {
+//     chart: {
+//       caption: "Web-service Status",
+//       lowerlimit: "0",
+//       upperlimit: "100",
+//       showvalue: "1",
+//       numbersuffix: "%",
+//       theme: "candy",
+//       showtooltip: "0"
+//     },
+//     colorrange: {
+//       color: [
+//         {
+//           minvalue: "0",
+//           maxvalue: "50",
+//           code: "#F2726F"
+//         },
+//         {
+//           minvalue: "50",
+//           maxvalue: "75",
+//           code: "#FFC533"
+//         },
+//         {
+//           minvalue: "75",
+//           maxvalue: "100",
+//           code: "#62B58F"
+//         }
+//       ]
+//     },
+//     dials: {
+//       dial: [
+//         {
+//           value: "95"
+//         }
+//       ]
+//     }
+//   }
+// });
+// //3Dial Chart End
+
+
+// //4 Dial Chart Start
+// $("#chart-container4").insertFusionCharts({
+//   type: "angulargauge",
+//   width: "100%",
+//   height: "290",
+//   dataFormat: "json",
+//   dataSource: {
+//     chart: {
+//       caption: "Web-service Status",
+//       lowerlimit: "0",
+//       upperlimit: "100",
+//       showvalue: "1",
+//       numbersuffix: "%",
+//       theme: "candy",
+//       showtooltip: "0"
+//     },
+//     colorrange: {
+//       color: [
+//         {
+//           minvalue: "0",
+//           maxvalue: "50",
+//           code: "#F2726F"
+//         },
+//         {
+//           minvalue: "50",
+//           maxvalue: "75",
+//           code: "#FFC533"
+//         },
+//         {
+//           minvalue: "75",
+//           maxvalue: "100",
+//           code: "#62B58F"
+//         }
+//       ]
+//     },
+//     dials: {
+//       dial: [
+//         {
+//           value: "98"
+//         }
+//       ]
+//     }
+//   }
+// });
+// //4Dial Chart End
+
+
+// //5 Dial Chart Start
+// $("#chart-container5").insertFusionCharts({
+//   type: "angulargauge",
+//   width: "100%",
+//   height: "290",
+//   dataFormat: "json",
+//   dataSource: {
+//     chart: {
+//       caption: "Web-service Status",
+//       lowerlimit: "0",
+//       upperlimit: "100",
+//       showvalue: "1",
+//       numbersuffix: "%",
+//       theme: "candy",
+//       showtooltip: "0"
+//     },
+//     colorrange: {
+//       color: [
+//         {
+//           minvalue: "0",
+//           maxvalue: "50",
+//           code: "#F2726F"
+//         },
+//         {
+//           minvalue: "50",
+//           maxvalue: "75",
+//           code: "#FFC533"
+//         },
+//         {
+//           minvalue: "75",
+//           maxvalue: "100",
+//           code: "#62B58F"
+//         }
+//       ]
+//     },
+//     dials: {
+//       dial: [
+//         {
+//           value: "99"
+//         }
+//       ]
+//     }
+//   }
+// });
+// //5Dial Chart End
+
+
+// //6 Dial Chart Start
+// $("#chart-container6").insertFusionCharts({
+//   type: "angulargauge",
+//   width: "100%",
+//   height: "290",
+//   dataFormat: "json",
+//   dataSource: {
+//     chart: {
+//       caption: "Web-service Status",
+//       lowerlimit: "0",
+//       upperlimit: "100",
+//       showvalue: "1",
+//       numbersuffix: "%",
+//       theme: "candy",
+//       showtooltip: "0"
+//     },
+//     colorrange: {
+//       color: [
+//         {
+//           minvalue: "0",
+//           maxvalue: "50",
+//           code: "#F2726F"
+//         },
+//         {
+//           minvalue: "50",
+//           maxvalue: "75",
+//           code: "#FFC533"
+//         },
+//         {
+//           minvalue: "75",
+//           maxvalue: "100",
+//           code: "#62B58F"
+//         }
+//       ]
+//     },
+//     dials: {
+//       dial: [
+//         {
+//           value: "100"
+//         }
+//       ]
+//     }
+//   }
+// });
+// //6Dial Chart End
+	</script>
