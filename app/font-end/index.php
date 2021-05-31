@@ -2,8 +2,13 @@
 <html>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css">
+
 <style type="text/css">
     
+@import url(css/fonts/thsarabunnew.css);
+body{ font-family: 'THSarabunNew', sans-serif; 
+/* line-height: 1.7em; background: #e1e1e1;  */
+}
 
 .gray-darker{
 background:"#222";
@@ -65,7 +70,7 @@ background:"#eee";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
 
-    <title>ระบบติดตามผลการปฏบัติงานจากที่บ้านแบบ Real-time</title>
+    <title>Volunteer Management</title>
 
    <!-- Theme style -->
     <link rel="stylesheet" href="../dist/css/AdminLTE.min.css">
@@ -108,7 +113,7 @@ background:"#eee";
 
                 <div class="navbar-brand"> 
                     
-                Works From Home Tracker</div>
+                Volunteer Management</div>
             </div>
 
             <div class="navbar-collapse collapse" id="navbar">
@@ -124,7 +129,7 @@ background:"#eee";
                        <!--  <a aria-expanded="false" role="button" href="#"><span style="color:black;">ยินดีตอนรับ:</span> <span class ="fullname_txt"> </span> <span style="color:black;">ตำแหน่ง:</span> <span class="position_txt"></span></a> -->
                       
                         <a  aria-expanded="false"   role="button" >
-                            <i class="fa fa-dashboard"></i>ผลปฎิบัติงาน(<font color="yellow">Real-time</font>)
+                            <i class="fa fa-dashboard"></i>ผลปฎิบัติภารกิจ
                         </a>
                         
                     
@@ -132,7 +137,7 @@ background:"#eee";
                     
                     <li id="check_list_main_menu" class="mainMenu userRole ">
                       <a aria-expanded="false"  class="mainMenu" role="button" >
-                          <i class="fa fa-desktop"></i>บันทึกผลปฏิบัติงาน
+                          <i class="fa fa-desktop"></i>บันทึกผลปฏิบัติภารกิจ
                       </a>
                     </li>
                    
@@ -255,6 +260,12 @@ $ipServer = gethostbyname($host);
 <script>
   $.widget.bridge('uibutton', $.ui.button);
 </script>
+
+<!-- map start-->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="">
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+<!-- map end-->
+
 
 <script src="../bower_components/raphael/raphael.min.js"></script>
  <script src="../bower_components/morris.js/morris.min.js"></script> 

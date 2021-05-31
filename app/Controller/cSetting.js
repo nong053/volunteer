@@ -11,7 +11,7 @@ var emailNotify=true;
 $(document).ready(function(){
 
  server="http://"+$("#ipServer").val();
- restURL=server+"/work-tracker";
+ restURL=server+"/volunteer";
  restfulURL=restURL;
  serviceName="api";
  tokenID=sessionStorage.getItem('galbalToken');

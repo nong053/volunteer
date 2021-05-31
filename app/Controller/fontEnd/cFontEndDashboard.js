@@ -474,8 +474,62 @@ var getDailyPerformanceBarchartData = function(check_list_type,start_date,end_da
 
 var createCateTypePerfomancePiechart = function(data){
 
+   
+    if(data==undefined){
+        
+        $("#cateTypePerfomancePiechart").kendoChart({
+            theme:"metroblack",
+            title: {
+                position: "bottom",
+                text: "ผลปฏิบัติงานจำแนกตามประเภทภารกิจ"
+            },
+            legend: {
+                visible: false
+            },
+            chartArea: {
+                background: ""
+            },
+            seriesDefaults: {
+                labels: {
+                    visible: true,
+                    background: "transparent",
+                    template: "#= category #: \n #= value#"
+                }
+            },
 
 
+            
+
+
+            series: [{
+                type: "pie",
+                startAngle: 150,
+
+                data: [{
+                    category: "มอบหมายภารกิจ",
+                    value: 0,
+                    color: "#CCC"
+                },{
+                    category: "กำลังทำภารกิจ",
+                    value:0,
+                    color: "#ffc700"
+                },{
+                    category: "ภารกิจไม่สำเร็จ",
+                    value: 0,
+                    color: "#FF0000"
+                },{
+                    category: "ภารกิจสำเร็จ",
+                    value: 0,
+                    color: "#309b46"
+                }]
+            }],
+            tooltip: {
+                visible: true,
+                format: "{0}"
+            }
+        });
+
+    }
 
     $("#cateTypePerfomancePiechart").kendoChart({
                 theme:"metroblack",
@@ -493,7 +547,7 @@ var createCateTypePerfomancePiechart = function(data){
                     labels: {
                         visible: true,
                         background: "transparent",
-                        template: "#= category #: \n #= value#%"
+                        template: "#= category #: \n #= value#"
                     }
                 },
 
@@ -525,7 +579,7 @@ var createCateTypePerfomancePiechart = function(data){
                 }],
                 tooltip: {
                     visible: true,
-                    format: "{0}%"
+                    format: "{0}"
                 }
             });
 }
@@ -554,11 +608,14 @@ var getCateTypePerfomancePiechartData = function(check_list_type,start_date,end_
 
 var createOverviewPeformanceGuage = function(data){
 
+    
     // department: "แผนกบัญชี"
     // all_mission: 9
     // mission_complete: 1
     var percentage = (parseFloat(data['mission_complete'])/ parseFloat(data['all_mission']))*100;
-   // alert(percentage);
+   
+    if (isNaN(percentage)) percentage = 0;
+    
 
     $("#overviewPeformanceGuage").kendoRadialGauge({
                         theme:"metroblack",
@@ -692,8 +749,10 @@ $(document).ready(function(){
 
 
     getCheckListMasterCateDashboardFn();
-    $("#startDate").val(localFirstDate);
-    $("#endDate").val(localCurrentDate);
+    // $("#startDate").val(localFirstDate);
+    // $("#endDate").val(localCurrentDate);
+    $("#startDate").val("");
+    $("#endDate").val("");
 
 
     getEmpPeformanceTableData($("#checkListTypeDashboard").val(),localFirstDate,localCurrentDate);
@@ -715,37 +774,99 @@ $(document).ready(function(){
 
 
     $("#checkListTypeDashboard").change(function(){
-        getEmpPeformanceTableData($(this).val(),$("#startDate").val(),$("#endDate").val());
-        getMissionPerformanceTable($(this).val(),$("#startDate").val(),$("#endDate").val());
-        getDailyPerformanceBarchartData($(this).val(),$("#startDate").val(),$("#endDate").val());
-        getCateTypePerfomancePiechartData($(this).val(),$("#startDate").val(),$("#endDate").val());
-        getOverviewPeformanceGuageData($(this).val(),$("#startDate").val(),$("#endDate").val());
+        var startDate="";
+        var endDate="";
+        if($("#startDate").val()==""){
+            startDate="All";
+
+        }else{
+            startDate=$("#startDate").val();
+        }
+        
+        if($("#endDate").val()==""){
+            endDate="All";
+        }else{
+            endDate=$("#endDate").val();
+        }
+
+        getEmpPeformanceTableData($(this).val(),startDate,endDate);
+        getMissionPerformanceTable($(this).val(),startDate,endDate);
+        getDailyPerformanceBarchartData($(this).val(),startDate,endDate);
+        getCateTypePerfomancePiechartData($(this).val(),startDate,endDate);
+        getOverviewPeformanceGuageData($(this).val(),startDate,endDate);
     });
 
     $("#startDate").change(function(){
-        getEmpPeformanceTableData($("#checkListTypeDashboard").val(),$(this).val(),$("#endDate").val());
-        getMissionPerformanceTable($("#checkListTypeDashboard").val(),$(this).val(),$("#endDate").val());
-        getDailyPerformanceBarchartData($("#checkListTypeDashboard").val(),$(this).val(),$("#endDate").val());
-        getCateTypePerfomancePiechartData($("#checkListTypeDashboard").val(),$(this).val(),$("#endDate").val());
-        getOverviewPeformanceGuageData($("#checkListTypeDashboard").val(),$(this).val(),$("#endDate").val());
+
+        var startDate="";
+        var endDate="";
+        if($(this).val()==""){
+            startDate="All";
+
+        }else{
+            startDate=$(this).val();
+        }
+        
+        if($("#endDate").val()==""){
+            endDate="All";
+        }else{
+            endDate=$("#endDate").val();
+        }
+
+        getEmpPeformanceTableData($("#checkListTypeDashboard").val(),startDate,endDate);
+        getMissionPerformanceTable($("#checkListTypeDashboard").val(),startDate,endDate);
+        getDailyPerformanceBarchartData($("#checkListTypeDashboard").val(),startDate,endDate);
+        getCateTypePerfomancePiechartData($("#checkListTypeDashboard").val(),startDate,endDate);
+        getOverviewPeformanceGuageData($("#checkListTypeDashboard").val(),startDate,endDate);
     });
 
     $("#endDate").change(function(){
-        getEmpPeformanceTableData($("#checkListTypeDashboard").val(),$("#startDate").val(),$(this).val());
-        getMissionPerformanceTable($("#checkListTypeDashboard").val(),$("#startDate").val(),$(this).val());
-        getDailyPerformanceBarchartData($("#checkListTypeDashboard").val(),$("#startDate").val(),$(this).val());
-        getCateTypePerfomancePiechartData($("#checkListTypeDashboard").val(),$("#startDate").val(),$(this).val());
-        getOverviewPeformanceGuageData($("#checkListTypeDashboard").val(),$("#startDate").val(),$(this).val());
+
+
+        var startDate="";
+        var endDate="";
+        if($("#startDate").val()==""){
+            startDate="All";
+
+        }else{
+            startDate=$("#startDate").val();
+        }
+        
+        if($(this).val()==""){
+            endDate="All";
+        }else{
+            endDate=$(this).val();
+        }
+
+        getEmpPeformanceTableData($("#checkListTypeDashboard").val(),startDate,endDate);
+        getMissionPerformanceTable($("#checkListTypeDashboard").val(),startDate,endDate);
+        getDailyPerformanceBarchartData($("#checkListTypeDashboard").val(),startDate,endDate);
+        getCateTypePerfomancePiechartData($("#checkListTypeDashboard").val(),startDate,endDate);
+        getOverviewPeformanceGuageData($("#checkListTypeDashboard").val(),startDate,endDate);
     });
 
     $("#btnExportExcel").click(function(){
         //exportEmpPeformanceData($("#checkListTypeDashboard").val(),$("#startDate").val(),$("#endDate").val());
 
+        var startDate="";
+        var endDate="";
+        if($("#startDate").val()==""){
+            startDate="All";
+
+        }else{
+            startDate=$("#startDate").val();
+        }
+        
+        if($("#endDate").val()==""){
+            endDate="All";
+        }else{
+            endDate=$("#endDate").val();
+        }
 
         var param="";
         param+="&check_list_type="+$("#checkListTypeDashboard").val();
-        param+="&start_date="+$("#startDate").val();
-        param+="&end_date="+$("#endDate").val();
+        param+="&start_date="+startDate;
+        param+="&end_date="+endDate;
        
         //alert(restfulURL+restfulPathCdsResult+"/export?token="+tokenID.token+""+param);
         $("form#formExportExcel").attr("action",restURL+"/api/public/dashbaords/emp_peformance_table_export?token="+sessionStorage.getItem('galbalToken')+""+param);
@@ -757,11 +878,25 @@ $(document).ready(function(){
     $("#btnExportMissionExcel").click(function(){
         //exportEmpPeformanceData($("#checkListTypeDashboard").val(),$("#startDate").val(),$("#endDate").val());
 
+        var startDate="";
+        var endDate="";
+        if($("#startDate").val()==""){
+            startDate="All";
+
+        }else{
+            startDate=$("#startDate").val();
+        }
+        
+        if($("#endDate").val()==""){
+            endDate="All";
+        }else{
+            endDate=$("#endDate").val();
+        }
 
         var param="";
         param+="&check_list_type="+$("#checkListTypeDashboard").val();
-        param+="&start_date="+$("#startDate").val();
-        param+="&end_date="+$("#endDate").val();
+        param+="&start_date="+startDate;
+        param+="&end_date="+endDate;
        
         //alert(restfulURL+restfulPathCdsResult+"/export?token="+tokenID.token+""+param);
         $("form#formExportMissionExcel").attr("action",restURL+"/api/public/dashbaords/mission_peformance_table_export?token="+sessionStorage.getItem('galbalToken')+""+param);

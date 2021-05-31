@@ -146,6 +146,21 @@ function isValidEmail(emailText) {
 
 $(document).ready(function(){
 	
+    //setMap Start
+    var map = L.map('mapArea').setView([13.736717,104.523186], 5);
+    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+        maxZoom: 18,
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
+            'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        id: 'mapbox/light-v9',
+        tileSize: 512,
+        zoomOffset: -1
+    }).addTo(map);
+
+    
+    var marker1 = L.marker([13.910 , 100.168]).addTo(map);//โรงพยาบาลภูมิพลอดุลยเดช
+    //setMap Start
+    
 	
     if(sessionStorage.getItem('galbalRole')!=5){
         $("button#clearReport").remove();
@@ -1173,17 +1188,28 @@ $(document).ready(function(){
         location.reload();
     });
 
+    
+
 
     var addMissionFn = function(id){
 
         getProfileListByRole(id);
         $("#missionModal").modal('show');
+
+
+
         $("#folder_cate_id").val(id);
         if(sessionStorage.getItem('galbalRole')==5){
             $("#priority_area").show();
         }else{
             $("#priority_area").hide();
         }
+
+
+
+        
+
+
     }
 
     $(document).on("click",".addMission",function(){

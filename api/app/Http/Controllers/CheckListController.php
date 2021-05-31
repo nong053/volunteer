@@ -168,7 +168,8 @@ class CheckListController extends Controller
 			select a.folder_cate_id ,fc.folder_cate_name,fc.folder_cate_grant_privileges
 			from authority a
 			inner join folder_category fc on a.folder_cate_id=fc.id
-			where user_group_id in(select role from profile where email=?) and fc.folder_cate_status=1 
+			where user_group_id in(select role from profile where email=?) 
+			-- and fc.folder_cate_status=1 
 			order by fc.id",
 			array(Auth::id()));
 
@@ -918,7 +919,8 @@ order by fdclm.folder_cate_id ,fdclm.file_detail_id ");
 				select a.folder_cate_id ,fc.folder_cate_name,fc.folder_cate_grant_privileges
 				from authority a
 				inner join folder_category fc on a.folder_cate_id=fc.id
-				where user_group_id=(select role from profile where email=?) and fc.folder_cate_status=1 
+				where user_group_id=(select role from profile where email=?) 
+				-- and fc.folder_cate_status=1 
 				order by fc.id
 
 				",

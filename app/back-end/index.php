@@ -60,9 +60,9 @@
     <!-- Logo -->
     <a  class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini">WFH</span>
+      <span class="logo-mini">VM</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Work From Home</b></span>
+      <span class="logo-lg"><b>VOLUNTEER</b></span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -126,7 +126,7 @@
 
           <!-- <img src="imgs/logo_mfa.png" width="100" class="img-circle" alt="Org Logo"> -->
           <i style="color: white; font-size: 60px;" class="fa fa-newspaper-o"></i>
-          <p style="color: white;">ระบบติดตามผลปฏิบัติงาน</p>
+          <p style="color: white;">ระบบริหารงานจิตอาสา</p>
         </div>
         <!-- <div class="pull-left info">
           <p>ทสส.ทอ.</p>
@@ -160,9 +160,9 @@
             <i class="fa fa-gears"></i> <span>บันทึกผลปฏิบัติงาน</span>
           </a> 
         </li>
-        <li class="menuDisplay mainMenu""><a href="#"><i class="fa fa-book"></i> 
+        <!-- <li class="menuDisplay mainMenu""><a href="#"><i class="fa fa-book"></i> 
           <span>คู่มือการใช้งาน</span></a>
-        </li>
+        </li> -->
       </ul>
 
       <ul class="sidebar-menu mainMenuAdminLeftArea" data-widget="tree">
@@ -485,6 +485,13 @@ $IP = gethostbyname($host);
 
 <!-- jQuery 3 -->
 <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+
+
+<!-- map start-->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="">
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+<!-- map end-->
+
 
 
 <!-- <script src="js/jquery-2.1.1.js"></script> -->

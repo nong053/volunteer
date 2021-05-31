@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>ระบบติดตามผลการปฏบัติงานจากที่บ้านแบบ Real-time | ลงชื่อเข้าใช้งาน</title>
+  <title>Volunteer System | ลงชื่อเข้าใช้งาน</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -37,7 +37,7 @@
     body{
      overflow-x: hidden;
     /*color: rgba(244,244,245,.9);*/
-    background: radial-gradient(farthest-side ellipse at 10% 0,#333867 20%,#17193b);
+    background: radial-gradient(farthest-side ellipse at 10% 0,#FFDC00 20%,#FFF4AE);
     background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
@@ -45,6 +45,10 @@
     }
     .font-white{
       color: white;
+    }
+    .font-black{
+      color:black;
+      font-size: 16px;
     }
   </style>
 
@@ -82,10 +86,10 @@
   <div class="modal fade" id="enrollmentModal">
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-header" style="background: #345;">
+      <div class="modal-header" style="background: radial-gradient(farthest-side ellipse at 10% 0,#FFDC00 20%,#FFF4AE);">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" style="color: white;">ลงทะเบียน</h4>
+        <h4 class="modal-title" style="color: black;">ลงทะเบียน</h4>
       </div>
       <div class="modal-body">
         <div class="alert alert-warning alert-dismissable " id="validateEnrollAlertArea" style="display: none;">
@@ -160,28 +164,14 @@
                 <input type="text" class="form-control" id="lastNameTxt" placeholder="นามสกุล">
               </div>
             </div>
-           <!--  <div class="form-group">
-              <label for="positionTxt" class="col-sm-3 control-label">ตำแหน่ง</label>
-
-              <div class="col-sm-9">
-                <input type="text" class="form-control" id="positionTxt" placeholder="ตำแหน่ง">
-              </div>
-            </div> -->
-            <div class="form-group">
+           
+            <!-- <div class="form-group">
               <label for="roleText" class="col-sm-3 control-label">กลุ่มผู้ใช้งาน<font color="red"></font></label>
-
               <div class="col-sm-9">
                  <select id='roleText' class="form-control">
-                   <!--  <option value="1">ผู้ใช้งานทั่วไป</option>
-                    <option value="2">ฝ่ายธุรการ</option>
-                    <option value="3">ผู้บังคับบัญชา</option>
-                    <option value="4">ผู้ดูแลระบบ</option> -->
-                </select>
-
+                 </select>
               </div>
-              
-
-            </div>
+            </div> -->
             
           </div>
         
@@ -193,7 +183,7 @@
 
 
 
-      <div class="modal-footer" style="background: #345">
+      <div class="modal-footer" style="background: radial-gradient(farthest-side ellipse at 10% 0,#FFDC00 20%,#FFF4AE);">
          
           <button type="reset" class="btn btn-default pull-right" data-dismiss="modal" aria-label="Close" style="margin-left: 5px;" >ยกเลิก</button>
           <button id='btnEnrollSubmit' type="button" class="btn btn-info pull-right" >บันทึก</button>  
@@ -216,13 +206,13 @@
   <div class="login-logo">
     <!-- <a href="#"><img src="app/imgs/logo-mobile.png" width="200" class="img-circle1" alt="Org Logo"> -->
       <!-- <i class="fa fa-gears" style="font-size: 50px; color: #345"></i> -->
-       <i class="textShadow fa fa-home font-white;" style="font-size: 120px;"></i>
+       <i class="textShadow glyphicon glyphicon-heart-empty font-white;" style="font-size: 120px;"></i>
       
     </div>
-     <h3 class="textShadow font-white;" style="text-align: center; ">Works From Home Tracker</h3>
+     <h3 class="textShadow font-white;" style="text-align: center; ">จิตอาสา</h3>
       
-      <p style="text-align: center;" class="font-white">
-        ระบบติดตามการปฏบัติงานแบบ Real-time 
+      <p style="text-align: center;" class="font-black">
+      Volunteer Management System
       </p>
   
  

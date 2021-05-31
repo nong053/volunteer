@@ -28,16 +28,18 @@ class DashboardsController extends Controller
 	
 
 	public function emp_peformance_table(Request $request,$check_list_type,$start_date,$end_date)
-	{		
+	{	
+		
+		if($start_date=='All' or $end_date=='All'){
 		$items = DB::select("
 			
 			select concat(p.first_name,' ',p.last_name) as fullname,p.position,p.first_name,  
-(select count(*) from check_list where check_list_status=0 and profile_id =cl.profile_id and date between ? and ?) as mission_none_assign,
-(select count(*) from check_list where check_list_status=1 and profile_id=cl.profile_id and date between ? and ?) as job_asigned,
-(select count(*) from check_list where check_list_status=2 and profile_id=cl.profile_id and date between ? and ?) as is_working,
-(select count(*) from check_list where check_list_status=3 and profile_id=cl.profile_id  and date between ? and ?) as job_not_complete,
-(select count(*) from check_list where check_list_status=4 and profile_id=cl.profile_id and date between ? and ?) as job_completed,
-(select count(*) from check_list where  profile_id=cl.profile_id and date between ? and ? and check_list_status!=0) as all_mission
+(select count(*) from check_list where check_list_status=0 and profile_id =cl.profile_id and check_list_type =?) as mission_none_assign,
+(select count(*) from check_list where check_list_status=1 and profile_id=cl.profile_id and check_list_type =?) as job_asigned,
+(select count(*) from check_list where check_list_status=2 and profile_id=cl.profile_id and check_list_type =?) as is_working,
+(select count(*) from check_list where check_list_status=3 and profile_id=cl.profile_id  and check_list_type =?) as job_not_complete,
+(select count(*) from check_list where check_list_status=4 and profile_id=cl.profile_id and check_list_type =?) as job_completed,
+(select count(*) from check_list where  profile_id=cl.profile_id and check_list_status!=0 and check_list_type =?) as all_mission
  from check_list cl
  inner join profile p on cl.profile_id=p.profile_id
 where  check_list_type =?
@@ -48,18 +50,54 @@ group by cl.profile_id
 
 		"
 		,array(
-			$start_date,$end_date,
-			$start_date,$end_date,
-			$start_date,$end_date,
-			$start_date,$end_date,
-			$start_date,$end_date,
-			$start_date,$end_date,
+			$check_list_type,
+			$check_list_type,
+			$check_list_type,
+			$check_list_type,
+			$check_list_type,
+			$check_list_type,
 			$check_list_type
 			
 			
 
 		)
 	);
+}else{
+	$items = DB::select("
+			
+			select concat(p.first_name,' ',p.last_name) as fullname,p.position,p.first_name,  
+(select count(*) from check_list where check_list_status=0 and profile_id =cl.profile_id and date between ? and ? and check_list_type =?) as mission_none_assign,
+(select count(*) from check_list where check_list_status=1 and profile_id=cl.profile_id and date between ? and ? and check_list_type =?) as job_asigned,
+(select count(*) from check_list where check_list_status=2 and profile_id=cl.profile_id and date between ? and ? and check_list_type =?) as is_working,
+(select count(*) from check_list where check_list_status=3 and profile_id=cl.profile_id  and date between ? and ? and check_list_type =?) as job_not_complete,
+(select count(*) from check_list where check_list_status=4 and profile_id=cl.profile_id and date between ? and ? and check_list_type =?) as job_completed,
+(select count(*) from check_list where  profile_id=cl.profile_id and date between ? and ? and check_list_status!=0 and check_list_type =?) as all_mission
+ from check_list cl
+ inner join profile p on cl.profile_id=p.profile_id
+where  check_list_type =?
+group by cl.profile_id
+
+ 
+
+
+		"
+		,array(
+			$start_date,$end_date,$check_list_type,
+			$start_date,$end_date,$check_list_type,
+			$start_date,$end_date,$check_list_type,
+			$start_date,$end_date,$check_list_type,
+			$start_date,$end_date,$check_list_type,
+			$start_date,$end_date,$check_list_type,
+
+			
+		
+			$check_list_type
+			
+			
+
+		)
+	);
+}
 		return response()->json($items);
 	}
 
@@ -67,16 +105,48 @@ group by cl.profile_id
 	public function emp_peformance_table_export(Request $request)
 	{
 	
-		
+		if($request->start_date=='All' or $request->end_date=='All'){
 		$items = DB::select("
 			
 			select concat(p.first_name,' ',p.last_name) as fullname,p.position,p.first_name,  
-(select count(*) from check_list where check_list_status=0 and profile_id =cl.profile_id and date between ? and ?) as mission_none_assign,
-(select count(*) from check_list where check_list_status=1 and profile_id=cl.profile_id and date between ? and ?) as job_asigned,
-(select count(*) from check_list where check_list_status=2 and profile_id=cl.profile_id and date between ? and ?) as is_working,
-(select count(*) from check_list where check_list_status=3 and profile_id=cl.profile_id  and date between ? and ?) as job_not_complete,
-(select count(*) from check_list where check_list_status=4 and profile_id=cl.profile_id and date between ? and ?) as job_completed,
-(select count(*) from check_list where  profile_id=cl.profile_id and date between ? and ? and check_list_status!=0) as all_mission
+(select count(*) from check_list where check_list_status=0 and profile_id =cl.profile_id and check_list_type =?) as mission_none_assign,
+(select count(*) from check_list where check_list_status=1 and profile_id=cl.profile_id and check_list_type =?) as job_asigned,
+(select count(*) from check_list where check_list_status=2 and profile_id=cl.profile_id and check_list_type =?) as is_working,
+(select count(*) from check_list where check_list_status=3 and profile_id=cl.profile_id  and check_list_type =?) as job_not_complete,
+(select count(*) from check_list where check_list_status=4 and profile_id=cl.profile_id and check_list_type =?) as job_completed,
+(select count(*) from check_list where  profile_id=cl.profile_id  and check_list_status!=0 and check_list_type =?) as all_mission
+ from check_list cl
+ inner join profile p on cl.profile_id=p.profile_id
+where  cl.check_list_type =?
+group by cl.profile_id
+
+ 
+
+
+		"
+		,array(
+			$request->check_list_type,
+			$request->check_list_type,
+			$request->check_list_type,
+			$request->check_list_type,
+			$request->check_list_type,
+			$request->check_list_type,
+			$request->check_list_type
+			
+			
+
+		)
+	);
+}else{
+	$items = DB::select("
+			
+			select concat(p.first_name,' ',p.last_name) as fullname,p.position,p.first_name,  
+(select count(*) from check_list where check_list_status=0 and profile_id =cl.profile_id and date between ? and ? and check_list_type =?) as mission_none_assign,
+(select count(*) from check_list where check_list_status=1 and profile_id=cl.profile_id and date between ? and ? and check_list_type =?) as job_asigned,
+(select count(*) from check_list where check_list_status=2 and profile_id=cl.profile_id and date between ? and ? and check_list_type =?) as is_working,
+(select count(*) from check_list where check_list_status=3 and profile_id=cl.profile_id  and date between ? and ? and check_list_type =?) as job_not_complete,
+(select count(*) from check_list where check_list_status=4 and profile_id=cl.profile_id and date between ? and ? and check_list_type =?) as job_completed,
+(select count(*) from check_list where  profile_id=cl.profile_id and date between ? and ? and check_list_status!=0 and check_list_type =?) as all_mission
  from check_list cl
  inner join profile p on cl.profile_id=p.profile_id
 where  check_list_type =?
@@ -87,18 +157,22 @@ group by cl.profile_id
 
 		"
 		,array(
-			$request->start_date,$request->end_date,
-			$request->start_date,$request->end_date,
-			$request->start_date,$request->end_date,
-			$request->start_date,$request->end_date,
-			$request->start_date,$request->end_date,
-			$request->start_date,$request->end_date,
+			$request->start_date,$request->end_date,$request->check_list_type,
+			$request->start_date,$request->end_date,$request->check_list_type,
+			$request->start_date,$request->end_date,$request->check_list_type,
+			$request->start_date,$request->end_date,$request->check_list_type,
+			$request->start_date,$request->end_date,$request->check_list_type,
+			$request->start_date,$request->end_date,$request->check_list_type,
+
+	
+
 			$request->check_list_type
 			
 			
 
 		)
 	);
+}
 
 
 
@@ -109,14 +183,15 @@ group by cl.profile_id
 		$x = Excel::create($filename, function($excel) use($items, $filename) {
 			$excel->sheet($filename, function($sheet) use($items) {
 				
-				$sheet->appendRow(array('ชื่อ', 'ตำแหน่ง', 'ภารกิจมอบหมาย', 'กำลังปฏบัติภารกิจ', 'ไม่สำเร็จ', 'สำเร็จ', 'ภารกิจทั้งหมด'));
+				$sheet->appendRow(array('ชื่อ', 'ตำแหน่ง', 'มอบหมาย', 'กำลังปฏบัติภารกิจ', 'ไม่สำเร็จ', 'สำเร็จ', 'ภารกิจทั้งหมด'));
 		
 				foreach ($items as $i) {
 					$sheet->appendRow(array(
 						$i->fullname,
 						$i->position, 
-						$i->mission_none_assign, 
+						// $i->mission_none_assign, 
 						$i->job_asigned, 
+						$i->is_working,
 						$i->job_not_complete, 
 						$i->job_completed,
 						$i->all_mission
@@ -131,7 +206,30 @@ group by cl.profile_id
 
 	public function mission_performance_table(Request $request,$check_list_type,$start_date,$end_date)
 	{		
+
+		if($start_date=='All' or $end_date=='All'){
 		$items = DB::select("
+			select cl.check_list_name,cl.check_list_normal_status,cl.not_ready_status,check_list_status ,concat(p.first_name,' ',p.last_name) as fullname,
+p.position,date ,
+	IFNULL(TIME(`cl`.`assigned_time`),'') as assigned_time,
+    IFNULL(TIME(`cl`.`working_time`),'') as working_time,
+    IFNULL(TIME(`cl`.`not_complete_time`),'') as not_complete_time,
+    IFNULL(TIME(`cl`.`complete_time`),'') as complete_time
+from check_list cl
+inner join profile p on p.profile_id=cl.profile_id
+where check_list_type =?
+
+order by date desc,check_list_type,check_list_status desc
+
+
+		"
+		,array(
+			$check_list_type
+
+		)
+	);
+}else{
+	$items = DB::select("
 			select cl.check_list_name,cl.check_list_normal_status,cl.not_ready_status,check_list_status ,concat(p.first_name,' ',p.last_name) as fullname,
 p.position,date ,
 	IFNULL(TIME(`cl`.`assigned_time`),'') as assigned_time,
@@ -152,6 +250,7 @@ order by date desc,check_list_type,check_list_status desc
 
 		)
 	);
+}
 		return response()->json($items);
 	}
 
@@ -160,8 +259,25 @@ order by date desc,check_list_type,check_list_status desc
 	public function mission_peformance_table_export(Request $request)
 	{		
 		
-
+		if($request->start_date=='All' or $request->end_date=='All'){
 		$items = DB::select("
+			
+			select cl.check_list_name,cl.check_list_normal_status,cl.not_ready_status,check_list_status ,concat(p.first_name,' ',p.last_name) as fullname,
+p.position,date ,cl.assigned_time,cl.working_time,cl.complete_time,cl.not_complete_time
+from check_list cl
+inner join profile p on p.profile_id=cl.profile_id
+where check_list_type =?
+
+order by date desc,check_list_type,check_list_status desc
+
+
+		"
+		,array(
+			$request->check_list_type
+		)
+	);
+}else{
+	$items = DB::select("
 			
 			select cl.check_list_name,cl.check_list_normal_status,cl.not_ready_status,check_list_status ,concat(p.first_name,' ',p.last_name) as fullname,
 p.position,date ,cl.assigned_time,cl.working_time,cl.complete_time,cl.not_complete_time
@@ -178,6 +294,7 @@ order by date desc,check_list_type,check_list_status desc
 			$request->start_date,$request->end_date,$request->check_list_type
 		)
 	);
+}
 
 
 
@@ -292,24 +409,55 @@ order by date desc,check_list_type,check_list_status desc
 	
 
 	public function daily_performance_barchart(Request $request,$check_list_type,$start_date,$end_date)
-	{		
+	{	
+		
+		if($start_date=='All' or $end_date=='All'){
 		$items = DB::select("
 			select date, 
-(select count(*) from check_list where check_list_status=0 and date =cl.date ) as mission_none_assign,
-(select count(*) from check_list where check_list_status=1 and date=cl.date ) as job_asigned,
-(select count(*) from check_list where check_list_status=2 and date=cl.date) as is_working,
-(select count(*) from check_list where check_list_status=3 and date=cl.date ) as job_not_complete,
-(select count(*) from check_list where check_list_status=4 and date=cl.date) as job_completed
+(select count(*) from check_list where check_list_status=0 and date =cl.date and check_list_type =?) as mission_none_assign,
+(select count(*) from check_list where check_list_status=1 and date=cl.date and check_list_type =?) as job_asigned,
+(select count(*) from check_list where check_list_status=2 and date=cl.date and check_list_type =?) as is_working,
+(select count(*) from check_list where check_list_status=3 and date=cl.date and check_list_type =?) as job_not_complete,
+(select count(*) from check_list where check_list_status=4 and date=cl.date and check_list_type =?) as job_completed
+ from check_list cl
+where check_list_type =?
+group by date
+		"
+		,array(
+			$check_list_type,
+			$check_list_type,
+			$check_list_type,
+			$check_list_type,
+			$check_list_type,
+			$check_list_type
+
+		)
+	);
+}else{
+	$items = DB::select("
+			select date, 
+(select count(*) from check_list where check_list_status=0 and date =cl.date and check_list_type =?) as mission_none_assign,
+(select count(*) from check_list where check_list_status=1 and date=cl.date and check_list_type =?) as job_asigned,
+(select count(*) from check_list where check_list_status=2 and date=cl.date and check_list_type =?) as is_working,
+(select count(*) from check_list where check_list_status=3 and date=cl.date and check_list_type =?) as job_not_complete,
+(select count(*) from check_list where check_list_status=4 and date=cl.date and check_list_type =?) as job_completed
  from check_list cl
 where date between ? and ?
 and check_list_type =?
 group by date
 		"
 		,array(
+			$check_list_type,
+			$check_list_type,
+			$check_list_type,
+			$check_list_type,
+			$check_list_type,
+
 			$start_date,$end_date,$check_list_type
 
 		)
 	);
+}
 		return response()->json($items);
 	}
 
@@ -317,18 +465,47 @@ group by date
 
 	public function cate_type_perfomance_piechart(Request $request,$check_list_type,$start_date,$end_date)
 	{		
+
+	if($start_date=='All' or $end_date=='All'){
 		$items = DB::select("
 			select fc.folder_cate_name,
 
-(select count(*) from check_list where check_list_status=0 and check_list_type =?  and cl.date between ? and ?) as mission_none_assign,
-(select count(*) from check_list where check_list_status=1 and check_list_type =? and cl.date between ? and ?) as job_asigned,
-(select count(*) from check_list where check_list_status=2 and check_list_type =? and cl.date between ? and ?) as is_working,
-(select count(*) from check_list where check_list_status=3 and check_list_type =? and cl.date between ? and ?) as job_not_complete,
-(select count(*) from check_list where check_list_status=4 and check_list_type =? and cl.date between ? and ?) as job_completed
+(select count(*) from check_list where check_list_status=0 and check_list_type =?  ) as mission_none_assign,
+(select count(*) from check_list where check_list_status=1 and check_list_type =? ) as job_asigned,
+(select count(*) from check_list where check_list_status=2 and check_list_type =? ) as is_working,
+(select count(*) from check_list where check_list_status=3 and check_list_type =? ) as job_not_complete,
+(select count(*) from check_list where check_list_status=4 and check_list_type =? ) as job_completed
 
  from check_list cl
 inner join folder_category fc on cl.check_list_type=fc.id
 where cl.check_list_type = ?
+
+group by cl.check_list_type 
+		"
+		,array(
+			$check_list_type,
+			$check_list_type,
+			$check_list_type,
+			$check_list_type,
+			$check_list_type,
+			$check_list_type
+
+		)
+	);
+	}else{
+		$items = DB::select("
+			select fc.folder_cate_name,
+
+(select count(*) from check_list where check_list_status=0 and check_list_type =?  and date between ? and ?) as mission_none_assign,
+(select count(*) from check_list where check_list_status=1 and check_list_type =? and date between ? and ?) as job_asigned,
+(select count(*) from check_list where check_list_status=2 and check_list_type =? and date between ? and ?) as is_working,
+(select count(*) from check_list where check_list_status=3 and check_list_type =? and date between ? and ?) as job_not_complete,
+(select count(*) from check_list where check_list_status=4 and check_list_type =? and date between ? and ?) as job_completed
+
+ from check_list cl
+inner join folder_category fc on cl.check_list_type=fc.id
+where cl.check_list_type = ?
+
 and cl.date between ? and ?
 group by cl.check_list_type 
 		"
@@ -343,23 +520,23 @@ group by cl.check_list_type
 
 		)
 	);
+}
+
+
+
 		return response()->json($items);
 	}
 
 	public function overview_peformance_guage(Request $request,$check_list_type,$start_date,$end_date)
 	{		
 
-// 		select fc.folder_cate_name as department,count(*) as all_mission,
-// (select count(*) from check_list where check_list_status=4 and  check_list_type=? ) as mission_complete
-//  from check_list cl
-//  inner join folder_category fc on cl.check_list_type=fc.id
-// where check_list_type=? and date between ? and ?
+		if($start_date=='All' or $end_date=='All'){
 		$items = DB::select("
 
 
 select fc.folder_cate_name as department,
-(select count(*) from check_list where check_list_status=4 and  check_list_type=?  and date between ? and ?) as mission_complete,
-(select count(*) from check_list where   check_list_type=? and date between ? and ? and check_list_status!=0 ) as   all_mission
+(select count(*) from check_list where check_list_status=4 and  check_list_type=?  ) as mission_complete,
+(select count(*) from check_list where check_list_type=? and check_list_status!=0 ) as   all_mission
  from check_list cl
  inner join folder_category fc on cl.check_list_type=fc.id
 where check_list_type=?
@@ -370,12 +547,39 @@ group by check_list_type
 
 		"
 		,array(
-			$check_list_type,$start_date,$end_date,
-			$check_list_type,$start_date,$end_date, 
+			$check_list_type,
+			$check_list_type, 
 			$check_list_type
 
 		)
 	);
+	}else{
+		$items = DB::select("
+
+
+		select fc.folder_cate_name as department,
+		(select count(*) from check_list where check_list_status=4 and  check_list_type=?  and date between ? and ?) as mission_complete,
+		(select count(*) from check_list where   check_list_type=? and date between ? and ? and check_list_status!=0 ) as   all_mission
+		 from check_list cl
+		 inner join folder_category fc on cl.check_list_type=fc.id
+		where check_list_type=?
+		group by check_list_type
+		
+		
+		
+		
+				"
+				,array(
+					$check_list_type,$start_date,$end_date,
+					$check_list_type,$start_date,$end_date, 
+					$check_list_type
+		
+				)
+			);
+
+
+
+	}
 		return response()->json($items);
 	}
 

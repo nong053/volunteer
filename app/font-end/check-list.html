@@ -141,6 +141,8 @@ Large devices (large desktops, 1200px and up)*/
 }
 */
 
+#mapArea { height: 200px; width: 100%; }
+
 
 
 
@@ -169,7 +171,7 @@ Large devices (large desktops, 1200px and up)*/
                               <div class="setHeaderText">
                                 <div class='col-lg-6 col-xs-12'>
                                   <h2 id="titleH" >
-                                 	บันทึกผลปฏิบัติงานประจำ<span id='currentDate'></span>
+                                 	บันทึกผลปฏิบัติภารกิจประจำ<span id='currentDate'></span>
                                  </h2>
                                 <!-- <br style="clear: both;"> -->
                                </div>
@@ -202,7 +204,7 @@ Large devices (large desktops, 1200px and up)*/
                                         
                                         <button id='sendReport' type="button" class="btn btn-lg btn-info  btnInboxTitle  "  >
                                         <i class='fa fa-send'></i>
-                                           <span class="hidden-sm hidden-xs">บันทึกผลปฏิบัติงาน</span>
+                                           <span class="hidden-sm hidden-xs">บันทึกผลปฏิบัติภารกิจ</span>
                                         </button>
                                       
                                     </div>
@@ -396,6 +398,16 @@ Large devices (large desktops, 1200px and up)*/
 
                                     <div class="col-sm-3"><input type="text" id="appoinment_success_date" class="form-control datepicker"></div>
                                 </div>
+
+
+                                <div class="form-group" id="checkin_area"><label class="col-sm-2 control-label">เช็คอิน</label>
+
+                                  <div id="mapArea" class="leaflet-container leaflet-touch leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom" tabindex="0" style="position: relative; outline: none;"></div>
+                              </div>
+
+
+
+                                
 
                                 
 
