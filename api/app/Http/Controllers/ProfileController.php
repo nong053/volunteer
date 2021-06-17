@@ -111,7 +111,7 @@ class ProfileController extends Controller
 				
 				$message->from("userwfht1@gmail.com", "Work Form Home Tracker.");
 				$message->to($request->EMAIL)->subject('ลงทะเบียนใช้งานระบบติดตามการปฏบัติงาน Work Form Home Tracker แบบ Real-time เรียบร้อย :-)');
-				$message->cc($request->admin_email, "ผู้ดูแลระบบ Work Form Home Tracker.");
+				$message->cc($request->admin_email, "ผู้ดูแลระบบ Work From Home Tracker.");
 				$message->setBody("
 					สวัสดีครับคุณ ".$request->FIRST_NAME." ".$request->LAST_NAME." ท่านได้ลงทะเบียนใช้งานระบบติดตามผลการปฏบัติงานแบบ Real-time เรียบร้อยครับ <br><br>
 					อีเมลล์: <b>".$request->EMAIL."</b><br>

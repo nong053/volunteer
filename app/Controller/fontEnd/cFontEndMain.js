@@ -203,11 +203,11 @@ app.controller("pageController",function($scope, $route, $routeParams){
 	  	
 	       $("#includePage").html(data);
       
- 			
+        alert($routeParams.url);
 
 
 	          //$(".page_top").html('');
-	          $(".mainMenu").removeClass('active');
+	      $(".mainMenu").removeClass('active');
 
 			  if($routeParams.url=="dashboards"){
 			  	
@@ -242,6 +242,18 @@ app.controller("pageController",function($scope, $route, $routeParams){
 
 			  	
 			  
+
+			  }else if($routeParams.url=="map"){
+			  	$("#map_main_menu").addClass('active');
+   
+
+          var navbarHtml="";
+          navbarHtml+="<button id=\"btnNavbar4\" aria-controls=\"navbar\" aria-expanded=\"false\" data-target=\"#navbar4\" data-toggle=\"collapse\" class=\"navbar-toggle collapsed \" type=\"button\">";
+                    navbarHtml+="<i class=\"fa fa-reorder\"></i>";
+                navbarHtml+="</button>";
+          $("#navbarArea").html(navbarHtml);
+			  
+			 
 
 			  }
 
@@ -408,6 +420,7 @@ $(document).ready(function(){
 
 
       if(sessionStorage.getItem('galbalRole')==5){
+        $("#map_main_menu").show();
       	$("#dashboards_main_menu").show();
       	$("#check_list_report_main_menu").show();
       	$("#control_panel").show();
@@ -415,6 +428,7 @@ $(document).ready(function(){
 
       	
       }else{
+        $("#map_main_menu").show();
       	$("#dashboards_main_menu").remove();
         $("#check_list_report_main_menu").show();
       	//$("#check_list_report_main_menu").remove();
@@ -433,6 +447,12 @@ $(document).ready(function(){
         },1000);
         */
         window.location.href = "#/pages/dashboards";
+        $(".navbar-collapse").collapse('hide');
+        
+      });
+      $("#map_main_menu").click(function(){
+       
+        window.location.href = "#/pages/map";
         $(".navbar-collapse").collapse('hide');
         
       });
@@ -468,6 +488,14 @@ $(document).ready(function(){
           window.location.href = "#/pages/check-list";
         
       });
+      $("#map_main_menu").click(function(){
+
+      
+        $(".navbar-collapse").collapse('hide');
+          window.location.href = "#/pages/map";
+        
+      });
+
 
 });
 

@@ -70,8 +70,9 @@ class PublicController extends Controller
 			return response()->json(['status' => 400, 'data' => $validator->errors()]);
 		} else {
 
-
+			
 			 /*SEND MAIL START*/
+			/*
 			$error = '';
 			try {
 			
@@ -106,6 +107,7 @@ class PublicController extends Controller
 			if($error!=""){
 				return response()->json(['error' => $error]);
 			}
+			*/
 			/*SEND MAIL END*/
 
 

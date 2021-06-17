@@ -119,7 +119,13 @@ background:"#eee";
             <div class="navbar-collapse collapse" id="navbar">
                 <ul class="nav navbar-nav">
 
-                    <li  style="display: none;"  id="dashboards_main_menu" class="active mainMenu adminRole">
+                <li  style="display: none;"  id="map_main_menu" class="active mainMenu adminRole">
+                      <a aria-expanded="false"   role="button" >
+                          <i class="fa fa-map"></i>แผนที่
+                      </a>
+                    </li>
+
+                    <li  style="display: none;"  id="dashboards_main_menu" class=" mainMenu adminRole">
                       <a aria-expanded="false"   role="button" >
                           <i class="fa fa-pie-chart"></i>แดชบอร์ด
                       </a>
