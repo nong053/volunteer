@@ -435,8 +435,8 @@ order by fc.id,cl.check_list_id
 
 		 		$result=DB::select("
 					INSERT INTO check_list (check_list_id, check_list_type,check_list_name,check_list_normal_status,
-					 not_ready_status, check_list_status,date,lates_flag,created_date,updated_date,priority_id,job_type_id,appoinment_success_date,manday,profile_id,emp_update,assigned_time)
-					VALUES (?,?,?,?,?,?,CURDATE(),1,NOW(),NOW(),?,?,?,?,?,?,$assigned_time);
+					 not_ready_status, check_list_status,date,lates_flag,created_date,updated_date,priority_id,job_type_id,appoinment_success_date,manday,profile_id,emp_update,map,assigned_time)
+					VALUES (?,?,?,?,?,?,CURDATE(),1,NOW(),NOW(),?,?,?,?,?,?,?,$assigned_time);
 					"
 					,array($item['check_list_id'],
 					$item['check_list_type'],
@@ -451,7 +451,8 @@ order by fc.id,cl.check_list_id
 					$item['appoinment_success_date'],
 					$item['manday'],
 					$item['profile_id'],
-					$item['emp_update']
+					$item['emp_update'],
+					$item['map']
 				
 				));
 
@@ -459,8 +460,8 @@ order by fc.id,cl.check_list_id
 
 		 		$result=DB::select("
 					INSERT INTO check_list (check_list_id, check_list_type,check_list_name,check_list_normal_status,
-					 not_ready_status, check_list_status,date,lates_flag,created_date,updated_date,priority_id,job_type_id,appoinment_success_date,manday,profile_id,emp_update,assigned_time,working_time)
-					VALUES (?,?,?,?,?,?,CURDATE(),1,NOW(),NOW(),?,?,?,?,?,?,$assigned_time,$working_time);
+					 not_ready_status, check_list_status,date,lates_flag,created_date,updated_date,priority_id,job_type_id,appoinment_success_date,manday,profile_id,emp_update,map,assigned_time,working_time)
+					VALUES (?,?,?,?,?,?,CURDATE(),1,NOW(),NOW(),?,?,?,?,?,?,?,$assigned_time,$working_time);
 					"
 					,array($item['check_list_id'],
 					$item['check_list_type'],
@@ -475,7 +476,8 @@ order by fc.id,cl.check_list_id
 					$item['appoinment_success_date'],
 					$item['manday'],
 					$item['profile_id'],
-					$item['emp_update']
+					$item['emp_update'],
+					$item['map']
 				
 				));
 
@@ -483,8 +485,8 @@ order by fc.id,cl.check_list_id
 
 		 		$result=DB::select("
 					INSERT INTO check_list (check_list_id, check_list_type,check_list_name,check_list_normal_status,
-					 not_ready_status, check_list_status,date,lates_flag,created_date,updated_date,priority_id,job_type_id,appoinment_success_date,manday,profile_id,emp_update,assigned_time,working_time,not_complete_time,line_notify)
-					VALUES (?,?,?,?,?,?,CURDATE(),1,NOW(),NOW(),?,?,?,?,?,?,$assigned_time,$working_time,$not_complete_time,1);
+					 not_ready_status, check_list_status,date,lates_flag,created_date,updated_date,priority_id,job_type_id,appoinment_success_date,manday,profile_id,emp_update,map,assigned_time,working_time,not_complete_time,line_notify)
+					VALUES (?,?,?,?,?,?,CURDATE(),1,NOW(),NOW(),?,?,?,?,?,?,?,$assigned_time,$working_time,$not_complete_time,1);
 					"
 					,array($item['check_list_id'],
 					$item['check_list_type'],
@@ -499,7 +501,8 @@ order by fc.id,cl.check_list_id
 					$item['appoinment_success_date'],
 					$item['manday'],
 					$item['profile_id'],
-					$item['emp_update']
+					$item['emp_update'],
+					$item['map']
 				
 				));
 		 		
@@ -507,8 +510,8 @@ order by fc.id,cl.check_list_id
 
 		 		$result=DB::select("
 					INSERT INTO check_list (check_list_id, check_list_type,check_list_name,check_list_normal_status,
-					 not_ready_status, check_list_status,date,lates_flag,created_date,updated_date,priority_id,job_type_id,appoinment_success_date,manday,profile_id,emp_update,assigned_time,working_time,complete_time)
-					VALUES (?,?,?,?,?,?,CURDATE(),1,NOW(),NOW(),?,?,?,?,?,?,$assigned_time,$working_time,$complete_time);
+					 not_ready_status, check_list_status,date,lates_flag,created_date,updated_date,priority_id,job_type_id,appoinment_success_date,manday,profile_id,emp_update,map,assigned_time,working_time,complete_time)
+					VALUES (?,?,?,?,?,?,CURDATE(),1,NOW(),NOW(),?,?,?,?,?,?,?,$assigned_time,$working_time,$complete_time);
 					"
 					,array($item['check_list_id'],
 					$item['check_list_type'],
@@ -523,7 +526,8 @@ order by fc.id,cl.check_list_id
 					$item['appoinment_success_date'],
 					$item['manday'],
 					$item['profile_id'],
-					$item['emp_update']
+					$item['emp_update'],
+					$item['map']
 				
 				));
 		 		

@@ -1,3 +1,6 @@
+
+		
+
 function setupMap(paramShowMarker,currentLat,currentLong,mapId) {
 			
 			
@@ -89,9 +92,20 @@ function setupMap(paramShowMarker,currentLat,currentLong,mapId) {
 }
 
 function createMap(jsonObjEncode,mapId,zoom) {
+
+  var paramLat=13.847860;
+  var paramLog=100.604274;
+  var paramZoom=zoom;
+  if(jsonObjEncode.length==1){
+    
+    paramLat=parseFloat(jsonObjEncode[0]['lat']);
+    paramLog=parseFloat(jsonObjEncode[0]['lng']);
+    paramZoom=15;
+  }
+
 	var mapOptions = {
-	  center: {lat: 13.847860, lng: 100.604274},
-	  zoom: zoom,
+	  center: {lat:paramLat, lng: paramLog},
+	  zoom: paramZoom,
 	}
 
 	var maps = new google.maps.Map(document.getElementById(mapId),mapOptions);
@@ -153,9 +167,16 @@ function createMap(jsonObjEncode,mapId,zoom) {
 
 
 // call total map start
-var callDataForMap = function(){
+var callDataForMap = function(id){
+
+  var route="";
+  if(id!="" && id!=null && id!='null'){
+    route="/api/public/folder-cate/call_map_by_id/"+id;
+  }else{
+    route="/api/public/folder-cate/call_map_all";
+  }
   $.ajax({
-    url:restURL+"/api/public/folder-cate/call_map_all",
+    url:restURL+route,
     type:"get",
     dataType:"json",
      headers:{Authorization:"Bearer "+sessionStorage.getItem('galbalToken')},
@@ -179,7 +200,7 @@ var callDataForMap = function(){
           }else{
             jsonObj+=",{";
           }
-          jsonObj+="\"location\":\""+indexEntry['folder_cate_name']+"\",\"lat\":\""+latLng[0]+"\",\"lng\":\""+latLng[1]+"\",\"url\":\"#/pages/check-list?id="+indexEntry['id']+"\"";
+          jsonObj+="\"location\":\""+indexEntry['folder_cate_name']+"\",\"lat\":\""+latLng[0]+"\",\"lng\":\""+latLng[1]+"\",\"url\":\"#/pages/check-list?openModal=true&id="+indexEntry['id']+"\"";
 
           jsonObj+="}";
         });
@@ -345,7 +366,7 @@ $(document).ready(function(){
     setTimeout(function(){
         
          //setupMap(true,13.857326299999999, 100.7267414,'map');
-         callDataForMap();
+         callDataForMap($.urlParam('id'));
          
     },1000);
   
@@ -357,7 +378,7 @@ $(document).ready(function(){
     });
 
 
-    alert($.urlParam('id'));
+   // alert($.urlParam('id'));
 
     
 

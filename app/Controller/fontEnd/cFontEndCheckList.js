@@ -16,6 +16,26 @@ function isValidDate(dateString) {
 }
 
 
+function getLocation() {
+		
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+        
+    } else { 
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+
+function showPosition(position) {
+
+   
+     $("#current_lat_lng").val(position.coords.latitude+","+position.coords.longitude);
+ 
+
+    //setupMap(showMarker,position.coords.latitude,position.coords.longitude,"");
+    
+    
+}
 
 
 
@@ -145,18 +165,7 @@ function isValidEmail(emailText) {
 
 $(document).ready(function(){
 	
-    //setMap Start
-    // var map = L.map('mapArea').setView([13.736717,104.523186], 5);
-    // L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
-    //     maxZoom: 18,
-    //     // attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
-    //     //  'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-    //     id: 'mapbox/light-v9',
-    //     tileSize: 512,
-    //     zoomOffset: -1
-    // }).addTo(map);
-    // var marker1 = L.marker([13.910 , 100.168]).addTo(map);//โรงพยาบาลภูมิพลอดุลยเดช
-    //setMap Start
+    
     
 	
     if(sessionStorage.getItem('galbalRole')!=5){
@@ -606,6 +615,8 @@ $(document).ready(function(){
             
             jsonData+="\"date\":\""+localCurrentDate+"\",";
             jsonData+="\"profile_id\":\""+$("#embed_profile_id-"+id).val()+"\",";
+            jsonData+="\"map\":\""+$("#embed_mission_map-"+id).val()+"\",";
+            
             jsonData+="\"line_notify\":\""+$("#embed_line_notify-"+id).val()+"\",";
 
             
@@ -754,7 +765,7 @@ $(document).ready(function(){
                     }else{
                         htmlTR+="<td colspan='6' style=\"text-align: left; background:#4A4A70; font-weight:bold; padding-top:10px; padding-left:10px;\">";
                     }
-                      htmlTR+=""+indexEntryCate['folder_cate_name']+" ("+indexEntryCate['mission_type_name']+")";
+                      htmlTR+="<span id='folder_cate_name-"+indexEntryCate['folder_cate_id']+"'>"+indexEntryCate['folder_cate_name']+" ("+indexEntryCate['mission_type_name']+")";
                       htmlTR+="</td>";
 
                       
@@ -925,7 +936,9 @@ $(document).ready(function(){
               //htmlTR+="</td>";
               htmlTR+="<td style=\"text-align: left;\">";
               htmlTR+="<input type='hidden' id='embed_mission_type_id-"+indexEntry['file_detail_id']+"' value='"+indexEntry['mission_type_id']+"'>";
+
               if(indexEntry['profile_id']!=null){
+                htmlTR+="<input type='hidden' id='embed_mission_map-"+indexEntry['file_detail_id']+"' value='"+indexEntry['map']+"'>";
                 htmlTR+="<input type='hidden' id='embed_profile_id-"+indexEntry['file_detail_id']+"' value='"+indexEntry['profile_id']+"'>";
                 htmlTR+="<input type='hidden' id='embed_line_notify-"+indexEntry['file_detail_id']+"' value='' >";
                 htmlTR+="<input type='hidden' id='embed_priority_id-"+indexEntry['file_detail_id']+"' value='"+indexEntry['priority_id']+"'>";
@@ -1191,6 +1204,8 @@ $(document).ready(function(){
     var addMissionFn = function(id){
 
         getProfileListByRole(id);
+        
+        $("#modalMisstionTitle").html($("#folder_cate_name-"+id).html());
         $("#missionModal").modal('show');
 
 
@@ -1289,8 +1304,8 @@ $(document).ready(function(){
         }
 
     });
-    var getProfileFn = function(profile_id){
-      
+    var getProfileFn = function(profile_id,file_detail_id){
+   
         $.ajax({
             url:restURL+"/api/public/profile/"+profile_id,
             type:"GET",
@@ -1303,6 +1318,7 @@ $(document).ready(function(){
                    $("#tagEmail").html(data['email']);
                    $("#tagfullName").html(data['FIRST_NAME']+" "+data['LAST_NAME']);
                    $("#tagPosition").html(data['POSITION']);
+                   $("#tagMap").html($("#embed_mission_map-"+file_detail_id).val());
                }catch{
                 console.log("error getProfileFn");
                }
@@ -1333,11 +1349,11 @@ $(document).ready(function(){
         // TEL: "0809926565"
 
     }
-    var profileTagFn = function(profileId){
+    var profileTagFn = function(profileId,file_detail_id){
             
             //alert(profileId);
             
-                getProfileFn(profileId);
+                getProfileFn(profileId,file_detail_id);
                 $("#profileModal").modal('show');
             
     };
@@ -1346,6 +1362,7 @@ $(document).ready(function(){
             var profileId;
             profileIdArray=profileIdArray.split("-");
             profileId=profileIdArray[1];
+            file_detail_id=profileIdArray[2];
             
             if(profileId!="assign"){
                 if($(this).hasClass('disabled')){
@@ -1358,7 +1375,7 @@ $(document).ready(function(){
                        $("#loadingModal").modal('hide');
                     },1000);
                     */
-                     profileTagFn(profileId);
+                     profileTagFn(profileId,file_detail_id);
                 }
             }
 
@@ -1659,6 +1676,7 @@ $(document).ready(function(){
             "folder_cate_id":$("#folder_cate_id").val(),
             "profile_id":$("#profile_id_area").val(),
             "check_list_status_pj":check_list_status_pj,
+            "map":$("#current_lat_lng").val()
             },
             
             // "profile_id":sessionStorage.getItem('galbalEmpId')},
@@ -1674,6 +1692,8 @@ $(document).ready(function(){
                    
                     uploadFilesInform(data.data.file_detail_id);
 
+                   
+                    window.location.href = "#/pages/check-list";
                     location.reload();
 
                 }
@@ -1711,7 +1731,8 @@ $(document).ready(function(){
             "folder_cate_id":$("#folder_cate_id").val(),
 
             // "profile_id":JSON.parse("["+$("#profile_id").val()+"]")},
-            "profile_id":$("#profile_id_area").val()
+            "profile_id":$("#profile_id_area").val(),
+            "map":$("#current_lat_lng").val(),
             },
             headers:{Authorization:"Bearer "+sessionStorage.getItem('galbalToken')},
             success:function(data){
@@ -1723,6 +1744,7 @@ $(document).ready(function(){
                         uploadFilesInform($("#id").val());
                     }
                     $("#missionModal").modal('hide');
+                    window.location.href = "#/pages/check-list";
                     location.reload();
 
                 }
@@ -1763,4 +1785,14 @@ $(document).ready(function(){
     //mission end
     //end
 
+
+
+    //check id send from map page
+
+    if($.urlParam('openModal')=="true"){
+       
+        addMissionFn($.urlParam('id'));
+    }
+    //get current position
+    getLocation();
 });

@@ -141,7 +141,7 @@ Large devices (large desktops, 1200px and up)*/
 }
 */
 
-#mapArea { height: 200px; width: 600px; }
+
 
 
 
@@ -329,7 +329,7 @@ Large devices (large desktops, 1200px and up)*/
           <div class="modal-content">
               <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-                  <h4 style="color: white;" class="modal-title">ภารกิจ</h4>
+                  <h4 style="color: white;" class="modal-title" id="modalMisstionTitle">ภารกิจ</h4>
                   <!-- <small class="font-bold">กรอกภารกิจประจำวัน</small> -->
               </div>
               <div class="modal-body">
@@ -400,11 +400,7 @@ Large devices (large desktops, 1200px and up)*/
                                 </div>
 
 
-                                <div class="form-group" id="checkin_area"><label class="col-sm-2 control-label">เช็คอิน</label>
-
-                                  <div id="mapArea"></div>
-                              </div>
-
+                              
 
 
                                 
@@ -427,6 +423,9 @@ Large devices (large desktops, 1200px and up)*/
                   <input type="hidden" name="folder_cate_id" id="folder_cate_id" value="">
                   <input type="hidden" name="profile_id" id="profile_id" value="">
                   <input type="hidden" name="action" id="action" value="add">
+                  <input type="hidden" name="current_lat_lng" id="current_lat_lng" value="">
+           
+                  <!-- <button type="submit" class="btn btn-success" id="btnSubmitAndGoToMap">บันทึกแล้วไปที่แผนที่</button> -->
                    <button type="submit" class="btn btn-success" id="btnSubmit">บันทึก</button>
                   <button type="button" class="btn btn-white" data-dismiss="modal">ปิด</button>
                  
@@ -452,6 +451,7 @@ Large devices (large desktops, 1200px and up)*/
                   อีเมลล์:<span style="font-weight: bold;" id="tagEmail"></span><br>
                   ชื่อ:<span id="tagfullName"></span><br>
                   ตำแหน่ง:<span id="tagPosition"></span><br>
+                  พิกัด:<span id="tagMap"></span><br>
             
           
 

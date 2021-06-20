@@ -85,7 +85,7 @@ folder_cate_icon,folder_cate_grant_privileges,folder_category.mission_type_id,mt
 	}
 	public function call_map_by_id($id)
 	{		
-		$items = DB::select("SELECT * FROM volunteer_db.folder_category where id=? and folder_cate_status!=0 ",
+		$items = DB::select("SELECT id,folder_cate_name,map,mission_begin_date,mission_complete_date,folder_cate_seq FROM volunteer_db.folder_category where id=? and folder_cate_status!=0 ",
 		array($id));
 		return response()->json($items);
 	}
