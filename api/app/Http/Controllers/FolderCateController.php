@@ -35,7 +35,7 @@ class FolderCateController extends Controller
 		if( $profile[0]->role==5){
 			$items = DB::select("
 			select id,folder_cate_name,folder_cate_seq,folder_cate_status,folder_cate_article_type_id,
-folder_cate_icon,folder_cate_grant_privileges,folder_category.mission_type_id,mt.mission_type_name,mission_complete_date
+folder_cate_icon,folder_cate_grant_privileges,folder_category.mission_type_id,mt.mission_type_name,map,mission_begin_date,mission_complete_date
 			from folder_category
             inner join mission_type mt on folder_category.mission_type_id=mt.mission_type_id
 			where folder_cate_name like ?  
@@ -45,7 +45,7 @@ folder_cate_icon,folder_cate_grant_privileges,folder_category.mission_type_id,mt
 		}else{
 			$items = DB::select("
 			select id,folder_cate_name,folder_cate_seq,folder_cate_status,folder_cate_article_type_id,
-folder_cate_icon,folder_cate_grant_privileges,folder_category.mission_type_id,mt.mission_type_name,mission_complete_date
+folder_cate_icon,folder_cate_grant_privileges,folder_category.mission_type_id,mt.mission_type_name,map,mission_begin_date,mission_complete_date
 			from folder_category
             inner join mission_type mt on folder_category.mission_type_id=mt.mission_type_id
 			where folder_cate_name like ?  and folder_cate_status =1
@@ -74,6 +74,19 @@ folder_cate_icon,folder_cate_grant_privileges,folder_category.mission_type_id,mt
 
 		//return response()->json($result);
 
+		return response()->json($items);
+	}
+
+	public function call_map_all()
+	{		
+		$items = DB::select("SELECT id,folder_cate_name,map,mission_begin_date,mission_complete_date,folder_cate_seq FROM folder_category where folder_cate_status!=0 order by folder_cate_seq,mission_begin_date asc");
+		return response()->json($items);
+		
+	}
+	public function call_map_by_id($id)
+	{		
+		$items = DB::select("SELECT * FROM volunteer_db.folder_category where id=? and folder_cate_status!=0 ",
+		array($id));
 		return response()->json($items);
 	}
 	
@@ -113,17 +126,18 @@ folder_cate_icon,folder_cate_grant_privileges,folder_category.mission_type_id,mt
 		try {
 			$item = FolderCate::findOrFail($id);
 		} catch (ModelNotFoundException $e) {
-			return response()->json(['status' => 404, 'data' => 'FolderCate not found.']);
+			return response()->json(['status' => 404, 'data' => 'FolderCate2 not found.']);
 		}
 		return response()->json($item);
 	}
+
 	
 	public function update(Request $request, $id)
 	{
 		try {
 			$item = FolderCate::findOrFail($id);
 		} catch (ModelNotFoundException $e) {
-			return response()->json(['status' => 404, 'data' => 'FolderCate not found.']);
+			return response()->json(['status' => 404, 'data' => 'FolderCate3 not found.']);
 		}
 		
 		$validator = Validator::make($request->all(), [
@@ -159,7 +173,7 @@ folder_cate_icon,folder_cate_grant_privileges,folder_category.mission_type_id,mt
 		try {
 			$item = FolderCate::findOrFail($id);
 		} catch (ModelNotFoundException $e) {
-			return response()->json(['status' => 404, 'data' => 'FolderCate not found.']);
+			return response()->json(['status' => 404, 'data' => 'FolderCate1 not found.']);
 		}	
 
 		try {

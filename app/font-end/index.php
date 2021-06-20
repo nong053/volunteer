@@ -5,7 +5,7 @@
 
 <style type="text/css">
     
-@import url(css/fonts/thsarabunnew.css);
+@import url(../css/fonts/thsarabunnew.css);
 body{ font-family: 'THSarabunNew', sans-serif; 
 /* line-height: 1.7em; background: #e1e1e1;  */
 }
@@ -91,7 +91,7 @@ background:"#eee";
 
 </head>
 
-<body >
+<body  style="height:100%">
 
     <div id="wrapper" class="top-navigation "  ng-app="myApp"  style="font-size: 16px;">
         <div id="page-wrapper1" class="gray-bg1">
@@ -186,9 +186,9 @@ background:"#eee";
             </div>
         </nav>
         </div>
-        <div class="wrapper wrapper-content" style="padding: 0px;">
+        <div class="wrapper1 wrapper-content1" style="padding: 0px;">
           
-            <div id="includePage"  class="ng-view"></div>
+            <div id="includePage"   class="ng-view"></div>
 
         </div>
        <!--  <div class="footer">
@@ -266,12 +266,9 @@ $ipServer = gethostbyname($host);
 <script>
   $.widget.bridge('uibutton', $.ui.button);
 </script>
-
-<!-- map start-->
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="">
-<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
-<!-- map end-->
-
+<!-- map -->
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHeFJa2RjWISo7BNSHF4FomY4bcPXlhtY&libraries=&v=weekly"  type="text/javascript"></script>
+<!-- map -->
 
 <script src="../bower_components/raphael/raphael.min.js"></script>
  <script src="../bower_components/morris.js/morris.min.js"></script> 
@@ -318,14 +315,12 @@ $ipServer = gethostbyname($host);
 <script src="../js/angular.min.js"></script>
 <script src="../js/angular-route.js"></script>
 
+<!-- calendar start-->
+<link rel="stylesheet" href="../bower_components/fullcalendar/dist/fullcalendar.min.css">
+<link rel="stylesheet" href="../bower_components/fullcalendar/dist/fullcalendar.print.min.css" media="print">
+<script src="../bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
+<!-- calendar end-->
 
-<!-- <script src="//cdn.ckeditor.com/4.5.9/standard/ckeditor.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/ckeditor/4.5.9/adapters/jquery.js"></script>
-
-<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
-<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
-
-<script src="https://unpkg.com/jspdf@latest/dist/jspdf.min.js"></script> -->
 
 
 
@@ -335,28 +330,18 @@ $ipServer = gethostbyname($host);
 <!-- Latest compiled and minified JavaScript -->
 <script src="../js/bootstrap-select.min.js"></script>
 
-<!-- (Optional) Latest compiled and minified JavaScript translation files -->
-<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/i18n/defaults-*.min.js"></script> -->
-
-
-<!-- <script src="jquery.twbs-toggle-buttons.min.js"></script>
- -->
 <script src="../js/kendoui-new/js/kendo.all.min.js"></script>
 
 
 
 
 <script src="../Controller/cSetting.js"></script>
-<!-- <script src="../Controller/cMain.js"></script> -->
-
 <script src="../js/jquery3.1.1.js"></script>
 <script type="text/javascript">
  var jQuery_1_1_3 = $.noConflict(true);
 </script>
-<!-- <script src="../Controller/cSetting.js"></script> -->
-<!-- <script src="../Controller/fontEnd/cFontEndSetting.js"></script>-->
 <script src="../Controller/fontEnd/cFontEndMain.js"></script> 
 <script src="../Controller/cMasterCRUD.js"></script>
 <script src="../Controller/fontEnd/cFontEndIndex.js"></script>
-<!-- <script src="../Controller/cSetting.js"></script> -->
+
 

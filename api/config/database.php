@@ -55,7 +55,7 @@ return [
         'mysql' => [
             'driver'    => 'mysql',
             'host'      => 'localhost',
-            'database'  => 'work_tracker_db',
+            'database'  => 'volunteer_db',
             'username'  => 'root',
             'password'  =>  '',
             'charset'   => 'utf8',

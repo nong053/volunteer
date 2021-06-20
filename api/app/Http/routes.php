@@ -140,9 +140,15 @@ Route::group(['middleware' => 'cors'], function()
 	Route::get('folder-cate', 'FolderCateController@index');
 	Route::get('folder-cate/folder-cate-list', 'FolderCateController@folder_cate_list');
 	Route::get('folder-cate/folder_cate_list_by_role', 'FolderCateController@folder_cate_list_by_role');
+	Route::get('folder-cate/call_map_all', 'FolderCateController@call_map_all');
+	Route::get('folder-cate/call_map_by_id/{id}', 'FolderCateController@call_map_by_id');
+	
 	
 	Route::post('folder-cate', 'FolderCateController@store');
 	Route::get('folder-cate/{id}', 'FolderCateController@show');
+
+	
+
 	// Route::patch('folder-cate/{id}', 'FolderCateController@update');
 	// Route::delete('folder-cate/{id}', 'FolderCateController@destroy');	
 	Route::post('folder-cate/update/{id}', 'FolderCateController@update');

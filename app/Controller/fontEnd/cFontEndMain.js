@@ -36,6 +36,9 @@ if(sessionStorage.getItem('checkListType')==null){
 }
 
 
+var today = new Date();
+var localCurrentDate = today.getFullYear()+'-'+minTwoDigits(today.getMonth()+1)+'-'+minTwoDigits(today.getDate());
+
 
 $.urlParam = function(name){
     var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
@@ -203,7 +206,7 @@ app.controller("pageController",function($scope, $route, $routeParams){
 	  	
 	       $("#includePage").html(data);
       
-        alert($routeParams.url);
+        
 
 
 	          //$(".page_top").html('');

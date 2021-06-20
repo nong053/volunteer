@@ -5,8 +5,7 @@ checkSessionFn();
 function minTwoDigits(n) {
   return (n < 10 ? '0' : '') + n;
 }
-var today = new Date();
-var localCurrentDate = today.getFullYear()+'-'+minTwoDigits(today.getMonth()+1)+'-'+minTwoDigits(today.getDate());
+
 $("#currentDate").html(localCurrentDate);
 function isValidDate(dateString) {
   var regEx = /^\d{4}-\d{2}-\d{2}$/;

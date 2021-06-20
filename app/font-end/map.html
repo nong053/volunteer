@@ -1,100 +1,102 @@
-<script async defer src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyAHeFJa2RjWISo7BNSHF4FomY4bcPXlhtY"  type="text/javascript"></script> 
 
-<script>
-    function setupMap(paramShowMarker,currentLat,currentLong,mapId) {
-			
-            alert(currentLat);
-			alert(currentLong);
-			
-			var latLongEmbedHtml="";
-			
-			var myOptions = {
-			  zoom: 15,
-			//   center: new google.maps.LatLng(currentLat,currentLong),
-            center:0,
-			  mapTypeId: google.maps.MapTypeId.ROADMAP
-			};
-			if(mapId!=""){
-				mapId=mapId;
-			}else{
-				mapId="map-canvas";
-			}
+<meta charset="UTF-8">
+<!-- <script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHeFJa2RjWISo7BNSHF4FomY4bcPXlhtY&libraries=&v=weekly"  type="text/javascript"></script>
+ -->
 
-			var map = new google.maps.Map(document.getElementById(mapId),
-				myOptions);
-			
-			if(paramShowMarker==true){
-			$(".paramLatLong").remove();
-			latLongEmbedHtml="<input type=\"hidden\" name=\"paramLat\" id=\"paramLat\" class=\"paramLatLong\" value=\""+currentLat+"\">";
-			latLongEmbedHtml+="<input type=\"hidden\" name=\"paramLong\" id=\"paramLong\" class=\"paramLatLong\" value=\""+currentLong+"\">";
-			$("#paramLatLong").html(latLongEmbedHtml);
-			
-			var marker = new google.maps.Marker({
-			map:map,
-			position: new google.maps.LatLng(currentLat,currentLong),
-			draggable: true
-			});
-			}
-			
-			var infowindow = new google.maps.InfoWindow({
-			//map:map,
-			//content: "ตำแหน่งที่ตั้ง",
-			//position:  new google.maps.LatLng(13.857326299999999, 100.7267414)
-			});
-			
+<style>
+	#map{
+		height: 900px;
+		width: 100%;
+	}
+
+	div.modal-content{
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    -o-box-shadow: none;
+    box-shadow: none;
+}
+</style> 
+
+<script src="../Controller/fontEnd/cMap.js"></script>    
+
+<div class="ibox-title">
+  
+
+    <div class="row container-fluid">  
+        <div class="col-sm-6">
+           <h2 style="margin-top:12px;"> สรุปผลการปฏิบัติภารกิจ<span id='currentDate'></span></h2>
+        </div>
 
 
-			google.maps.event.addListener(map,'click',function(event){
+        <div class="navbar-collapse collapse" id="navbar2">
+                
+        <div class="col-sm-6">
+
+
+
+            <span style="float: right; padding-top: 12px; ">
+                <div class="form-group">
+
+                    <button  type="button" id="callCalendarModal" class="btn" style="background-color: #4A4A70;">
+						<i class="fa fa-reorder"></i>
+					</button>
+
+                    
+
+                    
+                </div>
+            </span>
+           
+
+
+        </div>
+
+        </div>
+    </div>
+
+</div>
+
+<div id="paramLatLong"></div>
+<div id="map"></div>
+
+
+
+  <!-- modal start-->
+  <div class="modal inmodal fade" id="calendarModal" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+				<h4 style="color: white;" class="modal-title">ปฏิทินภารกิจ</h4>
+				<!-- <small class="font-bold">กรอกภารกิจประจำวัน</small> -->
+			</div>
+			<div class="modal-body">
+				<div class="alert alert-warning alert-dismissable " id="validateMissionAlertArea" style="display: none;">
+					<!-- <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button> -->
+					<div id="validateMissionAlert">
+					  
+					</div>
+				</div>
+			<!--calendar start-->
+			<div id="calendar"></div>
+			<!--calendar end-->
 				
-				if(!marker){
-					alert("คลิ๊กปุ่มปักหมุดก่อนครับ");
-					return false;
-				}
-	
-				infowindow.open(map,marker);
-				//infowindow.setContent('ปักหมุดตรงนี้' + event.latLng);
-				infowindow.setContent('ปักหมุดตรงนี้');
-				//alert(event.latLng);
-				
-				var latt="";
-				var long="";
-				//find lat
-				latt=event.latLng+"";
-				latt=latt.split(",");
-				latt=latt[0].split("(");
-				latt=latt[1];
-				
-				
-				//find long
-				long=event.latLng+"";
-				long=long.split(",");
-				long=long[1].split(")");
-				long=long[0];
-				
+
+			</div>
+
+			<!-- <div class="modal-footer">
+
 			
-				
-				
-				infowindow.setPosition(event.latLng);
-				marker.setPosition(event.latLng);
-				
-				
-				
-				
-				
-				$(".paramLatLong").remove();
-				latLongEmbedHtml="<input type=\"hidden\" name=\"paramLat\" id=\"paramLat\" class=\"paramLatLong\" value=\""+latt+"\">";
-				latLongEmbedHtml+="<input type=\"hidden\" name=\"paramLong\" id=\"paramLong\" class=\"paramLatLong\" value=\""+long+"\">";	
-				$("#paramLatLong").html(latLongEmbedHtml);
-			
-			
-			});
+				<button type="submit" class="btn btn-success" id="btnSubmit">ค้นหา</button>
+				<button type="button" class="btn btn-white" data-dismiss="modal">ปิด</button>
+			   
+			</div> -->
+		</div>
+	</div>
+</div>
+<!-- modal end-->
 
-
-		}
-
-        setupMap(true, 13.847860,100.604274,'mapId')
-
-    </script>
-
-
-<div id="mapId"></div>

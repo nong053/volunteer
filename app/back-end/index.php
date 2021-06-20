@@ -538,6 +538,10 @@ $IP = gethostbyname($host);
 <script src="../js2/jquery.bootpag.min.js"></script>
 <script src="../js2/dropify.min.js"></script>
 
+<!-- map -->
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHeFJa2RjWISo7BNSHF4FomY4bcPXlhtY&libraries=&v=weekly"  type="text/javascript"></script>
+<!-- map -->
+
 
 <script src="../js/multi-select/js/jquery.multi-select.js" type="text/javascript"></script>
 

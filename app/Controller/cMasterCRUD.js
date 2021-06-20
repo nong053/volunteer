@@ -21,6 +21,105 @@ var setThemeColorFn = function(color){
 //******************** updateTheme end********//
 
 
+function setupMap(paramShowMarker,currentLat,currentLong,mapId,zoom=15) {
+			
+			
+    var latLongEmbedHtml="";
+    
+    var myOptions = {
+      zoom: zoom,
+      center: new google.maps.LatLng(currentLat,currentLong),
+
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    if(mapId!=""){
+        mapId=mapId;
+    }else{
+        mapId="map-canvas";
+    }
+
+    var map = new google.maps.Map(document.getElementById(mapId),
+        myOptions);
+    
+    if(paramShowMarker==true){
+    $(".paramLatLong").remove();
+    latLongEmbedHtml="<input type=\"hidden\" name=\"map\" id=\"paramMap\" class=\"paramLatLong\" value=\""+currentLat+","+currentLong+"\">";
+    
+    $("#paramLatLong").html(latLongEmbedHtml);
+    
+    var marker = new google.maps.Marker({
+    map:map,
+    position: new google.maps.LatLng(currentLat,currentLong),
+    draggable: true
+    });
+    }
+    
+    var infowindow = new google.maps.InfoWindow({
+    //map:map,
+    //content: "ตำแหน่งที่ตั้ง",
+    //position:  new google.maps.LatLng(13.857326299999999, 100.7267414)
+    });
+    
+
+
+    google.maps.event.addListener(map,'click',function(event){
+        
+        if(!marker){
+            alert("คลิ๊กปุ่มปักหมุดก่อนครับ");
+            return false;
+        }
+
+        infowindow.open(map,marker);
+        //infowindow.setContent('ปักหมุดตรงนี้' + event.latLng);
+        infowindow.setContent('ปักหมุดตรงนี้');
+        //alert(event.latLng);
+        
+        var latt="";
+        var long="";
+        //find lat
+        latt=event.latLng+"";
+        latt=latt.split(",");
+        latt=latt[0].split("(");
+        latt=latt[1];
+        
+        
+        //find long
+        long=event.latLng+"";
+        long=long.split(",");
+        long=long[1].split(")");
+        long=long[0];
+        
+    
+        
+        
+        infowindow.setPosition(event.latLng);
+        marker.setPosition(event.latLng);
+        
+        /*
+        alert(latt);
+        alert(long);
+        */
+        
+        $(".paramLatLong").remove();
+        // latLongEmbedHtml="<input type=\"hidden\" name=\"paramLat\" id=\"paramLat\" class=\"paramLatLong\" value=\""+latt+"\">";
+        // latLongEmbedHtml+="<input type=\"hidden\" name=\"paramLong\" id=\"paramLong\" class=\"paramLatLong\" value=\""+long+"\">";
+		latLongEmbedHtml="<input type=\"hidden\" name=\"map\" id=\"paramMap\" class=\"paramLatLong\" value=\""+latt+","+long+"\">";	
+        $("#paramLatLong").html(latLongEmbedHtml);
+    
+    
+    });
+
+
+}
+
+
+
+
+
+
+   
+
+
 var callFlashSlide = function(text,flashType){
 	if(flashType=="error"){
 		
@@ -609,6 +708,23 @@ var mapObjectToFormFn  =function(data,options){
 				$(".checkbox-"+indexEntry['id']).prop('checked',false);
 			}
 			
+		}else if(indexEntry['inputType']=="map"){
+			
+			var paramLatLong=data[indexEntry['id']];
+		
+			var paramLat=13.754527854444193;
+			var paramLong=100.50024184078352;
+			if(paramLatLong!=null){
+				paramLatLong = paramLatLong.split(",");
+				paramLat=paramLatLong[0];
+				paramLong=paramLatLong[1];
+			}
+			setTimeout(function(){
+
+				setupMap(true,paramLat, paramLong,'map');
+		   },1000);
+
+			
 		}
 			
 	});
@@ -989,7 +1105,7 @@ var createInputTypeFn  = function(object,tokenID){
 	}
 	if(object['inputType']=="dropdown"){
 		if(object['DefaultDropDown']!==undefined && object['DefaultDropDown']=="access_type") {
-			inputType="<select "+inputTooltip+" class=\"col-md-12 m-b-n\" id=\""+object['id']+"\" name=\""+object['id']+"\" style=\"width:"+object['width']+"\">";
+			inputType="<select "+inputTooltip+" class=\"col-md-12 m-b-n form-control\" id=\""+object['id']+"\" name=\""+object['id']+"\" style=\"width:"+object['width']+"\">";
 			inputType+="<option value='JDBC'>JDBC</option>";
 			inputType+="<option value='ODBC'>ODBC</option>";
 			inputType+="</select>";
@@ -1002,7 +1118,7 @@ var createInputTypeFn  = function(object,tokenID){
 				headers:{Authorization:"Bearer "+tokenID},
 				//headers:{Authorization:"Bearer "+options['tokenID']},
 				success:function(data){
-					inputType="<select "+inputTooltip+" class=\"col-md-12 m-b-n\" id=\""+object['id']+"\" name=\""+object['id']+"\" style=\"width:"+object['width']+"\">";
+					inputType="<select "+inputTooltip+" class=\"col-md-12 m-b-n form-control\" id=\""+object['id']+"\" name=\""+object['id']+"\" style=\"width:"+object['width']+"\">";
 					//initValue
 					if(object['initValue']!=undefined){
 						inputType+="<option value=''>"+object['initValue']+"</option>";
@@ -1062,10 +1178,10 @@ var createInputTypeFn  = function(object,tokenID){
 		var dataDefault =(object['default'] == undefined ? "" : object['default']);
 		if(object['placeholder']!=undefined){
 			
-			inputType+="<input "+inputTooltip+" type=\""+(object['inputType']=='hidden' ? "hidden" : "text")+"\" style='width:"+object['width']+"' class=\"col-md-12 m-b-n "+dataTypeInput+"\" placeholder=\""+object['placeholder']+"\" id=\""+object['id']+"\" name=\""+object['id']+"\" value=\""+object['default']+"\"  >";
+			inputType+="<input "+inputTooltip+" type=\""+(object['inputType']=='hidden' ? "hidden" : "text")+"\" style='width:"+object['width']+"' class=\"col-md-12 m-b-n form-control "+dataTypeInput+"\" placeholder=\""+object['placeholder']+"\" id=\""+object['id']+"\" name=\""+object['id']+"\" value=\""+object['default']+"\"  >";
 			
 		}else{
-			inputType+="<input "+inputTooltip+" type=\""+(object['inputType']=='hidden' ? "hidden" : "text")+"\" style='width:"+object['width']+"' class=\"col-md-12 m-b-n "+dataTypeInput+"\" placeholder=\"\" id=\""+object['id']+"\" name=\""+object['id']+"\" value=\""+object['default']+"\" >";
+			inputType+="<input "+inputTooltip+" type=\""+(object['inputType']=='hidden' ? "hidden" : "text")+"\" style='width:"+object['width']+"' class=\"col-md-12 m-b-n form-control "+dataTypeInput+"\" placeholder=\"\" id=\""+object['id']+"\" name=\""+object['id']+"\" value=\""+object['default']+"\" >";
 			
 		}
 		
@@ -1151,7 +1267,15 @@ var createInputTypeFn  = function(object,tokenID){
 			inputType+="<textarea id=\""+object['id']+"\" name=\""+object['id']+"\" style='width:"+object['width']+"; height:"+object['height']+"' class=\"col-md-12 m-b-n ckeditorTextarea\" ></textarea>";
 			
 		}
+	}else if(object['inputType']=="map"){
+	
+			
+			inputType+="<div id=\""+object['id']+"\" style='width:"+object['width']+"; height:"+object['height']+"' class='map' ></div>";
+			inputType+="<div id=\"paramLatLong\"></div>";
+
+		
 	}
+
 	return inputType;
 }
 var createExpressSearchFn = function(){
@@ -1450,6 +1574,8 @@ var createDataTableFn = function(options){
 			
 			$("#modalFormArea").html(createFormFn(options));
 
+			
+
 
 
 			// if has mutiselect binding function muti select
@@ -1460,16 +1586,7 @@ var createDataTableFn = function(options){
 			//#### Binding Text EDITOR START
 			
 			$('textarea.ckeditorTextarea').ckeditor();
-			// CKEDITOR.replace( 'ckeditorTextarea' );
-			 // ClassicEditor
-    //                             .create( document.querySelector( '.ckeditorTextarea' ) )
-    //                             .then( editor => {
-    //                                     console.log( editor );
-    //                             } )
-    //                             .catch( error => {
-    //                                     console.error( error );
-    //                             } );
-
+		
 
 			//#### PREPARE FILE UPLOAD  START ####
 
@@ -1483,7 +1600,7 @@ var createDataTableFn = function(options){
 			}
 
 			//#### PREPARE FILE UPLOAD  END ####
-
+			
 
 
 			
@@ -1832,6 +1949,17 @@ var createDataTableFn = function(options){
 	    	}
 	    	//advance search end
 	    	//setThemeColorFn(tokenID.theme_color);
+		}
+	});
+
+	$("#btnAdd").click(function(){
+		
+		if($(".map").get()!=""){
+			
+			setTimeout(function(){
+				setupMap(true,13.754527854444193, 100.50024184078352,'map',7);
+		   },1000);
+
 		}
 	});
 }

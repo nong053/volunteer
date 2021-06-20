@@ -25,10 +25,11 @@
 		    			           {"colunmsDisplayName":"หมวดภารกิจ","width":"30%","id":"folder_cate_name","colunmsType":"text"},
 		    			           
 		    			           // {"colunmsDisplayName":"Is Article","width":"10%","id":"folder_cate_article_type_id","colunmsType":"text"},
-		    			           {"colunmsDisplayName":"สถานะ","width":"15%","id":"folder_cate_status","colunmsType":"status"},
-		    			            {"colunmsDisplayName":"สิทธิ์","width":"15%","id":"folder_cate_grant_privileges","colunmsType":"status"},
-		    			             {"colunmsDisplayName":"ประเภทภารกิจ","width":"10%","id":"mission_type_name","colunmsType":"text"},
-		    			            // {"colunmsDisplayName":"วันที่งานสำเร็จ","width":"15%","id":"mission_complete_date","colunmsType":"text"},
+		    			           {"colunmsDisplayName":"สถานะ","width":"5%","id":"folder_cate_status","colunmsType":"status"},
+		    			           {"colunmsDisplayName":"สิทธิ์","width":"5%","id":"folder_cate_grant_privileges","colunmsType":"status"},
+		    			           {"colunmsDisplayName":"ประเภทภารกิจ","width":"10%","id":"mission_type_name","colunmsType":"text"},
+		    			           {"colunmsDisplayName":"เริ่มต้น","width":"10%","id":"mission_begin_date","colunmsType":"text"},
+								   {"colunmsDisplayName":"สิ้นสุด","width":"10%","id":"mission_complete_date","colunmsType":"text"},
 		    			            // {"colunmsDisplayName":"ไอคอน","width":"10%","id":"folder_cate_icon","colunmsType":"text"},
 		    			           
 		    			           
@@ -53,22 +54,32 @@
 		        	// 				"id":"folder_cate_article_type_id","width":"250px"
 		        	// 			}
 		    					,
-		    					{
-		        					"label":"เปิดใช้งาน","inputType":"checkbox","default":"checked",
-		        					"id":"folder_cate_status","width":"250px"
-		        				},
+		    					
 		        				{
 		    						"label":"ประเภทภารกิจหลัก","inputType":"dropdown","updateList":true,
 		    						"id":"mission_type_id","width":"200px","url":""+restfulURL+"/"+serviceName+"/public/files-detail-check-list-master/mission_type"
 		    					},
-		    					// {
-			    				// 	"label":"วันที่งานสำเร็จ","inputType":"date","placeholder":"วันที่งานสำเร็จ",
-			    				// 	"id":"mission_complete_date","width":"200px"
-		    					// },
+		    					{
+			    					"label":"วันเวลาเริ่มต้น","inputType":"datetime","placeholder":"วันเวลาเริ่มต้น",
+			    					"id":"mission_begin_date","width":"200px"
+		    					},
+								{
+			    					"label":"วันเวลาสิ้นสุด","inputType":"datetime","placeholder":"วันเวลาสิ้นสุด",
+			    					"id":"mission_complete_date","width":"200px"
+		    					},
 		        				
 		    					{
 		        					"label":"สิทธิ์(เพิ่ม,ลบ,แก้ไขที่หน้าจอ)","inputType":"checkbox","default":"",
 		        					"id":"folder_cate_grant_privileges","width":"250px"
+		        				},
+								{
+		        					"label":"เปิดใช้งาน","inputType":"checkbox","default":"checked",
+		        					"id":"folder_cate_status","width":"250px"
+		        				}
+								,
+								{
+		        					"label":"แผนที่","inputType":"map",
+		        					"id":"map","width":"100%","height":"250px;" 
 		        				}
 		        				
 		    					
