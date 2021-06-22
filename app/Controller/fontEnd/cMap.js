@@ -168,12 +168,16 @@ function createMap(jsonObjEncode,mapId,zoom) {
 
 // call total map start
 var callDataForMap = function(id){
-
+ // /api/public/check-master-list/check_list_master_by_role/5
+ // /api/public/check-master-list/check_list_master_by_role/1
   var route="";
   if(id!="" && id!=null && id!='null'){
     route="/api/public/folder-cate/call_map_by_id/"+id;
   }else{
-    route="/api/public/folder-cate/call_map_all";
+    // route="/api/public/folder-cate/call_map_all"
+    route="/api/public/check-master-list/check_list_master_by_role/"+sessionStorage.getItem('galbalRole')
+    
+    ;
   }
   $.ajax({
     url:restURL+route,
@@ -186,7 +190,7 @@ var callDataForMap = function(id){
         
         var latLng=[];
         var jsonObj="[";
-        $.each(data,function(index,indexEntry){
+        $.each(data['data_category'],function(index,indexEntry){
 
           if(indexEntry['map']!=null){
             latLng=indexEntry['map'].split(",");
@@ -316,6 +320,7 @@ var getColor = function(important){
   return color;
 }
 var callDataForCalendar = function(){
+ // /api/public/check-master-list/check_list_master_by_role/5
    $.ajax({
     url:restURL+"/api/public/folder-cate/call_map_all",
     type:"get",
@@ -367,6 +372,7 @@ $(document).ready(function(){
         
          //setupMap(true,13.857326299999999, 100.7267414,'map');
          callDataForMap($.urlParam('id'));
+
          
     },1000);
   

@@ -857,10 +857,12 @@ where (folder_cate_id=? or 'All' = ?) order by fdclm.folder_cate_id ",array($che
 	}
 	public function check_list_master_by_role(Request $request,$user_group_id)
 	{
-	
+		//id,folder_cate_name,map,mission_begin_date,mission_complete_date,folder_cate_seq
 		$data_folder_cate_id="";
 		$items_folder_cate = DB::select("
-			select a.folder_cate_id ,fc.folder_cate_name,fc.folder_cate_grant_privileges,fc.mission_type_id,mt.mission_type_name
+			select a.folder_cate_id ,
+			fc.id,fc.folder_cate_name,fc.mission_begin_date,fc.mission_complete_date,fc.folder_cate_seq,fc.folder_cate_grant_privileges,fc.mission_type_id,fc.map,
+			mt.mission_type_name
 			from authority a
 			inner join folder_category fc on a.folder_cate_id=fc.id
 			inner join mission_type mt on mt.mission_type_id=fc.mission_type_id

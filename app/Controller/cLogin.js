@@ -207,9 +207,9 @@ $(document).ready(function(){
 						sessionStorage.setItem('galbalUsername', $("#username").val());
 
 						if(data.role==5){
-							window.location = "./app/font-end/#/pages/dashboards";
+							window.location = "./app/font-end/#/pages/map";
 						}else{
-							window.location = "./app/font-end/#/pages/check-list";
+							window.location = "./app/font-end/#/pages/map";
 						}
 
 				},

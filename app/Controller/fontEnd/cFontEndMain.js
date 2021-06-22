@@ -177,7 +177,7 @@ app.config(function($routeProvider) {
 	$routeProvider
 	.when("/", {
         //templateUrl : "home.html"
-        templateUrl : "check-list-report.html"
+        templateUrl : "map.html"
     })
     .when("/pages/:url", {
         templateUrl : "../home1.html",
