@@ -34,7 +34,7 @@ class FolderCateController extends Controller
 
 		if( $profile[0]->role==5){
 			$items = DB::select("
-			select id,folder_cate_name,folder_cate_seq,folder_cate_status,folder_cate_article_type_id,
+			select id,folder_cate_name,folder_cate_detail,folder_cate_seq,folder_cate_status,folder_cate_article_type_id,
 folder_cate_icon,folder_cate_grant_privileges,folder_category.mission_type_id,mt.mission_type_name,map,mission_begin_date,mission_complete_date
 			from folder_category
             inner join mission_type mt on folder_category.mission_type_id=mt.mission_type_id
@@ -44,7 +44,7 @@ folder_cate_icon,folder_cate_grant_privileges,folder_category.mission_type_id,mt
 		
 		}else{
 			$items = DB::select("
-			select id,folder_cate_name,folder_cate_seq,folder_cate_status,folder_cate_article_type_id,
+			select id,folder_cate_name,folder_cate_detail,folder_cate_seq,folder_cate_status,folder_cate_article_type_id,
 folder_cate_icon,folder_cate_grant_privileges,folder_category.mission_type_id,mt.mission_type_name,map,mission_begin_date,mission_complete_date
 			from folder_category
             inner join mission_type mt on folder_category.mission_type_id=mt.mission_type_id
@@ -79,13 +79,13 @@ folder_cate_icon,folder_cate_grant_privileges,folder_category.mission_type_id,mt
 
 	public function call_map_all()
 	{		
-		$items = DB::select("SELECT id,folder_cate_name,map,mission_begin_date,mission_complete_date,folder_cate_seq FROM folder_category where folder_cate_status!=0 order by folder_cate_seq,mission_begin_date asc");
+		$items = DB::select("SELECT id,folder_cate_name,folder_cate_detail,map,mission_begin_date,mission_complete_date,folder_cate_seq FROM folder_category where folder_cate_status!=0 order by folder_cate_seq,mission_begin_date asc");
 		return response()->json($items);
 		
 	}
 	public function call_map_by_id($id)
 	{		
-		$items = DB::select("SELECT id,folder_cate_name,map,mission_begin_date,mission_complete_date,folder_cate_seq FROM volunteer_db.folder_category where id=? and folder_cate_status!=0 ",
+		$items = DB::select("SELECT id,folder_cate_name,folder_cate_detail,map,mission_begin_date,mission_complete_date,folder_cate_seq FROM volunteer_db.folder_category where id=? and folder_cate_status!=0 ",
 		array($id));
 		return response()->json($items);
 	}
@@ -203,7 +203,7 @@ folder_cate_icon,folder_cate_grant_privileges,folder_category.mission_type_id,mt
 		$items = DB::select("
 
 
-		select fc.id,fc.folder_cate_name,fc.folder_cate_seq,fc.folder_cate_status,(select count(*) from folder_sub_cate 
+		select fc.id,fc.folder_cate_name,fc.folder_cate_detail,fc.folder_cate_seq,fc.folder_cate_status,(select count(*) from folder_sub_cate 
 where folder_cate_id=fc.id) as count_sub_folder
 			from folder_category fc
 			order by fc.id,fc.folder_cate_seq asc
@@ -245,7 +245,7 @@ where folder_cate_id=fc.id) as count_sub_folder
 		$items = DB::select("
 
 
-			select fc.id,fc.folder_cate_name,fc.mission_type_id,folder_cate_article_type_id,(select count(*) from folder_sub_cate 
+			select fc.id,fc.folder_cate_name,fc.folder_cate_detail,fc.mission_type_id,folder_cate_article_type_id,(select count(*) from folder_sub_cate 
 where folder_cate_id=fc.id) as count_sub_folder from authority a
 inner join folder_category fc on fc.id=a.folder_cate_id
 where user_group_id= (select role from profile  where email=?) and fc.folder_cate_status =1

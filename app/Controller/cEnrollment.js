@@ -337,9 +337,17 @@ var listEnrollmentDataFn = function(data){
 		}
 		//html+="<td> "+indexEntry['TITLE']+"</td>";
 		html+="<td> "+indexEntry['TITLE']+""+indexEntry['FIRST_NAME']+" "+indexEntry['LAST_NAME']+"</td>";
-		html+="<td>"+indexEntry['POSITION']+"</td>";
-		html+="<td>"+indexEntry['user_group_name']+"</td>";
-
+		if(indexEntry['POSITION']==null ){
+			html+="<td>-</td>";
+		}else{
+			html+="<td>"+indexEntry['POSITION']+"</td>";
+		}
+		
+		if(indexEntry['user_group_name']==null ){
+			html+="<td>-</td>";
+		}else{
+			html+="<td>"+indexEntry['user_group_name']+"</td>";
+		}
 		html+="<td>";
 
 		if(indexEntry['ACTIVE_FLAG']==1){

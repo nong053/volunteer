@@ -776,7 +776,7 @@ $(document).ready(function(){
                       }else{
                          htmlTR+="<td  style=' background:#4A4A70; text-align:right; font-weight:bold;'> ";
                       }
-                      htmlTR+="<button style='margin-left:5px;' id='addMission-"+indexEntryCate['folder_cate_id']+"' class='btn btn-success addMission '  ><i class='fa fa-plus'></i> <span class='hidden-xs'>เพิ่ม</span>ภารกิจ</button>";
+                      htmlTR+="<button style='margin-left:5px;' id='addMission-"+indexEntryCate['folder_cate_id']+"' class='btn btn-success addMission '  ><i class='fa fa-plus'></i> รายงาน</button>";
                       htmlTR+="</td>";
                     htmlTR+="</tr>";
                 }else{

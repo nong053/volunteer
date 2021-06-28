@@ -117,13 +117,13 @@ $(document).ready(function(){
 		    			
 		    			"colunms":[
 		    					   {"colunmsDisplayName":"รหัส","width":"5%","id":"user_group_id","colunmsType":"text"},
-		    			           {"colunmsDisplayName":"กลุ่มผู้ใช้งาน","width":"20%","id":"user_group_name","colunmsType":"text"}
+		    			           {"colunmsDisplayName":"กลุ่มจิตอาสา","width":"20%","id":"user_group_name","colunmsType":"text"}
 		    			           
 		    			          ],
 		    			"form":[
 		    					
 		    					{
-		    					"label":"ชื่อกลุ่มผู้ใช้","inputType":"text","placeholder":"กลุ่มผู้ใช้งาน",
+		    					"label":"ชื่อกลุ่มจิตอาสา","inputType":"text","placeholder":"ชื่อกลุ่มจิตอาสา",
 		    					"id":"user_group_name","width":"200px","required":true,
 		    					}
 		    					/*
@@ -135,13 +135,13 @@ $(document).ready(function(){
 		        				*/
 		    					
 		    			     ],
-		        	     "formDetail":{"formSize":"modal-dialog","formName":"กลุ่มผู้ใช้งาน","id":"folder_form","pk_id":"user_group_id"},       
+		        	     "formDetail":{"formSize":"modal-dialog","formName":"กลุ่มจิตอาสา","id":"folder_form","pk_id":"user_group_id"},       
 		    			 "serviceName":[restfulURL+"/"+serviceName+"/public/user-group"],
 		    			 "tokenID":tokenID,
 		    			 //"pagignation":true,
 		    			 "expressSearch":true,
 						 //"btnManage":true,
-						 "btnManageOption":{id:"assign_role",name:"จัดการสิทธิ์"},
+						 "btnManageOption":{id:"assign_role",name:"เลิอกภารกิจ"},
 						 "btnManageDisabledEditAndDelById":[5]
 		    			// "btnAdvanceImportOption":true
 		    	}

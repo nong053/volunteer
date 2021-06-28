@@ -23,7 +23,7 @@
 		    			
 		    			"colunms":[
 		    					   {"colunmsDisplayName":"รหัส","width":"5%","id":"file_detail_id","colunmsType":"text"},
-		    			           {"colunmsDisplayName":"ภารกิจ","width":"25%","id":"check_list_name","colunmsType":"text"},
+		    			           {"colunmsDisplayName":"หัวข้อรายงาน","width":"25%","id":"check_list_name","colunmsType":"text"},
 		    			           {"colunmsDisplayName":"มอบหมายงาน","width":"15%","id":"fullname","colunmsType":"text"},
 		    			           {"colunmsDisplayName":"ความสำคัญ","width":"10%","id":"priority_name","colunmsType":"text"},
 		    			           ///{"colunmsDisplayName":"แผนเริ่มทำภากิจ","width":"10%","id":"start_mission_dttm","colunmsType":"text"},
@@ -68,7 +68,7 @@
 			    				// 	"id":"end_mission_dttm","width":"200px"
 		    					// },
 		    					{
-		    					"label":"ภารกิจ","inputType":"text","placeholder":"ภารกิจ",
+		    					"label":"หัวข้อรายงาน","inputType":"text","placeholder":"หัวข้อรายงาน",
 		    					"id":"check_list_name","width":"100%","required":true
 		    					},
 		    					{
@@ -99,7 +99,7 @@
 		        	     "formDetail":
 		        	     {
 			        	     "formSize":"modal-dialog",
-			        	     "formName":"ภารกิจ",
+			        	     "formName":"รายงาน",
 			        	     "id":"file_detail_form",
 			        	     "pk_id":"file_detail_id",
 			        	     "uploadInForm":true

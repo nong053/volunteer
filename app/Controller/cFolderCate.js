@@ -22,7 +22,7 @@
 		    			"colunms":[
 		    					   {"colunmsDisplayName":"รหัส","width":"5%","id":"id","colunmsType":"text"},
 		    					   {"colunmsDisplayName":"ความสำคัญ","width":"10%","id":"folder_cate_seq","colunmsType":"text"},
-		    			           {"colunmsDisplayName":"หมวดภารกิจ","width":"30%","id":"folder_cate_name","colunmsType":"text"},
+		    			           {"colunmsDisplayName":"ภารกิจ","width":"30%","id":"folder_cate_name","colunmsType":"text"},
 		    			           
 		    			           // {"colunmsDisplayName":"Is Article","width":"10%","id":"folder_cate_article_type_id","colunmsType":"text"},
 		    			           {"colunmsDisplayName":"สถานะ","width":"5%","id":"folder_cate_status","colunmsType":"status"},
@@ -40,9 +40,13 @@
 		    					"label":"ลำดับ","inputType":"text","placeholder":"ลำดับ",
 		    					"id":"folder_cate_seq","width":"200px","required":true,
 		    					},{
-		    					"label":"หมวดภารกิจ","inputType":"text","placeholder":"หมวดภารกิจ",
-		    					"id":"folder_cate_name","width":"200px","required":true,
+		    					"label":"ภารกิจ","inputType":"text","placeholder":"ภารกิจ",
+		    					"id":"folder_cate_name","width":"100%","required":true,
 		    					}
+								,{
+									"label":"รายละเอียด","inputType":"textarea","placeholder":"รายละเอียด",
+									"id":"folder_cate_detail","width":"100%","required":false,
+									}
 		    					// ,
 		    					// {
 		    					// "label":"ไอคอน","inputType":"text","placeholder":"ไอคอน",
@@ -79,12 +83,12 @@
 								,
 								{
 		        					"label":"แผนที่","inputType":"map",
-		        					"id":"map","width":"100%","height":"250px;" 
+		        					"id":"map","width":"100%","height":"300px;" 
 		        				}
 		        				
 		    					
 		    			     ],
-		        	     "formDetail":{"formSize":"modal-dialog","formName":"หมวดภารกิจ","id":"folder_category_form","pk_id":"id"},       
+		        	     "formDetail":{"formSize":"modal-dialog","formName":"ภารกิจ","id":"folder_category_form","pk_id":"id"},       
 		    			 "serviceName":[restfulURL+"/"+serviceName+"/public/folder-cate"],
 		    			 "tokenID":tokenID,
 		    			 //"pagignation":true,

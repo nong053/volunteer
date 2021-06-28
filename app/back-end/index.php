@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>ระบบติดตามผลการปฏบัติงานแบบ Real-time</title>
+  <title>ระบบติดตามผลการปฏบัติงาน</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -181,30 +181,32 @@
           <a href="#/pages/home" id='home_main_menu' >
           <i class="fa fa-dashboard"></i> <span>แดชบอร์ด</span></a>
         </li> -->
+
+        <li class="menuDisplay mainMenu adminMenu">
+          <a href="#/pages/folder-cate" id="folder_cate_main_menu">
+            <i class="fa fa-fw fa-folder-open-o"></i> <span>จัดการภารกิจ</span>
+            
+          </a>
+         
+        </li>
        <li class="menuDisplay mainMenu adminMenu">
           <a href="#/pages/user-group" id="user_group_main_menu">
-            <i class="fa fa-users"></i> <span>กลุ่มผู้ใช้งาน</span>
+            <i class="fa fa-users"></i> <span>กลุ่มจิตอาสา</span>
           </a> 
         </li>
         <li  class="menuDisplay mainMenu userMenu adminMenu">
           <a href="#/pages/user-management" id="user_management_main_menu_admin">
-            <i class="fa fa-user"></i> <span>จัดการผู้ใช้งาน</span>
+            <i class="fa fa-user"></i> <span>จิตอาสา</span>
             
           </a>
          
         </li>
 
-        <li class="menuDisplay mainMenu adminMenu">
-          <a href="#/pages/folder-cate" id="folder_cate_main_menu">
-            <i class="fa fa-fw fa-folder-open-o"></i> <span>จัดการหมวดภารกิจ</span>
-            
-          </a>
-         
-        </li>
+       
 
         <li class="menuDisplay mainMenu adminMenu">
           <a href="#/pages/folder-level1-user" id="folder_level1_user_main_menu_admin">
-            <i class="fa fa-flag-checkered"></i> <span>จัดการภารกิจ</span>
+            <i class="fa fa-flag-checkered"></i> <span>รายงานภารกิจ</span>
           </a> 
         </li>
 
