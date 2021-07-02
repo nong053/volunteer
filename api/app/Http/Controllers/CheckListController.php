@@ -218,7 +218,8 @@ on cl.check_list_type=fc.id
 inner join mission_type mt on fc.mission_type_id=mt.mission_type_id
 inner join profile p on cl.profile_id=p.profile_id
 left join files f on p.profile_id=f.profile_id
-where lates_flag=1 and date=CURDATE() 
+where lates_flag=1 
+-- and date=CURDATE() 
 and cl.check_list_type in($data_folder_cate_id)
 
 and (check_list_type=? or 'all'=?)

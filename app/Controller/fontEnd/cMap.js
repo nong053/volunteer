@@ -187,10 +187,16 @@ var callDataForMap = function(id){
     success:function(data){
 
       // id,folder_cate_name,map,mission_begin_date,mission_complete_date,folder_cate_seq
+      var data;
+      if(id!="" && id!=null && id!='null'){
+        data =data;
+      }else{
+        data =data['data_category'];
+      }
         
         var latLng=[];
         var jsonObj="[";
-        $.each(data['data_category'],function(index,indexEntry){
+        $.each(data,function(index,indexEntry){
 
           if(indexEntry['map']!=null){
             latLng=indexEntry['map'].split(",");

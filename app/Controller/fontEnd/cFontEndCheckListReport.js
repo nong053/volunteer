@@ -338,8 +338,8 @@ $(document).ready(function(){
         if(indexEntry['check_list_type']!=checkCategory){
           listHTML+="<tr>";
               listHTML+="<td colspan='7' style='text-align:left; background:#4A4A70; padding-left:15px; font-weight:bold;'>";
-              listHTML+=indexEntry['folder_cate_name']+" ("+indexEntry['mission_type_name']+")";
-              listHTML+="</td>";
+              //listHTML+=indexEntry['folder_cate_name']+" ("+indexEntry['mission_type_name']+")";
+              listHTML+=indexEntry['folder_cate_name']+" ("+indexEntry['date']+")";
           listHTML+="</tr>";
 
         }
@@ -362,7 +362,7 @@ $(document).ready(function(){
               if( indexEntry['attach_file']!=null){
                    listHTML+=indexEntry['check_list_name']+"<a class='force_download_files' href=\""+indexEntry['attach_file']+"\"><i class='fa fa-paperclip attach_file '></i></a>";
                 }else{
-                    listHTML+=indexEntry['check_list_name'];;
+                    listHTML+=indexEntry['check_list_name']+" ("+indexEntry['date']+")";
                 }
 
              
