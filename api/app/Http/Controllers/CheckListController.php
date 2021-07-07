@@ -165,7 +165,7 @@ class CheckListController extends Controller
 
 		$data_folder_cate_id="";
 		$items_folder_cate = DB::select("
-			select a.folder_cate_id ,fc.folder_cate_name,fc.folder_cate_grant_privileges
+			select a.folder_cate_id ,fc.folder_cate_name,fc.folder_cate_detail,fc.folder_cate_grant_privileges
 			from authority a
 			inner join folder_category fc on a.folder_cate_id=fc.id
 			where user_group_id in(select role from profile where email=?) 
@@ -209,7 +209,7 @@ class CheckListController extends Controller
     TIME(`cl`.`not_complete_time`) as not_complete_time,
     TIME(`cl`.`complete_time`) as complete_time,
 
-			fc.folder_cate_name,p.first_name,f.file_path,
+			fc.folder_cate_name,fc.folder_cate_detail,p.first_name,f.file_path,
 (select file_path from files fs where fs.file_detail_id=cl.check_list_id ) as attach_file,
 fc.mission_type_id,mt.mission_type_name
  from check_list cl

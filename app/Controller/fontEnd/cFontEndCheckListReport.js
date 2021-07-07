@@ -340,6 +340,7 @@ $(document).ready(function(){
               listHTML+="<td colspan='7' style='text-align:left; background:#4A4A70; padding-left:15px; font-weight:bold;'>";
               //listHTML+=indexEntry['folder_cate_name']+" ("+indexEntry['mission_type_name']+")";
               listHTML+=indexEntry['folder_cate_name']+" ("+indexEntry['date']+")";
+              listHTML+="<div style='font-weight:normal;'> "+indexEntry['folder_cate_detail']+"</div>";
           listHTML+="</tr>";
 
         }
