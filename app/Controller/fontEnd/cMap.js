@@ -93,7 +93,7 @@ function setupMap(paramShowMarker,currentLat,currentLong,mapId) {
 
 function createMap(jsonObjEncode,mapId,zoom) {
 
-  var paramLat=13.847860;
+  var paramLat=10.847860;
   var paramLog=100.604274;
   var paramZoom=zoom;
   if(jsonObjEncode.length==1){
@@ -218,7 +218,7 @@ var callDataForMap = function(id){
 
         var jsonObjEncode=eval("("+jsonObj+")");
       //console.log(jsonObjEncode);
-      createMap(jsonObjEncode,"map",10);
+      createMap(jsonObjEncode,"map",6);
       
     }
   });

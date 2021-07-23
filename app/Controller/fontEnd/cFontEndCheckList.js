@@ -765,7 +765,7 @@ $(document).ready(function(){
                     }else{
                         htmlTR+="<td colspan='6' style=\"text-align: left; background:#4A4A70; font-weight:bold; padding-top:10px; padding-left:10px;\">";
                     }
-                      htmlTR+="<span id='folder_cate_name-"+indexEntryCate['folder_cate_id']+"'>"+indexEntryCate['folder_cate_name']+" ("+indexEntryCate['mission_type_name']+")";
+                      htmlTR+="<span id='folder_cate_name-"+indexEntryCate['folder_cate_id']+"'>"+indexEntryCate['folder_cate_name']+" ระหว่างวันที่ "+indexEntryCate['mission_begin_date']+" ถึง "+indexEntryCate['mission_complete_date']+" ("+indexEntryCate['mission_type_name']+")";
                       htmlTR+="</td>";
 
                       
@@ -782,7 +782,7 @@ $(document).ready(function(){
                 }else{
                     htmlTR+="<tr>";
                       htmlTR+="<td colspan='6' style=\"text-align: left; background:#4A4A70;  padding:10px;\">";
-                      htmlTR+=""+indexEntryCate['folder_cate_name']+" ("+indexEntryCate['mission_type_name']+")";
+                      htmlTR+=""+indexEntryCate['folder_cate_name']+" ระหว่างวันที่ "+indexEntryCate['mission_begin_date']+" ถึง "+indexEntryCate['mission_complete_date']+" ("+indexEntryCate['mission_type_name']+")";
                       htmlTR+="</td>";
 
                       htmlTR+="<td style=' background:#4A4A70; text-align:right; padding:10px;'> ";
