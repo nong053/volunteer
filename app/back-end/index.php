@@ -426,6 +426,11 @@
             <i class="fa fa-pie-chart"></i> <span>แดชบอร์ด</span>
           </a> 
         </li>
+        <li class="menuDisplay  adminMenu">
+          <a href="../font-end/#/pages/map" id="check_list_report">
+            <i class="fa fa-map"></i> <span>แผนที่</span>
+          </a> 
+        </li>
 
         <!-- <li class="menuDisplay mainMenu userMenu adminMenu AssignerMenu approversMenu"">
           <a href="#/pages/about-us" id="aboutus_main_menu"><i class="fa fa-book"></i> <span>เกี่ยวกับเรา</span></a></li> -->

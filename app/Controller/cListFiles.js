@@ -24,7 +24,7 @@
 		    			"colunms":[
 		    					   {"colunmsDisplayName":"รหัส","width":"5%","id":"file_detail_id","colunmsType":"text"},
 		    			           {"colunmsDisplayName":"หัวข้อรายงาน","width":"25%","id":"check_list_name","colunmsType":"text"},
-		    			           {"colunmsDisplayName":"มอบหมายงาน","width":"15%","id":"fullname","colunmsType":"text"},
+		    			           {"colunmsDisplayName":"จิตอาสา","width":"15%","id":"fullname","colunmsType":"text"},
 		    			           {"colunmsDisplayName":"ความสำคัญ","width":"10%","id":"priority_name","colunmsType":"text"},
 		    			           ///{"colunmsDisplayName":"แผนเริ่มทำภากิจ","width":"10%","id":"start_mission_dttm","colunmsType":"text"},
 		    			          // {"colunmsDisplayName":"แผนภารกิจแล้วเสร็จ","width":"10%","id":"end_mission_dttm","colunmsType":"text"},
@@ -46,7 +46,7 @@
 
 		    					// },
 		    					{
-		    					"label":"มอบหมายงาน","inputType":"dropdown","placeholder":"มอบหมายงานให้พนักงาน" , "initValue":"ไม่ระบุ",
+		    					"label":"จิตอาสา","inputType":"dropdown","placeholder":"มอบหมายงานให้พนักงาน" , "initValue":"ไม่ระบุ",
 		    					"id":"profile_id","width":"200px","url":""+restfulURL+"/"+serviceName+"/public/files-detail-check-list-master/emp_list_by_folder_cate/"+sessionStorage.getItem('cate_id'),
 
 		    					},

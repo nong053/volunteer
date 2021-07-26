@@ -84,6 +84,7 @@ folder_cate_icon,folder_cate_grant_privileges,folder_category.mission_type_id,mt
 		SELECT id,folder_cate_name,folder_cate_detail,map,mission_begin_date,mission_complete_date,folder_cate_seq 
 		FROM folder_category 
 		where folder_cate_status!=0 
+		and now() < mission_complete_date
 		order by folder_cate_seq,mission_begin_date asc");
 		return response()->json($items);
 		

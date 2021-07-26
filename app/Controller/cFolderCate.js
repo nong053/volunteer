@@ -27,7 +27,7 @@
 		    			           // {"colunmsDisplayName":"Is Article","width":"10%","id":"folder_cate_article_type_id","colunmsType":"text"},
 		    			           {"colunmsDisplayName":"สถานะ","width":"5%","id":"folder_cate_status","colunmsType":"status"},
 		    			           {"colunmsDisplayName":"สิทธิ์","width":"5%","id":"folder_cate_grant_privileges","colunmsType":"status"},
-		    			           {"colunmsDisplayName":"ประเภทภารกิจ","width":"10%","id":"mission_type_name","colunmsType":"text"},
+		    			           //{"colunmsDisplayName":"ประเภทภารกิจ","width":"10%","id":"mission_type_name","colunmsType":"text"},
 		    			           {"colunmsDisplayName":"เริ่มต้น","width":"10%","id":"mission_begin_date","colunmsType":"text"},
 								   {"colunmsDisplayName":"สิ้นสุด","width":"10%","id":"mission_complete_date","colunmsType":"text"},
 		    			            // {"colunmsDisplayName":"ไอคอน","width":"10%","id":"folder_cate_icon","colunmsType":"text"},
@@ -73,7 +73,7 @@
 		    					},
 		        				
 		    					{
-		        					"label":"สิทธิ์(เพิ่ม,ลบ,แก้ไขที่หน้าจอ)","inputType":"checkbox","default":"",
+		        					"label":"สิทธิ์(เพิ่ม,ลบ,แก้ไขที่หน้าจอ)","inputType":"checkbox","default":"checked",
 		        					"id":"folder_cate_grant_privileges","width":"250px"
 		        				},
 								{
@@ -98,6 +98,9 @@
 		    	}
 		    	//console.log(options['tokenID'].token);
 		    	createDataTableFn(options);
+
+				$("#form-group-mission_type_id").hide();
+				$("#mission_type_id").hide();
 	 // 	}	
 	 // }   
     	

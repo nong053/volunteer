@@ -27,6 +27,22 @@ moment.locale('th');
 //   success: function() {}
 // });
 
+var getScoreFn = function(scroe){
+  var listHTML="";
+  if(scroe<=20){
+    listHTML+="<i style=\"color:white; margin-top:7px; \" class=\" fa fa-star\"></i>";
+  }else if(scroe<=60){
+    listHTML+="<i style=\"color:white; margin-top:7px;\" class=\" fa fa-star\"></i><i style=\"color:white; \" class=\" fa fa-star\"></i>";
+  }else if(scroe<=100){
+    listHTML+="<i style=\"color:white; margin-top:7px;\" class=\" fa fa-star\"></i><i style=\"color:white; \" class=\" fa fa-star\"></i><i style=\"color:white; \" class=\" fa fa-star\"></i>";
+  }else if(scroe<=150){
+    listHTML+="<i style=\"color:white; margin-top:7px;\" class=\" fa fa-star\"></i><i style=\"color:white; \" class=\" fa fa-star\"></i><i style=\"color:white; \" class=\" fa fa-star\"></i><i style=\"color:white; \" class=\" fa fa-star\"></i>";
+  }else if(scroe>150){
+    listHTML+="<i style=\"color:white; margin-top:7px;\" class=\" fa fa-star\"></i><i style=\"color:white; \" class=\" fa fa-star\"></i><i style=\"color:white; \" class=\" fa fa-star\"></i><i style=\"color:white; \" class=\" fa fa-star\"></i><i style=\"color:white; \" class=\" fa fa-star\"></i>";
+  }
+  return listHTML;
+}
+
 
 //set default parameter 
 if(sessionStorage.getItem('checkListType')==null){

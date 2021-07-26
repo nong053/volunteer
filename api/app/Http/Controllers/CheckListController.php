@@ -209,7 +209,13 @@ class CheckListController extends Controller
     TIME(`cl`.`not_complete_time`) as not_complete_time,
     TIME(`cl`.`complete_time`) as complete_time,
 
-			fc.folder_cate_name,fc.folder_cate_detail,p.first_name,f.file_path,
+			fc.folder_cate_name,fc.folder_cate_detail,
+			p.first_name,
+			(SELECT count(*) 
+FROM check_list
+where check_list_status=4 and profile_id=p.profile_id) as score,
+
+			f.file_path,
 (select file_path from files fs where fs.file_detail_id=cl.check_list_id ) as attach_file,
 fc.mission_type_id,mt.mission_type_name
  from check_list cl
@@ -868,7 +874,8 @@ where (folder_cate_id=? or 'All' = ?) order by fdclm.folder_cate_id ",array($che
 			inner join folder_category fc on a.folder_cate_id=fc.id
 			inner join mission_type mt on mt.mission_type_id=fc.mission_type_id
 			where user_group_id=? and fc.folder_cate_status=1 
-			and  now() between fc.mission_begin_date and fc.mission_complete_date
+			and   now() < fc.mission_complete_date
+			-- now() between fc.mission_begin_date and fc.mission_complete_date
 			order by fc.id",
 			array($user_group_id));
 

@@ -35,7 +35,7 @@ var createEmpPeformanceTableData = function(data){
                     $.each(data,function(index,indexEntry){
 
                         htmlTr+="<tr>";
-                            htmlTr+="<td>"+indexEntry['fullname']+"</td>";
+                            htmlTr+="<td>"+indexEntry['fullname']+"("+getScoreFn(indexEntry['score'])+")</td>";
                             htmlTr+="<td>"+indexEntry['position']+"</td>";
                             htmlTr+="<td>"+indexEntry['job_asigned']+"</td>";
                             htmlTr+="<td>"+indexEntry['is_working']+"</td>";

@@ -100,7 +100,7 @@ function createMap(jsonObjEncode,mapId,zoom) {
     
     paramLat=parseFloat(jsonObjEncode[0]['lat']);
     paramLog=parseFloat(jsonObjEncode[0]['lng']);
-    paramZoom=15;
+    paramZoom=6;
   }
 
 	var mapOptions = {

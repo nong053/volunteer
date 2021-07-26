@@ -39,7 +39,11 @@ class DashboardsController extends Controller
 (select count(*) from check_list where check_list_status=2 and profile_id=cl.profile_id and check_list_type =?) as is_working,
 (select count(*) from check_list where check_list_status=3 and profile_id=cl.profile_id  and check_list_type =?) as job_not_complete,
 (select count(*) from check_list where check_list_status=4 and profile_id=cl.profile_id and check_list_type =?) as job_completed,
-(select count(*) from check_list where  profile_id=cl.profile_id and check_list_status!=0 and check_list_type =?) as all_mission
+(select count(*) from check_list where  profile_id=cl.profile_id and check_list_status!=0 and check_list_type =?) as all_mission,
+(SELECT count(*) 
+FROM check_list
+where check_list_status=4 and profile_id=cl.profile_id) as score
+
  from check_list cl
  inner join profile p on cl.profile_id=p.profile_id
 where  check_list_type =?
@@ -71,8 +75,13 @@ group by cl.profile_id
 (select count(*) from check_list where check_list_status=2 and profile_id=cl.profile_id and date between ? and ? and check_list_type =?) as is_working,
 (select count(*) from check_list where check_list_status=3 and profile_id=cl.profile_id  and date between ? and ? and check_list_type =?) as job_not_complete,
 (select count(*) from check_list where check_list_status=4 and profile_id=cl.profile_id and date between ? and ? and check_list_type =?) as job_completed,
-(select count(*) from check_list where  profile_id=cl.profile_id and date between ? and ? and check_list_status!=0 and check_list_type =?) as all_mission
- from check_list cl
+(select count(*) from check_list where  profile_id=cl.profile_id and date between ? and ? and check_list_status!=0 and check_list_type =?) as all_mission,
+ 
+(SELECT count(*) 
+FROM check_list
+where check_list_status=4 and profile_id=cl.profile_id) as score
+
+from check_list cl
  inner join profile p on cl.profile_id=p.profile_id
 where  check_list_type =?
 group by cl.profile_id

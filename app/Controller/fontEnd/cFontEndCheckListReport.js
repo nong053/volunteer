@@ -340,7 +340,12 @@ $(document).ready(function(){
               listHTML+="<td colspan='7' style='text-align:left; background:#4A4A70; padding-left:15px; font-weight:bold;'>";
               //listHTML+=indexEntry['folder_cate_name']+" ("+indexEntry['mission_type_name']+")";
               listHTML+=indexEntry['folder_cate_name']+" ("+indexEntry['date']+")";
-              listHTML+="<div style='font-weight:normal;'> "+indexEntry['folder_cate_detail']+"</div>";
+              
+              if(indexEntry['folder_cate_detail']!=null){
+       
+                listHTML="<div style='font-weight:normal;'> "+indexEntry['folder_cate_detail']+"</div>";
+              }
+              
           listHTML+="</tr>";
 
         }
@@ -395,36 +400,36 @@ $(document).ready(function(){
     			listHTML+="</td>";
           
 
-          listHTML+="<td style='text-align:center;'>";
+          // listHTML+="<td style='text-align:center;'>";
 
                
 
 
-             if(indexEntry['priority_id']==1){
+          //    if(indexEntry['priority_id']==1){
                
-                listHTML+="<button type=\"button\" class=\"btn btn-sm btn-default dataInfo\" data-container=\"body\" data-toggle=\"popover\" data-placement=\"top\" title=\"รายละเอียด\" data-content=\""+indexEntry['check_list_normal_status']+"\">";
-                listHTML+="<i style='font-size:16px;' class='fa fa-info-circle'/>";
-                listHTML+="</button>";
+          //       listHTML+="<button type=\"button\" class=\"btn btn-sm btn-default dataInfo\" data-container=\"body\" data-toggle=\"popover\" data-placement=\"top\" title=\"รายละเอียด\" data-content=\""+indexEntry['check_list_normal_status']+"\">";
+          //       listHTML+="<i style='font-size:16px;' class='fa fa-info-circle'/>";
+          //       listHTML+="</button>";
                
-               }else if(indexEntry['priority_id']==2){
+          //      }else if(indexEntry['priority_id']==2){
                 
-                listHTML+="<button type=\"button\" class=\"btn btn-sm  btn-warning dataInfo\" data-container=\"body\" data-toggle=\"popover\" data-placement=\"top\" title=\"รายละเอียด\" data-content=\""+indexEntry['check_list_normal_status']+"\">";
-                listHTML+="<i style='font-size:16px;' class='fa fa-info-circle'/>";
-                listHTML+="</button>";
+          //       listHTML+="<button type=\"button\" class=\"btn btn-sm  btn-warning dataInfo\" data-container=\"body\" data-toggle=\"popover\" data-placement=\"top\" title=\"รายละเอียด\" data-content=\""+indexEntry['check_list_normal_status']+"\">";
+          //       listHTML+="<i style='font-size:16px;' class='fa fa-info-circle'/>";
+          //       listHTML+="</button>";
 
-               }else if(indexEntry['priority_id']==3){
+          //      }else if(indexEntry['priority_id']==3){
                 
-                listHTML+="<button type=\"button\" class=\"btn btn-sm btn-danger dataInfo\" data-container=\"body\" data-toggle=\"popover\" data-placement=\"top\" title=\"รายละเอียด\" data-content=\""+indexEntry['check_list_normal_status']+"\">";
-                listHTML+="<i style='font-size:16px;' class='fa fa-info-circle'/>";
-                listHTML+="</button>";
+          //       listHTML+="<button type=\"button\" class=\"btn btn-sm btn-danger dataInfo\" data-container=\"body\" data-toggle=\"popover\" data-placement=\"top\" title=\"รายละเอียด\" data-content=\""+indexEntry['check_list_normal_status']+"\">";
+          //       listHTML+="<i style='font-size:16px;' class='fa fa-info-circle'/>";
+          //       listHTML+="</button>";
 
-               }else{
-                 listHTML+="<button type=\"button\" class=\"btn btn-sm btn-default dataInfo\" data-container=\"body\" data-toggle=\"popover\" data-placement=\"top\" title=\"รายละเอียด\" data-content=\""+indexEntry['check_list_normal_status']+"\">";
-                 listHTML+="<i style='font-size:16px;' class='fa fa-info-circle'/>";
-                 listHTML+="</button>";
-               }
+          //      }else{
+          //        listHTML+="<button type=\"button\" class=\"btn btn-sm btn-default dataInfo\" data-container=\"body\" data-toggle=\"popover\" data-placement=\"top\" title=\"รายละเอียด\" data-content=\""+indexEntry['check_list_normal_status']+"\">";
+          //        listHTML+="<i style='font-size:16px;' class='fa fa-info-circle'/>";
+          //        listHTML+="</button>";
+          //      }
 
-          listHTML+="</td>";
+          // listHTML+="</td>";
 
           listHTML+="<td style='text-align:left;'>";
 
@@ -449,7 +454,22 @@ $(document).ready(function(){
                           }else{
                             listHTML+=" <img     id='profile_tag_id-"+indexEntryTag+"-"+indexEntry['file_detail_id']+"-"+indexEntry['folder_cate_id']+"' class='img-circle  profile_tag profile_tag_id-"+indexEntryTag+"-"+indexEntry['file_detail_id']+"' src=\"../../api/public/"+indexEntry['file_path']+"\" style='width:30px; height:30px; border:2px solid red;'><span class='hidden-xs pull-left' style=\"margin-top:5px;margin-left:5px;font-size:14px;\">"+indexEntry['first_name']+"</span>";
                           }
+                          listHTML+="("
+                          // if(indexEntry['score']<=20){
+                          //   listHTML+="<i style=\"color:white; margin-top:7px; \" class=\" fa fa-star\"></i>";
+                          // }else if(indexEntry['score']<=60){
+                          //   listHTML+="<i style=\"color:white; margin-top:7px;\" class=\" fa fa-star\"></i><i style=\"color:white; \" class=\" fa fa-star\"></i>";
+                          // }else if(indexEntry['score']<=100){
+                          //   listHTML+="<i style=\"color:white; margin-top:7px;\" class=\" fa fa-star\"></i><i style=\"color:white; \" class=\" fa fa-star\"></i><i style=\"color:white; \" class=\" fa fa-star\"></i>";
+                          // }else if(indexEntry['score']<=150){
+                          //   listHTML+="<i style=\"color:white; margin-top:7px;\" class=\" fa fa-star\"></i><i style=\"color:white; \" class=\" fa fa-star\"></i><i style=\"color:white; \" class=\" fa fa-star\"></i><i style=\"color:white; \" class=\" fa fa-star\"></i>";
+                          // }else if(indexEntry['score']>150){
+                          //   listHTML+="<i style=\"color:white; margin-top:7px;\" class=\" fa fa-star\"></i><i style=\"color:white; \" class=\" fa fa-star\"></i><i style=\"color:white; \" class=\" fa fa-star\"></i><i style=\"color:white; \" class=\" fa fa-star\"></i><i style=\"color:white; \" class=\" fa fa-star\"></i>";
+                          // }
 
+                          listHTML+= getScoreFn(indexEntry['score']);
+                          listHTML+=")";
+                          
                           //listHTML+="<img  alt=\"image\" style='width:38px; height:38px;' class=\"img-circle pull-left\" src=\"img/profile.jpg\"> <span class='pull-left' style=\"margin-top:5px;margin-left:5px;\">Kosit</span>";
                           //listHTML+="<button id='profile_tag_id-"+indexEntryTag+"-"+indexEntry['file_detail_id']+"-"+indexEntry['folder_cate_id']+"' class=\"btn btn-danger btn-xs1 profile_tag profile_tag_id-"+indexEntryTag+"-"+indexEntry['file_detail_id']+"\" data-container=\"body\" > #"+indexEntry['first_name']+"</button>";
                         }
