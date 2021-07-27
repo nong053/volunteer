@@ -182,7 +182,7 @@ class ProfileController extends Controller
 		}
 		//'folder_name' => 'required|max:100|unique:Folder,folder_name,' . $id . ',id',
 		$validator = Validator::make($request->all(), [
-			'email' => 'required|unique:Profile,email,' . $id . ',profile_id',
+			'email' => 'required|unique:profile,email,' . $id . ',profile_id',
 			'password' => 'required',
 			'FIRST_NAME' => 'required',
 			'LAST_NAME' => 'required',
@@ -217,7 +217,7 @@ class ProfileController extends Controller
 		
 		$validator = Validator::make($request->all(), [
 			//'email' => 'required',
-			'email' => 'required|unique:Profile,email,' . $id . ',profile_id',
+			'email' => 'required|unique:profile,email,' . $id . ',profile_id',
 			//'password' => 'required',
 			'FIRST_NAME' => 'required',
 			'LAST_NAME' => 'required',
