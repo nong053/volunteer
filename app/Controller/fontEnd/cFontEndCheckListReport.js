@@ -337,13 +337,13 @@ $(document).ready(function(){
     		//console.log(indexEntry['']);
         if(indexEntry['check_list_type']!=checkCategory){
           listHTML+="<tr>";
-              listHTML+="<td colspan='7' style='text-align:left; background:#4A4A70; padding-left:15px; font-weight:bold;'>";
+              listHTML+="<td colspan='6' style='text-align:left; background:#4A4A70; padding-left:15px; font-weight:bold;'>";
               //listHTML+=indexEntry['folder_cate_name']+" ("+indexEntry['mission_type_name']+")";
               listHTML+=indexEntry['folder_cate_name']+" ("+indexEntry['date']+")";
               
               if(indexEntry['folder_cate_detail']!=null){
        
-                listHTML="<div style='font-weight:normal;'> "+indexEntry['folder_cate_detail']+"</div>";
+                listHTML+="<div style='font-weight:normal;'> "+indexEntry['folder_cate_detail']+"</div>";
               }
               
           listHTML+="</tr>";
@@ -444,6 +444,7 @@ $(document).ready(function(){
                             listHTML+=" <button id='profile_tag_id-"+indexEntryTag+"-"+indexEntry['file_detail_id']+"-"+indexEntry['folder_cate_id']+"' class=\"btn btn-info  btn-circle profile_tag profile_tag_id-"+indexEntryTag+"-"+indexEntry['file_detail_id']+"\" type=\"button\"><i class=\"fa fa-user\"></i></button><span class='hidden-xs pull-left' style=\"margin-top:5px;margin-left:5px;font-size:14px;\">"+indexEntry['first_name']+"</span>";
                           }else{
                             listHTML+=" <img    id='profile_tag_id-"+indexEntryTag+"-"+indexEntry['file_detail_id']+"-"+indexEntry['folder_cate_id']+"' class='img-circle  profile_tag profile_tag_id-"+indexEntryTag+"-"+indexEntry['file_detail_id']+"' src=\"../../api/public/"+indexEntry['file_path']+"\" style='width:30px; height:30px; border:2px solid green;'><span class='hidden-xs pull-left' style=\"margin-top:5px;margin-left:5px; font-size:14px;\">"+indexEntry['first_name']+"</span>";
+                            
                           }
                           //listHTML+="<img alt=\"image\" style='width:38px; height:38px;' class=\"img-circle pull-left\" src=\"img/profile.jpg\"> <span class='pull-left' style=\"margin-top:5px;margin-left:5px;\">Kosit</span>";
                           //listHTML+="<button id='profile_tag_id-"+indexEntryTag+"-"+indexEntry['file_detail_id']+"-"+indexEntry['folder_cate_id']+"' class=\"btn btn-info btn-xs1 profile_tag profile_tag_id-"+indexEntryTag+"-"+indexEntry['file_detail_id']+"\" data-container=\"body\" > #"+indexEntry['first_name']+"</button>";
@@ -454,25 +455,12 @@ $(document).ready(function(){
                           }else{
                             listHTML+=" <img     id='profile_tag_id-"+indexEntryTag+"-"+indexEntry['file_detail_id']+"-"+indexEntry['folder_cate_id']+"' class='img-circle  profile_tag profile_tag_id-"+indexEntryTag+"-"+indexEntry['file_detail_id']+"' src=\"../../api/public/"+indexEntry['file_path']+"\" style='width:30px; height:30px; border:2px solid red;'><span class='hidden-xs pull-left' style=\"margin-top:5px;margin-left:5px;font-size:14px;\">"+indexEntry['first_name']+"</span>";
                           }
-                          listHTML+="("
-                          // if(indexEntry['score']<=20){
-                          //   listHTML+="<i style=\"color:white; margin-top:7px; \" class=\" fa fa-star\"></i>";
-                          // }else if(indexEntry['score']<=60){
-                          //   listHTML+="<i style=\"color:white; margin-top:7px;\" class=\" fa fa-star\"></i><i style=\"color:white; \" class=\" fa fa-star\"></i>";
-                          // }else if(indexEntry['score']<=100){
-                          //   listHTML+="<i style=\"color:white; margin-top:7px;\" class=\" fa fa-star\"></i><i style=\"color:white; \" class=\" fa fa-star\"></i><i style=\"color:white; \" class=\" fa fa-star\"></i>";
-                          // }else if(indexEntry['score']<=150){
-                          //   listHTML+="<i style=\"color:white; margin-top:7px;\" class=\" fa fa-star\"></i><i style=\"color:white; \" class=\" fa fa-star\"></i><i style=\"color:white; \" class=\" fa fa-star\"></i><i style=\"color:white; \" class=\" fa fa-star\"></i>";
-                          // }else if(indexEntry['score']>150){
-                          //   listHTML+="<i style=\"color:white; margin-top:7px;\" class=\" fa fa-star\"></i><i style=\"color:white; \" class=\" fa fa-star\"></i><i style=\"color:white; \" class=\" fa fa-star\"></i><i style=\"color:white; \" class=\" fa fa-star\"></i><i style=\"color:white; \" class=\" fa fa-star\"></i>";
-                          // }
-
-                          listHTML+= getScoreFn(indexEntry['score']);
-                          listHTML+=")";
+                      
                           
                           //listHTML+="<img  alt=\"image\" style='width:38px; height:38px;' class=\"img-circle pull-left\" src=\"img/profile.jpg\"> <span class='pull-left' style=\"margin-top:5px;margin-left:5px;\">Kosit</span>";
                           //listHTML+="<button id='profile_tag_id-"+indexEntryTag+"-"+indexEntry['file_detail_id']+"-"+indexEntry['folder_cate_id']+"' class=\"btn btn-danger btn-xs1 profile_tag profile_tag_id-"+indexEntryTag+"-"+indexEntry['file_detail_id']+"\" data-container=\"body\" > #"+indexEntry['first_name']+"</button>";
                         }
+                        listHTML+="("+getScoreFn(indexEntry['score'])+")";
                        // listHTML+="<button id='profile_tag_id-"+indexEntryTag+"-"+indexEntry['file_detail_id']+"-"+indexEntry['folder_cate_id']+"' class=\"btn btn-info btn-xs profile_tag profile_tag_id-"+indexEntryTag+"-"+indexEntry['file_detail_id']+"\" data-container=\"body\" > #"+indexEntryTag+"</button>";
                   });
               }

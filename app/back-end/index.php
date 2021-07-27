@@ -434,7 +434,7 @@
 
         <!-- <li class="menuDisplay mainMenu userMenu adminMenu AssignerMenu approversMenu"">
           <a href="#/pages/about-us" id="aboutus_main_menu"><i class="fa fa-book"></i> <span>เกี่ยวกับเรา</span></a></li> -->
-        <li class="menuDisplay mainMenu""><a href="#"><i class="fa fa-book"></i> <span>คู่มือการใช้งาน</span></a></li>
+        <!--<li class="menuDisplay mainMenu""><a href="#"><i class="fa fa-book"></i> <span>คู่มือการใช้งาน</span></a></li> -->
       
       </ul>
     </section>

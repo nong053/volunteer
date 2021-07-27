@@ -29,7 +29,7 @@
 
         <div class="ibox-content">
           
-                <button id="addEnrollment" class="btn btn-success pull-left" ><i class='ion ion-person-add'></i> เพิ่มจิตอาสา</button>
+                <button id="addEnrollment" class="btn btn-success pull-left" ><i class='ion ion-person'></i> เพิ่มจิตอาสา</button>
 
 
                  <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
@@ -90,7 +90,7 @@
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">ฟอร์มจิตอาสา</h4>
+        <h4 class="modal-title">จิตอาสา</h4>
       </div>
       <div class="modal-body">
         
@@ -145,16 +145,16 @@
             </div>
            
             <div class="form-group">
-              <label for="titleTxt" class="col-sm-3 control-label">คำนำหน้า</label>
+              <label for="titleTxt" class="col-sm-3 control-label">ยศ</label>
 
               <div class="col-sm-9">
-               
-                <select id='titleTxt' class="form-control">
+                <input type="text" class="form-control" id="titleTxt" placeholder="ยศ">
+                <!-- <select id='titleTxt' class="form-control">
                     <option></option>
                     <option>นาย</option>
                     <option>นาง</option>
                     <option>นางสาว</option>
-                </select>
+                </select> -->
               </div>
             </div>
             <div class="form-group">
@@ -210,6 +210,8 @@
             <input type="hidden" name="roleEnrollment" id="roleEnrollment" value="">
             
             <button id='btnSubmit' type="button" class="btn btn-info pull-right">บันทึก</button>
+          </div>
+          <div class="alert alert-warning information" id="information" style="display: none;">
           </div>
           <!-- /.box-footer -->
         </form>

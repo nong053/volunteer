@@ -103,7 +103,7 @@ class ProfileController extends Controller
 			$request['admin_email']=$resultAdmin[0]->email;
 			//echo($request->admin_email);
 			 /*SEND MAIL START*/
-			 
+			 /*
 			$error = '';
 			try {
 			Mail::send('emails.welcome',['request' => $request],function($message) use ($request)
@@ -139,7 +139,7 @@ class ProfileController extends Controller
 			if($error!=""){
 				return response()->json(['error' => $error]);
 			}
-			
+			*/
 			/*SEND MAIL END*/
 			
 			
@@ -288,7 +288,7 @@ class ProfileController extends Controller
 		
 		$result = array();	
 			
-			$path = $_SERVER['DOCUMENT_ROOT'] . '/work-tracker/api/public/profile_file_path/' . $profile_id . '/';
+			$path = $_SERVER['DOCUMENT_ROOT'] . '/volunteer/api/public/profile_file_path/' . $profile_id . '/';
 			foreach ($request->file() as $f) {
 				$filename = iconv('UTF-8','windows-874',$f->getClientOriginalName());
 				//$f->move($path,$filename);

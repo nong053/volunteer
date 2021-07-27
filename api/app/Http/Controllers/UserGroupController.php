@@ -28,7 +28,16 @@ class UserGroupController extends Controller
 	{		
 		// and user_group_id!=5;
 		$items = DB::select("
-			SELECT * FROM user_group where user_group_name like ?  and user_group_id!=5
+			-- SELECT * FROM user_group where user_group_name like ?  and user_group_id!=5
+
+			SELECT ug.* ,
+(SELECT GROUP_CONCAT(fg.folder_cate_name) 
+			FROM authority a
+            inner join folder_category fg on fg.id=a.folder_cate_id
+			where user_group_id=ug.user_group_id) as mission_name
+FROM user_group  ug
+			
+where user_group_name like ? and ug.user_group_id!=5
 		",array('%'.$request->expressSearch.'%'));
 
 
@@ -172,7 +181,7 @@ class UserGroupController extends Controller
 			SELECT user_group_id,folder_cate_id 
 			FROM authority 
 			where user_group_id=?
-			order by  user_group_id,folder_cate_id;;
+			order by  user_group_id,folder_cate_id;
 		",array($group_id));
 
 		return response()->json($items);

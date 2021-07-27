@@ -101,6 +101,11 @@
 
 				$("#form-group-mission_type_id").hide();
 				$("#mission_type_id").hide();
+
+
+				
+
+
 	 // 	}	
 	 // }   
     	

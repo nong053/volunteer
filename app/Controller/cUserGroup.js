@@ -18,7 +18,7 @@ $(document).ready(function(){
 		success : function(data) {
 			
 			$(".bs-example-modal-lg").modal("hide");
-				
+			location.reload();
 		}
  	});
 
@@ -117,7 +117,8 @@ $(document).ready(function(){
 		    			
 		    			"colunms":[
 		    					   {"colunmsDisplayName":"รหัส","width":"5%","id":"user_group_id","colunmsType":"text"},
-		    			           {"colunmsDisplayName":"กลุ่มจิตอาสา","width":"20%","id":"user_group_name","colunmsType":"text"}
+		    			           {"colunmsDisplayName":"กลุ่มจิตอาสา","width":"20%","id":"user_group_name","colunmsType":"text"},
+								   {"colunmsDisplayName":"ภารกิจ","width":"20%","id":"mission_name","colunmsType":"text"}
 		    			           
 		    			          ],
 		    			"form":[

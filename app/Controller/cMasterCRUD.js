@@ -492,7 +492,14 @@ var deleteFn = function(id,options){
 }
 var clearFn = function(options){
 
-	
+	var d = new Date();
+
+	var month = d.getMonth()+1;
+	var day = d.getDate();
+
+	var output = d.getFullYear() + '-' +
+	(month<10 ? '0' : '') + month + '-' +
+	(day<10 ? '0' : '') + day;
 
 
 	$("#id").val("");
@@ -570,6 +577,17 @@ var clearFn = function(options){
 			$(".is_unlimited_reward_header").hide();
 			$(".is_unlimited_deduction_header").hide();
 			$(".is_value_get_zero_header").hide();
+
+		}else if(indexEntry['inputType']=="datetime"){
+
+			$("form#"+options['formDetail']['id']+" #"+indexEntry['id']).val(output + " 00:00:00");
+			
+			
+		}else if(indexEntry['inputType']=="date"){
+
+			$("form#"+options['formDetail']['id']+" #"+indexEntry['id']).val(output);
+			
+			
 		}
 		
 	});

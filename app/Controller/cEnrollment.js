@@ -77,13 +77,13 @@ var validateEnrollmentFn=function(){
 		var validate="";
 
 		if($("#emailTxt").val()==""){
-	 		validate+="Email not empty. \n";
+	 		validate+="The email field is required. <br>";
 	 	}else if( !isValidEmail($("#emailTxt").val()) ){ 
-	 		validate+="Email Invalid \n";
+	 		validate+="The email field is invalid <br>";
 	 	}
 	 	if($("#actionEnrollment").val()=="add"){
 		 	if($("#passwordTxt").val()==""){
-		 		validate+="Password not empty. \n";
+		 		validate+="The password field is required. <br>";
 		 	}
 	 	}
 
@@ -91,7 +91,7 @@ var validateEnrollmentFn=function(){
 	
 		
 			if($("#passwordTxt").val()!=$("#rePasswordTxt").val()){
-				validate+="Password not Match.\n";
+				validate+="The password field not Match.<br>";
 				//alert(message);
 				//return false;
 			}
@@ -102,19 +102,29 @@ var validateEnrollmentFn=function(){
 		// }
 
 		if($("#fristNameTxt").val()==""){
-			validate+="Please fill Frist name.\n";
+			validate+="The frist name field is required.<br>";
 		}
 
 		if($("#lastNameTxt").val()==""){
-			validate+="Please fill Last name.\n";
+			validate+="The last name field is required .<br>";
 		}
 		if($("#positionTxt").val()==""){
-			validate+="Please fill Position.\n";
+			validate+="The position field is required .<br>";
 		}
 
+		$("#information").html("");
 		
-	 	
-	 	return validate;
+	 	if(validate!=""){
+			$("#information").html(validate).show();;
+			 return false;
+			 
+		 }else{
+			$("#information").html("").hide();
+			 return true;
+			
+		 }
+		 
+		// return validate;
 	}
 var delEnrollmentFn = function(profileID){
 	
@@ -160,6 +170,7 @@ var clearEnrollmentDataFn = function(){
 
 	$("#hideAdminArea").show();
 	
+	$("#information").hide();
 	
 }
 
@@ -656,10 +667,13 @@ $(document).ready(function(){
 	 
 	$("#btnSubmit").click(function(){
 		
-		if(validateEnrollmentFn()!=""){
-			alert(validateEnrollmentFn());
-			return false;
-		}
+		// if(validateEnrollmentFn()==false){
+		// 	//alert(validateEnrollmentFn());
+		// 	//validateEnrollmentFn()
+		// 	return false;
+		// }
+		
+		validateEnrollmentFn();
 		if($("#actionEnrollment").val()=="add"){
 			
 			enrollmentInsertFn();
