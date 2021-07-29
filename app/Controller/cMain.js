@@ -416,7 +416,7 @@ app.controller("pageController",function($scope, $route, $routeParams){
 
 
 setTimeout(function(){
-	$(".titleFullname").html(sessionStorage.getItem('galbalTitle')+" "+sessionStorage.getItem('galbalFirstName')+" "+sessionStorage.getItem('galbalLastName'));
+	$(".titleFullname").html(sessionStorage.getItem('galbalTitle')+""+sessionStorage.getItem('galbalFirstName')+"&nbsp;&nbsp;"+sessionStorage.getItem('galbalLastName'));
 	$("#position_top").html("ตำแหน่ง "+sessionStorage.getItem('galbalPosition'));
 
 	var role_txt="";
