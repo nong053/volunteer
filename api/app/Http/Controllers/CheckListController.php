@@ -204,6 +204,7 @@ class CheckListController extends Controller
     `cl`.`manday`,
     `cl`.`profile_id`,
     `cl`.`emp_update`,
+	`cl`.`map`,
     TIME(`cl`.`assigned_time`) as assigned_time,
     TIME(`cl`.`working_time`) as working_time,
     TIME(`cl`.`not_complete_time`) as not_complete_time,

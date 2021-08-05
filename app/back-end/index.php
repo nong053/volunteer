@@ -222,12 +222,12 @@
         
         <li class="menuDisplay  adminMenu">
           <a href="../font-end/#/pages/check-list" id="check_list_report">
-            <i class="fa fa-gears"></i> <span>บันทึกผลปฏิบัติงาน</span>
+            <i class="fa fa-gears"></i> <span>บันทึกผลปฏิบัติภารกิจ</span>
           </a> 
         </li>
         <li class="menuDisplay  adminMenu">
           <a href="../font-end/#/pages/check-list-report" id="check_list_report">
-            <i class="fa fa-dashboard"></i> <span>รายงานผลปฏิบัติงาน</span>
+            <i class="fa fa-dashboard"></i> <span>ผลปฏิบัติภารกิจ</span>
           </a> 
         </li>
         <li class="menuDisplay  adminMenu">

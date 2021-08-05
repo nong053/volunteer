@@ -1,6 +1,6 @@
 var profilePicturePath="";
 var check_list_type=1;//type == commander
-var socket = io.connect(socketServer);
+//var socket = io.connect(socketServer);
 checkSessionFn();
 function minTwoDigits(n) {
   return (n < 10 ? '0' : '') + n;
@@ -684,7 +684,7 @@ $(document).ready(function(){
 
                         if(data['status']==200){
                             //server command active to client.
-                            socket.emit('reportCheckList');
+                            // socket.emit('reportCheckList');
                              setTimeout(function(){
                                 location.reload();
                              },1000);
@@ -1717,6 +1717,12 @@ $(document).ready(function(){
             $("#validateMissionAlertArea").hide();
         }
 
+        if($("#profile_id_area").val()==""){
+            check_list_status_pj=0;
+        }else{
+            check_list_status_pj=1;
+        }
+
 
         $.ajax({
             url:restURL+"/api/public/files-detail-check-list-master/update/"+$("#id").val(),
@@ -1732,6 +1738,7 @@ $(document).ready(function(){
 
             // "profile_id":JSON.parse("["+$("#profile_id").val()+"]")},
             "profile_id":$("#profile_id_area").val(),
+            "check_list_status_pj":check_list_status_pj,
             "map":$("#current_lat_lng").val(),
             },
             headers:{Authorization:"Bearer "+sessionStorage.getItem('galbalToken')},

@@ -1,6 +1,6 @@
 var profilePicturePath="";
 var check_list_type=1;//type == commander
-var socket = io.connect(socketServer);
+//var socket = io.connect(socketServer);
 checkSessionFn();
 function minTwoDigits(n) {
   return (n < 10 ? '0' : '') + n;
@@ -432,6 +432,7 @@ $(document).ready(function(){
           listHTML+="</td>";
 
           listHTML+="<td style='text-align:left;'>";
+          listHTML+="<input type='hidden' id='embed_mission_map-"+indexEntry['check_list_id']+"' value='"+indexEntry['map']+"'>";
 
             //listHTML+=indexEntry['folder_cate_name'];
 
@@ -441,9 +442,9 @@ $(document).ready(function(){
                         if(+currentDateCommpare==+latestDateUpdate){
 
                           if(indexEntry['file_path']==null || indexEntry['file_path']==''){
-                            listHTML+=" <button id='profile_tag_id-"+indexEntryTag+"-"+indexEntry['file_detail_id']+"-"+indexEntry['folder_cate_id']+"' class=\"btn btn-info  btn-circle profile_tag profile_tag_id-"+indexEntryTag+"-"+indexEntry['file_detail_id']+"\" type=\"button\"><i class=\"fa fa-user\"></i></button><span class='hidden-xs pull-left' style=\"margin-top:5px;margin-left:5px;font-size:14px;\">"+indexEntry['first_name']+"</span>";
+                            listHTML+=" <button id='profile_tag_id-"+indexEntryTag+"-"+indexEntry['check_list_id']+"-"+indexEntry['folder_cate_id']+"' class=\"btn btn-info  btn-circle profile_tag profile_tag_id-"+indexEntryTag+"-"+indexEntry['file_detail_id']+"\" type=\"button\"><i class=\"fa fa-user\"></i></button><span class='hidden-xs pull-left' style=\"margin-top:5px;margin-left:5px;font-size:14px;\">"+indexEntry['first_name']+"</span>";
                           }else{
-                            listHTML+=" <img    id='profile_tag_id-"+indexEntryTag+"-"+indexEntry['file_detail_id']+"-"+indexEntry['folder_cate_id']+"' class='img-circle  profile_tag profile_tag_id-"+indexEntryTag+"-"+indexEntry['file_detail_id']+"' src=\"../../api/public/"+indexEntry['file_path']+"\" style='width:30px; height:30px; border:2px solid green;'><span class='hidden-xs pull-left' style=\"margin-top:5px;margin-left:5px; font-size:14px;\">"+indexEntry['first_name']+"</span>";
+                            listHTML+=" <img    id='profile_tag_id-"+indexEntryTag+"-"+indexEntry['check_list_id']+"-"+indexEntry['folder_cate_id']+"' class='img-circle  profile_tag profile_tag_id-"+indexEntryTag+"-"+indexEntry['file_detail_id']+"' src=\"../../api/public/"+indexEntry['file_path']+"\" style='width:30px; height:30px; border:2px solid green;'><span class='hidden-xs pull-left' style=\"margin-top:5px;margin-left:5px; font-size:14px;\">"+indexEntry['first_name']+"</span>";
                             
                           }
                           //listHTML+="<img alt=\"image\" style='width:38px; height:38px;' class=\"img-circle pull-left\" src=\"img/profile.jpg\"> <span class='pull-left' style=\"margin-top:5px;margin-left:5px;\">Kosit</span>";
@@ -451,9 +452,9 @@ $(document).ready(function(){
                         }else{
 
                           if(indexEntry['file_path']==null || indexEntry['file_path']==''){
-                            listHTML+=" <button id='profile_tag_id-"+indexEntryTag+"-"+indexEntry['file_detail_id']+"-"+indexEntry['folder_cate_id']+"' class=\"btn btn-danger btn-circle profile_tag profile_tag_id-"+indexEntryTag+"-"+indexEntry['file_detail_id']+"\" type=\"button\"><i class=\"fa fa-user\"></i></button><span class='hidden-xs pull-left' style=\"margin-top:5px;margin-left:5px;font-size:14px;\">"+indexEntry['first_name']+"</span>";
+                            listHTML+=" <button id='profile_tag_id-"+indexEntryTag+"-"+indexEntry['check_list_id']+"-"+indexEntry['folder_cate_id']+"' class=\"btn btn-danger btn-circle profile_tag profile_tag_id-"+indexEntryTag+"-"+indexEntry['file_detail_id']+"\" type=\"button\"><i class=\"fa fa-user\"></i></button><span class='hidden-xs pull-left' style=\"margin-top:5px;margin-left:5px;font-size:14px;\">"+indexEntry['first_name']+"</span>";
                           }else{
-                            listHTML+=" <img     id='profile_tag_id-"+indexEntryTag+"-"+indexEntry['file_detail_id']+"-"+indexEntry['folder_cate_id']+"' class='img-circle  profile_tag profile_tag_id-"+indexEntryTag+"-"+indexEntry['file_detail_id']+"' src=\"../../api/public/"+indexEntry['file_path']+"\" style='width:30px; height:30px; border:2px solid red;'><span class='hidden-xs pull-left' style=\"margin-top:5px;margin-left:5px;font-size:14px;\">"+indexEntry['first_name']+"</span>";
+                            listHTML+=" <img     id='profile_tag_id-"+indexEntryTag+"-"+indexEntry['check_list_id']+"-"+indexEntry['folder_cate_id']+"' class='img-circle  profile_tag profile_tag_id-"+indexEntryTag+"-"+indexEntry['file_detail_id']+"' src=\"../../api/public/"+indexEntry['file_path']+"\" style='width:30px; height:30px; border:2px solid red;'><span class='hidden-xs pull-left' style=\"margin-top:5px;margin-left:5px;font-size:14px;\">"+indexEntry['first_name']+"</span>";
                           }
                       
                           
@@ -461,6 +462,7 @@ $(document).ready(function(){
                           //listHTML+="<button id='profile_tag_id-"+indexEntryTag+"-"+indexEntry['file_detail_id']+"-"+indexEntry['folder_cate_id']+"' class=\"btn btn-danger btn-xs1 profile_tag profile_tag_id-"+indexEntryTag+"-"+indexEntry['file_detail_id']+"\" data-container=\"body\" > #"+indexEntry['first_name']+"</button>";
                         }
                         listHTML+="("+getScoreFn(indexEntry['score'])+")";
+                        
                        // listHTML+="<button id='profile_tag_id-"+indexEntryTag+"-"+indexEntry['file_detail_id']+"-"+indexEntry['folder_cate_id']+"' class=\"btn btn-info btn-xs profile_tag profile_tag_id-"+indexEntryTag+"-"+indexEntry['file_detail_id']+"\" data-container=\"body\" > #"+indexEntryTag+"</button>";
                   });
               }
@@ -645,9 +647,9 @@ $(document).ready(function(){
     //end
 
     //active command from server.
-    socket.on('reportCheckList', function() {
-        getCheckListDataReportFn($("#checkListType").val(),$("#checkListStatus").val(),$("#checkListDate").val());
-    });
+    // socket.on('reportCheckList', function() {
+    //     getCheckListDataReportFn($("#checkListType").val(),$("#checkListStatus").val(),$("#checkListDate").val());
+    // });
 
 
     
@@ -658,7 +660,7 @@ $(document).ready(function(){
 
 });
 
-var getProfileFn = function(profile_id){
+var getProfileFn = function(profile_id,check_list_id){
       
         $.ajax({
             url:restURL+"/api/public/profile/"+profile_id,
@@ -672,7 +674,9 @@ var getProfileFn = function(profile_id){
                    $("#tagEmail").html(data['email']);
                    $("#tagfullName").html(data['FIRST_NAME']+" "+data['LAST_NAME']);
                    $("#tagPosition").html(data['POSITION']);
+                   $("#tagMap").html($("#embed_mission_map-"+check_list_id).val());
                    $("#profileModal").modal('show');
+                  
                }catch{
                 console.log("error getProfileFn");
                }
@@ -688,8 +692,10 @@ $(document).on("click",".profile_tag",function(){
 
         var profileIdArray = this.id;
             var profileId;
+            var check_list_id;
             profileIdArray=profileIdArray.split("-");
             profileId=profileIdArray[1];
+            check_list_id=profileIdArray[2];
             /*
             $("#loadingModal").modal();
             setTimeout(function(){
@@ -697,7 +703,7 @@ $(document).on("click",".profile_tag",function(){
                $("#loadingModal").modal('hide');
             },1000);
            */
-            getProfileFn(profileId);
+            getProfileFn(profileId,check_list_id);
             
     });
 
