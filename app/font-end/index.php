@@ -70,7 +70,7 @@ background:"#eee";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
 
-    <title>Volunteer Management</title>
+    <title>Royal Thai Volunteers Activities</title>
 
    <!-- Theme style -->
     <link rel="stylesheet" href="../dist/css/AdminLTE.min.css">
@@ -112,8 +112,11 @@ background:"#eee";
                 </button> -->
 
                 <div class="navbar-brand"> 
-                    
-                Volunteer Management</div>
+                <span  >
+                    <img src="../imgs/logo-rtaf.png" width="50" style="position:relative; top:-5px;">
+                </span>
+                <span style="position:relative; top:-5px;">Royal Thai Volunteers Activities</span>
+                </div>
             </div>
 
             <div class="navbar-collapse collapse" id="navbar">

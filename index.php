@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Volunteer System | ลงชื่อเข้าใช้งาน</title>
+  <title>Royal Thai Volunteers Activities | ลงชื่อเข้าใช้งาน</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -209,16 +209,16 @@
        <i class="textShadow glyphicon glyphicon-heart-empty font-white;" style="font-size: 120px;"></i>
       
     </div>
-     <h3 class="textShadow font-white;" style="text-align: center; ">จิตอาสา</h3>
+     <h3 class="textShadow font-white;" style="text-align: center; ">โปรแกรมบริหารจัดการกิจกรรม<br>จิตอาสาพระราชทานในส่วนของกองทัพอากาศ</h3>
       
       <p style="text-align: center;" class="font-black">
-      Volunteer Management System
+      Royal Thai Volunteers Activities
       </p>
   
  
   <!-- /.login-logo -->
   <div class="login-box-body boxShadow" style="background: #345">
-    <p class="login-box-msg" style="color: white;">ลงชื่อเข้าใช้งานระบบ</p>
+    <p class="login-box-msg" style="color: white;">ลงชื่อเข้าใช้งาน</p>
 
     <div class="alert alert-warning" id="alertEmailPassIncorrect" style="display: none;">
         <i class="fa fa-warning"></i> อีเมลล์หรือรหัสผ่านไม่ถูกต้อง ! 

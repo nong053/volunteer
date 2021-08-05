@@ -342,13 +342,13 @@ app.controller("pageController",function($scope, $route, $routeParams){
 			  	$("#user_management_main_menu_admin").parent().addClass('active');
 			  	$("#user_management_main_menu_user").parent().addClass('active');
 			  	menu_name_left=$("#user_management_main_menu_admin").html();
-			  	url_menu_right="จัดการผู้ใช้งาน";
+			  	url_menu_right="จิตอาสา";
 			 
 
 			  }else if($routeParams.url=="user-group"){
 			  	$("#user_group_main_menu").parent().addClass('active');
 			  	menu_name_left=$("#user_group_main_menu").html();
-			  	url_menu_right="จัดการสิทธิ์";
+			  	url_menu_right="กลุ่มจิตอาสา";
 			  
 
 			  }else if($routeParams.url=="usage-log"){
@@ -367,28 +367,36 @@ app.controller("pageController",function($scope, $route, $routeParams){
 			  }else if($routeParams.url=="folder-cate"){
 			  	$("#folder_cate_main_menu").parent().addClass('active');
 			  	menu_name_left=$("#folder_cate_main_menu").html();
-			  	url_menu_right="จัดการหมวดภารกิจ";
+			  	url_menu_right="ภารกิจ";
 			  
 
-			  }else if($routeParams.url=="folder-sub-cate"){
-			  	$("#folder_sub_cate_main_menu").parent().addClass('active');
-			  	menu_name_left=$("#folder_sub_cate_main_menu").html();
-			  	url_menu_right="จัดการหมวดแฟ้ม(Level2)";
+			  }else if($routeParams.url=="about-us"){
+				$("#aboutus_main_menu").parent().addClass('active');
+				menu_name_left=$("#aboutus_main_menu").html();
+				url_menu_right="ทีมพัฒนา";
+			
+
+			}
+			  
+			//   else if($routeParams.url=="folder-sub-cate"){
+			//   	$("#folder_sub_cate_main_menu").parent().addClass('active');
+			//   	menu_name_left=$("#folder_sub_cate_main_menu").html();
+			//   	url_menu_right="จัดการหมวดแฟ้ม(Level2)";
 			  	
 
-			  }else if($routeParams.url=="folder"){
-			  	$("#folder_main_menu").parent().addClass('active');
-			  	menu_name_left=$("#folder_main_menu").html();
-			  	url_menu_right="จัดการหมวดแฟ้ม(Level3)";
+			//   }else if($routeParams.url=="folder"){
+			//   	$("#folder_main_menu").parent().addClass('active');
+			//   	menu_name_left=$("#folder_main_menu").html();
+			//   	url_menu_right="จัดการหมวดแฟ้ม(Level3)";
 			  	
 
-			  }else if($routeParams.url=="folder-level4"){
-			  	$("#folder_level4_main_menu").parent().addClass('active');
-			  	menu_name_left=$("#folder_level4_main_menu").html();
-			  	url_menu_right="จัดการหมวดแฟ้ม(Level4)";
+			//   }else if($routeParams.url=="folder-level4"){
+			//   	$("#folder_level4_main_menu").parent().addClass('active');
+			//   	menu_name_left=$("#folder_level4_main_menu").html();
+			//   	url_menu_right="จัดการหมวดแฟ้ม(Level4)";
 			  
 
-			  }
+			//   }
 
 
 

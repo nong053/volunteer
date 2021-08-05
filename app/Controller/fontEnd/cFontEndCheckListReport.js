@@ -337,7 +337,7 @@ $(document).ready(function(){
     		//console.log(indexEntry['']);
         if(indexEntry['check_list_type']!=checkCategory){
           listHTML+="<tr>";
-              listHTML+="<td colspan='6' style='text-align:left; background:#4A4A70; padding-left:15px; font-weight:bold;'>";
+              listHTML+="<td colspan='7' style='text-align:left; background:#4A4A70; padding-left:15px; font-weight:bold;'>";
               //listHTML+=indexEntry['folder_cate_name']+" ("+indexEntry['mission_type_name']+")";
               listHTML+=indexEntry['folder_cate_name']+" ("+indexEntry['date']+")";
               
@@ -400,36 +400,36 @@ $(document).ready(function(){
     			listHTML+="</td>";
           
 
-          // listHTML+="<td style='text-align:center;'>";
+          listHTML+="<td style='text-align:center;'>";
 
                
 
 
-          //    if(indexEntry['priority_id']==1){
+             if(indexEntry['priority_id']==1){
                
-          //       listHTML+="<button type=\"button\" class=\"btn btn-sm btn-default dataInfo\" data-container=\"body\" data-toggle=\"popover\" data-placement=\"top\" title=\"รายละเอียด\" data-content=\""+indexEntry['check_list_normal_status']+"\">";
-          //       listHTML+="<i style='font-size:16px;' class='fa fa-info-circle'/>";
-          //       listHTML+="</button>";
+                listHTML+="<button type=\"button\" class=\"btn btn-sm btn-default dataInfo\" data-container=\"body\" data-toggle=\"popover\" data-placement=\"top\" title=\"รายละเอียด\" data-content=\""+indexEntry['check_list_normal_status']+"\">";
+                listHTML+="<i style='font-size:16px;' class='fa fa-info-circle'/>";
+                listHTML+="</button>";
                
-          //      }else if(indexEntry['priority_id']==2){
+               }else if(indexEntry['priority_id']==2){
                 
-          //       listHTML+="<button type=\"button\" class=\"btn btn-sm  btn-warning dataInfo\" data-container=\"body\" data-toggle=\"popover\" data-placement=\"top\" title=\"รายละเอียด\" data-content=\""+indexEntry['check_list_normal_status']+"\">";
-          //       listHTML+="<i style='font-size:16px;' class='fa fa-info-circle'/>";
-          //       listHTML+="</button>";
+                listHTML+="<button type=\"button\" class=\"btn btn-sm  btn-warning dataInfo\" data-container=\"body\" data-toggle=\"popover\" data-placement=\"top\" title=\"รายละเอียด\" data-content=\""+indexEntry['check_list_normal_status']+"\">";
+                listHTML+="<i style='font-size:16px;' class='fa fa-info-circle'/>";
+                listHTML+="</button>";
 
-          //      }else if(indexEntry['priority_id']==3){
+               }else if(indexEntry['priority_id']==3){
                 
-          //       listHTML+="<button type=\"button\" class=\"btn btn-sm btn-danger dataInfo\" data-container=\"body\" data-toggle=\"popover\" data-placement=\"top\" title=\"รายละเอียด\" data-content=\""+indexEntry['check_list_normal_status']+"\">";
-          //       listHTML+="<i style='font-size:16px;' class='fa fa-info-circle'/>";
-          //       listHTML+="</button>";
+                listHTML+="<button type=\"button\" class=\"btn btn-sm btn-danger dataInfo\" data-container=\"body\" data-toggle=\"popover\" data-placement=\"top\" title=\"รายละเอียด\" data-content=\""+indexEntry['check_list_normal_status']+"\">";
+                listHTML+="<i style='font-size:16px;' class='fa fa-info-circle'/>";
+                listHTML+="</button>";
 
-          //      }else{
-          //        listHTML+="<button type=\"button\" class=\"btn btn-sm btn-default dataInfo\" data-container=\"body\" data-toggle=\"popover\" data-placement=\"top\" title=\"รายละเอียด\" data-content=\""+indexEntry['check_list_normal_status']+"\">";
-          //        listHTML+="<i style='font-size:16px;' class='fa fa-info-circle'/>";
-          //        listHTML+="</button>";
-          //      }
+               }else{
+                 listHTML+="<button type=\"button\" class=\"btn btn-sm btn-default dataInfo\" data-container=\"body\" data-toggle=\"popover\" data-placement=\"top\" title=\"รายละเอียด\" data-content=\""+indexEntry['check_list_normal_status']+"\">";
+                 listHTML+="<i style='font-size:16px;' class='fa fa-info-circle'/>";
+                 listHTML+="</button>";
+               }
 
-          // listHTML+="</td>";
+          listHTML+="</td>";
 
           listHTML+="<td style='text-align:left;'>";
 

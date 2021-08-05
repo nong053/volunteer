@@ -270,7 +270,8 @@ app.controller("pageController",function($scope, $route, $routeParams){
           navbarHtml+="<button id=\"btnNavbar4\" aria-controls=\"navbar\" aria-expanded=\"false\" data-target=\"#navbar4\" data-toggle=\"collapse\" class=\"navbar-toggle collapsed \" type=\"button\">";
                     navbarHtml+="<i class=\"fa fa-reorder\"></i>";
                 navbarHtml+="</button>";
-          $("#navbarArea").html(navbarHtml);
+                $("#navbarArea").html("");
+         // $("#navbarArea").html(navbarHtml);
 			  
 			 
 

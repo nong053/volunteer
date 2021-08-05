@@ -124,9 +124,9 @@
        <div class="user-panel">
        <div class="image1" style="text-align: center;">
 
-          <!-- <img src="imgs/logo_mfa.png" width="100" class="img-circle" alt="Org Logo"> -->
-          <i style="color: white; font-size: 60px;" class="fa fa-newspaper-o"></i>
-          <p style="color: white;">ระบบริหารงานจิตอาสา</p>
+          <img src="../imgs/logo-rtaf.png" width="100" class="img-circle" alt="Org Logo">
+          <!-- <i style="color: white; font-size: 60px;" class="fa fa-newspaper-o"></i> -->
+          <p style="color: white;">Royal Thai Volunteers Activities</p>
         </div>
         <!-- <div class="pull-left info">
           <p>ทสส.ทอ.</p>
@@ -184,7 +184,7 @@
 
         <li class="menuDisplay mainMenu adminMenu">
           <a href="#/pages/folder-cate" id="folder_cate_main_menu">
-            <i class="fa fa-fw fa-folder-open-o"></i> <span>จัดการภารกิจ</span>
+            <i class="fa fa-fw fa-folder-open-o"></i> <span>ภารกิจ</span>
             
           </a>
          
@@ -218,197 +218,6 @@
           </a> 
         </li>
 
-<!-- 
-        <li class="menuDisplay mainMenu adminMenu">
-          <a href="#/pages/official" id="official_main_menu">
-            <i class="glyphicon glyphicon-user"></i> <span>รายชื่อข้าราชการ</span>
-            
-          </a>
-         
-        </li>
-        <li class="menuDisplay mainMenu adminMenu">
-          <a href="#/pages/ambassador-consulate" id="ambassador_consulate_main_menu">
-            <i class="glyphicon glyphicon-user"></i> <span>รายชื่อ สอท/สกญ</span>
-            
-          </a>
-         
-        </li> 
-      -->
-      
-        
-       <!--  <li class="menuDisplay mainMenu adminMenu">
-          <a href="#/pages/folder-sub-cate" id="folder_sub_cate_main_menu">
-            <i class="fa fa-fw fa-folder-open-o"></i> <span>จัดการหมวดแฟ้ม(Level2)</span>
-            
-          </a>
-         
-        </li>
-        <li class="menuDisplay mainMenu adminMenu">
-          <a href="#/pages/folder" id="folder_main_menu">
-            <i class="fa fa-fw fa-folder-open-o"></i> <span>จัดการหมวดแฟ้ม(Level3)</span>
-            
-          </a>
-         
-        </li>
-        <li class="menuDisplay mainMenu adminMenu">
-          <a href="#/pages/folder-level4" id="folder_level4_main_menu">
-            <i class="fa fa-fw fa-folder-open-o"></i> <span>จัดการหมวดแฟ้ม(Level4)</span>
-            
-          </a>
-         
-        </li> -->
-
-        <!-- <li class="menuDisplay mainMenu adminMenu">
-          <a href="#/pages/folder-official-master" id="folder_official_master_main_menu">
-            <i class="fa fa-fw fa-folder-open-o"></i> <span>จัดการแฟ้มข้าราชการ</span>
-            
-          </a>
-         
-        </li>
-
-        <li class="menuDisplay mainMenu adminMenu">
-          <a href="#/pages/folder-ac-master" id="folder_ac_master_main_menu">
-            <i class="fa fa-fw fa-folder-open-o"></i> <span>จัดการแฟ้ม สอท/สกญ</span>
-            
-          </a>
-         
-        </li> -->
-<!-- 
-         <li class="menuDisplay mainMenu adminMenu">
-          <a href="#/pages/xxx" id="user_main_menu">
-            <i class="fa fa-fw fa-folder-open-o"></i> <span>จัดการเอกสาร</span>
-            
-          </a>
-         
-        </li>
-
-        </li>
-         <li class="menuDisplay mainMenu adminMenu">
-          <a href="#/pages/xxx" id="user_main_menu">
-            <i class="fa fa-fw fa-folder-open-o"></i> <span>ค้นหาเอกสาร</span>
-            
-          </a>
-         
-        </li> -->
-
-        <!-- </li>
-         <li id="li_insignia_borrow_main_menu" class="menuDisplay mainMenu adminMenu">
-          <a href="#/pages/insignia-borrow" id="insignia_borrow_main_menu">
-            <i class="glyphicon glyphicon-log-out"></i> <span>ยืมเครื่องราช ฯ</span>
-            
-          </a>
-         
-        </li>
-
-        </li>
-         <li id="li_insignia_return_main_menu" class="menuDisplay mainMenu adminMenu">
-          <a href="#/pages/insignia-return" id="insignia_return_main_menu">
-            <i class="glyphicon glyphicon-log-in"></i> <span>คืนเครื่องราช ฯ</span>
-            
-          </a>
-         
-        </li> -->
-
-
-
-        
-        
-<!-- 
-        <li class="treeview menuDisplay adminMenu AssignerMenu approversMenu">
-          <a href="#">
-            <i class="fa fa-table"></i> <span>ฝ่ายอำนวยการ</span>
-            <span class="pull-right-container">
-              <small class="xxx  label pull-right label-primary">3</small>
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            
-            <li class="mainMenu"><a href="#/pages/chauffeur-report" id="chauffeur_report_main_menu"><i class="fa fa-circle-o"></i> สโมสรสราญรมย์</a></li>
-            <li class="mainMenu"><a href="#/pages/use-car-report" id="use_car_report_main_menu"><i class="fa fa-circle-o"></i> โครงการ QWL</a></li>
-            <li class="mainMenu"><a href="#/pages/detail-use-car-report" id="detail_use_car_report_main_menu"><i class="fa fa-circle-o"></i> โรงเรียนนานาชาติ</a></li>
-          </ul>
-        </li>
-        
-
-        <li class="treeview menuDisplay adminMenu AssignerMenu approversMenu">
-          <a href="#">
-            <i class="fa fa-table"></i> <span>ส่วนบริหารข้อมูล</span>
-            <span class="pull-right-container">
-              <small class="xxx  label pull-right label-primary">9</small>
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-             
-            
-            
-          </a>
-          <ul class="treeview-menu">
-            
-            <li class="mainMenu"><a href="#/pages/chauffeur-report" id="chauffeur_report_main_menu"><i class="fa fa-circle-o"></i> เอกสารส่วนบุคคล</a></li>
-            <li class="mainMenu"><a href="#/pages/use-car-report" id="use_car_report_main_menu"><i class="fa fa-circle-o"></i>ประวัติการศึกษา</a></li>
-            <li class="mainMenu"><a href="#/pages/detail-use-car-report" id="detail_use_car_report_main_menu"><i class="fa fa-circle-o"></i> คำสั่ง</a></li>
-
-            <li class="mainMenu"><a href="#/pages/detail-use-car-report" id="detail_use_car_report_main_menu"><i class="fa fa-circle-o"></i> การอบรม</a></li>
-            <li class="mainMenu"><a href="#/pages/detail-use-car-report" id="detail_use_car_report_main_menu"><i class="fa fa-circle-o"></i> การลา</a></li>
-            <li class="mainMenu"><a href="#/pages/detail-use-car-report" id="detail_use_car_report_main_menu"><i class="fa fa-circle-o"></i> แบบประเมิน</a></li>
-
-            <li class="mainMenu"><a href="#/pages/detail-use-car-report" id="detail_use_car_report_main_menu"><i class="fa fa-circle-o"></i> เครื่องราชอิสริยาภรณ์</a></li>
-            <li class="mainMenu"><a href="#/pages/detail-use-car-report" id="detail_use_car_report_main_menu"><i class="fa fa-circle-o"></i> ภารกิจพิเศษ</a></li>
-            <li class="mainMenu"><a href="#/pages/detail-use-car-report" id="detail_use_car_report_main_menu"><i class="fa fa-circle-o"></i> การเข้ารับหน้าที่/การพ้นหน้าที่</a></li>
-          </ul>
-        </li>
-        
-        <li class="menuDisplay mainMenu adminMenu">
-          <a href="#/pages/chauffeur-management" id='chauffeur_main_menu'>
-            <i class="fa fa-user-secret"></i>
-            <span>ฝ่ายคำสั่ง</span>
-          </a>
-         
-        </li>
-        <li class="menuDisplay mainMenu adminMenu userMenu  ">
-          <a href="#/pages/booking-management" id='booking_main_menu'>
-            <i class="fa fa-automobile"></i>
-            <span>ฝ่ายลูกจ้างชั่วคราว<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(ในต่างประเทศ)</span>
-
-            
-            
-          </a>
-         
-        </li>
-        <li class="menuDisplay mainMenu adminMenu AssignerMenu ">
-          <a href="#/pages/confirm-booking-management" id='confirm_booking_main_menu'>
-            <i class="fa fa-edit"></i> <span>ฝ่ายโยกย้าย</span>
-            
-          </a>
-        </li>
-        <li class="menuDisplay mainMenu adminMenu approversMenu">
-          <a href="#/pages/approve-management" id='approve_main_menu'>
-            <i class="fa fa-edit"></i> <span>ฝ่ายประเมิน</span>
-            
-          </a>
-        </li>
-        <li class="menuDisplay mainMenu adminMenu approversMenu">
-          <a href="#/pages/uom" id='uom_main_menu'>
-            <i class="fa fa-edit"></i> <span>ฝ่ายสรรหา</span>
-            
-          </a>
-        </li>
-
-        <li class="menuDisplay mainMenu adminMenu approversMenu">
-          <a href="#/pages/list_employee" id='list_employee_main_menu'>
-            <i class="fa fa-edit"></i> <span>พนักงาน</span>
-            
-          </a>
-        </li>
-
-        
-        
-        <li class="menuDisplay mainMenu adminMenu">
-          <a href="#/pages/car-management" id="car_main_menu">
-            <i class="fa fa-car"></i>
-            <span>ส่วนวินัย</span>
-          </a>
-        </li> -->
 
         
         <li class="menuDisplay  adminMenu">
@@ -432,8 +241,8 @@
           </a> 
         </li>
 
-        <!-- <li class="menuDisplay mainMenu userMenu adminMenu AssignerMenu approversMenu"">
-          <a href="#/pages/about-us" id="aboutus_main_menu"><i class="fa fa-book"></i> <span>เกี่ยวกับเรา</span></a></li> -->
+        <li class="menuDisplay mainMenu userMenu adminMenu AssignerMenu approversMenu"">
+          <a href="#/pages/about-us" id="aboutus_main_menu"><i class="fa  fa-users"></i> <span>ทีมพัฒนา</span></a></li>
         <!--<li class="menuDisplay mainMenu""><a href="#"><i class="fa fa-book"></i> <span>คู่มือการใช้งาน</span></a></li> -->
       
       </ul>
