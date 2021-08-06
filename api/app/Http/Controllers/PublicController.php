@@ -58,7 +58,7 @@ class PublicController extends Controller
 		");
 
 		$validator = Validator::make($request->all(), [
-			'EMAIL' => 'required|unique:Profile',
+			'EMAIL' => 'required|unique:profile',
 			'PASSWORD' => 'required',
 			'FIRST_NAME' => 'required',
 			'LAST_NAME' => 'required',
