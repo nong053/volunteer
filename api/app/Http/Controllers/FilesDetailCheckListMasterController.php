@@ -359,7 +359,7 @@ from priority order by priority_id
 				", array($id));
 				foreach ($items as $i) {
 					// File::Delete($_SERVER['DOCUMENT_ROOT'] . '/mfa/api/public/'.$i->file_path);	
-					File::Delete($_SERVER['DOCUMENT_ROOT'] . '/work-tracker/api/public/'.$i->file_path);		
+					File::Delete($_SERVER['DOCUMENT_ROOT'] . '/volunteer/api/public/'.$i->file_path);		
 					$delPicture = DB::select("
 					DELETE  
 					FROM files
@@ -367,7 +367,7 @@ from priority order by priority_id
 					", array($i->files_id));
 				}
 				 // File::deleteDirectory($_SERVER['DOCUMENT_ROOT'] . '/mfa/api/public/attach_files/'.$id);
-				File::deleteDirectory($_SERVER['DOCUMENT_ROOT'] . '/work-tracker/api/public/attach_files/'.$id);
+				File::deleteDirectory($_SERVER['DOCUMENT_ROOT'] . '/volunteer/api/public/attach_files/'.$id);
 			//Delete File End action
 	}
 	
@@ -443,7 +443,7 @@ from priority order by priority_id
 			", array($id));
 			foreach ($items as $i) {
 				// File::Delete($_SERVER['DOCUMENT_ROOT'] . '/mfa/api/public/'.$i->file_path);	
-				File::Delete($_SERVER['DOCUMENT_ROOT'] . '/work-tracker/api/public/'.$i->file_path);		
+				File::Delete($_SERVER['DOCUMENT_ROOT'] . '/volunteer/api/public/'.$i->file_path);		
 				$delPicture = DB::select("
 				DELETE  
 				FROM files
@@ -451,7 +451,7 @@ from priority order by priority_id
 				", array($i->files_id));
 			}
 			 // File::deleteDirectory($_SERVER['DOCUMENT_ROOT'] . '/mfa/api/public/attach_files/'.$id);
-			File::deleteDirectory($_SERVER['DOCUMENT_ROOT'] . '/work-tracker/api/public/attach_files/'.$id);
+			File::deleteDirectory($_SERVER['DOCUMENT_ROOT'] . '/volunteer/api/public/attach_files/'.$id);
 		//Delete File End
 
 		 
@@ -481,7 +481,7 @@ from priority order by priority_id
 					order by files_id;
 				", array($id));
 				foreach ($items1 as $i) {
-					File::Delete($_SERVER['DOCUMENT_ROOT'] . '/work-tracker/api/public/'.$i->file_path);		
+					File::Delete($_SERVER['DOCUMENT_ROOT'] . '/volunteer/api/public/'.$i->file_path);		
 					$delPicture = DB::select("
 					DELETE  
 					FROM files
@@ -494,7 +494,7 @@ from priority order by priority_id
 
 		$result = array();	
 			
-			$path = $_SERVER['DOCUMENT_ROOT'] . '/work-tracker/api/public/attach_files/' . $id . '/';
+			$path = $_SERVER['DOCUMENT_ROOT'] . '/volunteer/api/public/attach_files/' . $id . '/';
 			foreach ($request->file() as $f) {
 				$filename = iconv('UTF-8','windows-874',$f->getClientOriginalName());
 				//$f->move($path,$filename);

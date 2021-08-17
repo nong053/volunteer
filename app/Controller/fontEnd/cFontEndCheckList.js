@@ -760,12 +760,21 @@ $(document).ready(function(){
                 if(indexEntryCate['folder_cate_grant_privileges']==1 || sessionStorage.getItem('galbalRole')==5){
                     
                     htmlTR+="<tr>";
+                    /*
                     if(sessionStorage.getItem('galbalRole')==5){
+                        htmlTR+="<td colspan='3' style=\"text-align: left; background:#4A4A70; font-weight:bold; padding-top:10px; padding-left:10px;\">";
                         htmlTR+="<td colspan='3' style=\"text-align: left; background:#4A4A70; font-weight:bold; padding-top:10px; padding-left:10px;\">";
                     }else{
                         htmlTR+="<td colspan='3' style=\"text-align: left; background:#4A4A70; font-weight:bold; padding-top:10px; padding-left:10px;\">";
                     }
-                      htmlTR+="<span id='folder_cate_name-"+indexEntryCate['folder_cate_id']+"'>"+indexEntryCate['folder_cate_name']+" ระหว่างวันที่11- "+indexEntryCate['mission_begin_date']+" ถึง "+indexEntryCate['mission_complete_date']+"";
+                    */
+                  
+                      htmlTR+="<td class='visible-xs' colspan='3' style=\"text-align: left; background:#4A4A70; font-weight:bold; padding-top:10px; padding-left:10px;\">";
+                        htmlTR+="<span id='folder_cate_name-"+indexEntryCate['folder_cate_id']+"'>"+indexEntryCate['folder_cate_name']+" ระหว่างวันที่ "+indexEntryCate['mission_begin_date']+" ถึง "+indexEntryCate['mission_complete_date']+"";
+                      htmlTR+="</td>";
+
+                      htmlTR+="<td class='hidden-xs' colspan='6' style=\"text-align: left; background:#4A4A70; font-weight:bold; padding-top:10px; padding-left:10px;\">";
+                         htmlTR+="<span id='folder_cate_name-"+indexEntryCate['folder_cate_id']+"'>"+indexEntryCate['folder_cate_name']+" ระหว่างวันที่ "+indexEntryCate['mission_begin_date']+" ถึง "+indexEntryCate['mission_complete_date']+"";
                       htmlTR+="</td>";
 
                       
@@ -782,7 +791,7 @@ $(document).ready(function(){
                 }else{
                     htmlTR+="<tr>";
                       htmlTR+="<td colspan='6' style=\"text-align: left; background:#4A4A70;  padding:10px;\">";
-                      htmlTR+=""+indexEntryCate['folder_cate_name']+" ระหว่างวันที่๖๗ "+indexEntryCate['mission_begin_date']+" ถึง "+indexEntryCate['mission_complete_date']+" ("+indexEntryCate['mission_type_name']+")";
+                      htmlTR+=""+indexEntryCate['folder_cate_name']+" ระหว่างวันที่ "+indexEntryCate['mission_begin_date']+" ถึง "+indexEntryCate['mission_complete_date']+" ("+indexEntryCate['mission_type_name']+")";
                       htmlTR+="</td>";
 
                       htmlTR+="<td style=' background:#4A4A70; text-align:right; padding:10px;'> ";
