@@ -826,11 +826,25 @@ $(document).ready(function(){
               htmlTR+="<td class=\"tdMission listDetailText\" id=\"listDetailText-"+indexEntry['file_detail_id']+"-"+indexEntry['folder_cate_id']+"\">";
             
 
+              var check_list_name="";
+              if(indexEntry['check_list_name'].length>10){
+                    var res = indexEntry['check_list_name'].substring(0, 10);
+                     check_list_name+="<span class='visible-xs '>"+res+"...</span>";
+                     
+                }else{
+                    check_list_name+="<span class='visible-xs '>"+indexEntry['check_list_name']+"</span>";
+                }
+
+                check_list_name+="<span class='hidden-xs '>"+indexEntry['check_list_name']+"</span>";
+                
+
+
+
                 if( indexEntry['attach_file']!=null){
 
-                    htmlTR+=indexEntry['check_list_name']+"<a class='force_download_files' href=\""+indexEntry['attach_file']+"\"><i class='fa fa-paperclip attach_file '></i></a>";
+                    htmlTR+=check_list_name+"<a class='force_download_files' href=\""+indexEntry['attach_file']+"\"><i class='fa fa-paperclip attach_file '></i></a>";
                 }else{
-                   htmlTR+=indexEntry['check_list_name'];
+                   htmlTR+=check_list_name;
                 }
 
               // htmlTR+=indexEntry['check_list_name'];
@@ -877,7 +891,7 @@ $(document).ready(function(){
                
                }else if(indexEntry['priority_id']==2){
                 
-                htmlTR+="<button id=\"dataInfo-"+indexEntry['file_detail_id']+"\" disabled type=\"button\" class=\" hidden-xsbtn  btn-warning dataInfo\" data-container=\"body\" data-toggle=\"popover\" data-placement=\"top\" title=\"รายละเอียด\" data-content=\""+indexEntry['check_list_normal_status']+"\">";
+                htmlTR+="<button id=\"dataInfo-"+indexEntry['file_detail_id']+"\" disabled type=\"button\" class=\" hidden-xs btn  btn-warning dataInfo\" data-container=\"body\" data-toggle=\"popover\" data-placement=\"top\" title=\"รายละเอียด\" data-content=\""+indexEntry['check_list_normal_status']+"\">";
                 htmlTR+="<i style='font-size:16px;' class='fa fa-info-circle'/>";
                 htmlTR+="</button>";
 
