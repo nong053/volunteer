@@ -763,9 +763,9 @@ $(document).ready(function(){
                     if(sessionStorage.getItem('galbalRole')==5){
                         htmlTR+="<td colspan='3' style=\"text-align: left; background:#4A4A70; font-weight:bold; padding-top:10px; padding-left:10px;\">";
                     }else{
-                        htmlTR+="<td colspan='6' style=\"text-align: left; background:#4A4A70; font-weight:bold; padding-top:10px; padding-left:10px;\">";
+                        htmlTR+="<td colspan='3' style=\"text-align: left; background:#4A4A70; font-weight:bold; padding-top:10px; padding-left:10px;\">";
                     }
-                      htmlTR+="<span id='folder_cate_name-"+indexEntryCate['folder_cate_id']+"'>"+indexEntryCate['folder_cate_name']+" ระหว่างวันที่ "+indexEntryCate['mission_begin_date']+" ถึง "+indexEntryCate['mission_complete_date']+"";
+                      htmlTR+="<span id='folder_cate_name-"+indexEntryCate['folder_cate_id']+"'>"+indexEntryCate['folder_cate_name']+" ระหว่างวันที่11- "+indexEntryCate['mission_begin_date']+" ถึง "+indexEntryCate['mission_complete_date']+"";
                       htmlTR+="</td>";
 
                       
@@ -782,7 +782,7 @@ $(document).ready(function(){
                 }else{
                     htmlTR+="<tr>";
                       htmlTR+="<td colspan='6' style=\"text-align: left; background:#4A4A70;  padding:10px;\">";
-                      htmlTR+=""+indexEntryCate['folder_cate_name']+" ระหว่างวันที่ "+indexEntryCate['mission_begin_date']+" ถึง "+indexEntryCate['mission_complete_date']+" ("+indexEntryCate['mission_type_name']+")";
+                      htmlTR+=""+indexEntryCate['folder_cate_name']+" ระหว่างวันที่๖๗ "+indexEntryCate['mission_begin_date']+" ถึง "+indexEntryCate['mission_complete_date']+" ("+indexEntryCate['mission_type_name']+")";
                       htmlTR+="</td>";
 
                       htmlTR+="<td style=' background:#4A4A70; text-align:right; padding:10px;'> ";
@@ -853,7 +853,7 @@ $(document).ready(function(){
                 htmlTR+="<input type=\"text\" class='form-control notReadyStatusText ' style=\"width: 100%;display: none; background:black;\" name=\"\" id=\"notReadyStatusText-"+indexEntry['file_detail_id']+"-"+indexEntry['folder_cate_id']+"\" class=\"notReadyStatusText\" style=\"width: 100%;display: none;\" >";
               htmlTR+="</td>";
 
-              htmlTR+="<td style='text-align:center;'>";
+              htmlTR+="<td style='text-align:center;' class='hidden-xs'>";
                
               
     //          	htmlTR+="<button type=\"button\" class=\"btn  btn-info dataInfo\" data-container=\"body\" data-toggle=\"popover\" data-placement=\"left\" title=\"ขั้นตอนการแก้ปัญหา\" data-content=\""+indexEntry['check_list_abnormal_status']+"\">";
@@ -862,24 +862,24 @@ $(document).ready(function(){
 
                 if(indexEntry['priority_id']==1 ){
                 
-                htmlTR+="<button id=\"dataInfo-"+indexEntry['file_detail_id']+"\" disabled type=\"button\" class=\"btn  btn-default dataInfo\" data-container=\"body\" data-toggle=\"popover\" data-placement=\"top\" title=\"รายละเอียด\" data-content=\""+indexEntry['check_list_normal_status']+"\">";
+                htmlTR+="<button id=\"dataInfo-"+indexEntry['file_detail_id']+"\" disabled type=\"button\" class=\"hidden-xs btn  btn-default dataInfo \" data-container=\"body\" data-toggle=\"popover\" data-placement=\"top\" title=\"รายละเอียด\" data-content=\""+indexEntry['check_list_normal_status']+"\">";
                 htmlTR+="<i style='font-size:16px;' class='fa fa-info-circle'/>";
                 htmlTR+="</button>";
                
                }else if(indexEntry['priority_id']==2){
                 
-                htmlTR+="<button id=\"dataInfo-"+indexEntry['file_detail_id']+"\" disabled type=\"button\" class=\"btn  btn-warning dataInfo\" data-container=\"body\" data-toggle=\"popover\" data-placement=\"top\" title=\"รายละเอียด\" data-content=\""+indexEntry['check_list_normal_status']+"\">";
+                htmlTR+="<button id=\"dataInfo-"+indexEntry['file_detail_id']+"\" disabled type=\"button\" class=\" hidden-xsbtn  btn-warning dataInfo\" data-container=\"body\" data-toggle=\"popover\" data-placement=\"top\" title=\"รายละเอียด\" data-content=\""+indexEntry['check_list_normal_status']+"\">";
                 htmlTR+="<i style='font-size:16px;' class='fa fa-info-circle'/>";
                 htmlTR+="</button>";
 
                }else if(indexEntry['priority_id']==3){
                 
-                htmlTR+="<button id=\"dataInfo-"+indexEntry['file_detail_id']+"\" disabled type=\"button\" class=\"btn  btn-danger dataInfo\" data-container=\"body\" data-toggle=\"popover\" data-placement=\"top\" title=\"รายละเอียด\" data-content=\""+indexEntry['check_list_normal_status']+"\">";
+                htmlTR+="<button id=\"dataInfo-"+indexEntry['file_detail_id']+"\" disabled type=\"button\" class=\" hidden-xs btn  btn-danger dataInfo\" data-container=\"body\" data-toggle=\"popover\" data-placement=\"top\" title=\"รายละเอียด\" data-content=\""+indexEntry['check_list_normal_status']+"\">";
                 htmlTR+="<i style='font-size:16px;' class='fa fa-info-circle'/>";
                 htmlTR+="</button>";
 
                }else{
-                 htmlTR+="<button id=\"dataInfo-"+indexEntry['file_detail_id']+"\" disabled type=\"button\" class=\"btn  btn-default dataInfo\" data-container=\"body\" data-toggle=\"popover\" data-placement=\"top\" title=\"รายละเอียด\" data-content=\""+indexEntry['check_list_normal_status']+"\">";
+                 htmlTR+="<button id=\"dataInfo-"+indexEntry['file_detail_id']+"\" disabled type=\"button\" class=\"hidden-xs btn  btn-default dataInfo\" data-container=\"body\" data-toggle=\"popover\" data-placement=\"top\" title=\"รายละเอียด\" data-content=\""+indexEntry['check_list_normal_status']+"\">";
                  htmlTR+="<i style='font-size:16px;' class='fa fa-info-circle'/>";
                  htmlTR+="</button>";
                }

@@ -406,6 +406,7 @@ app.controller("pageController",function($scope, $route, $routeParams){
 			  $("#top_rigth_menu_area").html(url_menu_right);
 			  if(isMobile==true){
 			  	$("#wrapper").removeClass('sidebar-open');
+				 
 			  }
 			}
 	  });

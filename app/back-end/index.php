@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>ระบบติดตามผลการปฏบัติงาน</title>
+  <title>โปรแกรมบริหารจัดการกิจกรรมจิตอาสาพระราชทานในส่วนของกองทัพอากาศ</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -39,6 +39,7 @@
  <link rel="stylesheet" href="../css2/jquery.mloading.css">
  <link rel="stylesheet" href="../css2/basic_theme.css">
  <link href="../css/plugins/summernote/summernote.css" rel="stylesheet">
+ <link href="../../favicon/favicon.ico" rel="shortcut icon" type="image/x-icon" />
  <!-- <link href="css/plugins/summernote/summernote-bs3.css" rel="stylesheet"> -->
 
 
@@ -160,6 +161,9 @@
             <i class="fa fa-gears"></i> <span>บันทึกผลปฏิบัติงาน</span>
           </a> 
         </li>
+        <li class="menuDisplay mainMenu userMenu adminMenu ">
+          <a href="#/pages/about-us" id="aboutus_main_menu"><i class="fa  fa-users"></i> <span>ทีมพัฒนา</span></a>
+        </li>
         <!-- <li class="menuDisplay mainMenu""><a href="#"><i class="fa fa-book"></i> 
           <span>คู่มือการใช้งาน</span></a>
         </li> -->
@@ -241,7 +245,7 @@
           </a> 
         </li>
 
-        <li class="menuDisplay mainMenu userMenu adminMenu AssignerMenu approversMenu"">
+        <li class="menuDisplay mainMenu userMenu adminMenu ">
           <a href="#/pages/about-us" id="aboutus_main_menu"><i class="fa  fa-users"></i> <span>ทีมพัฒนา</span></a></li>
         <!--<li class="menuDisplay mainMenu""><a href="#"><i class="fa fa-book"></i> <span>คู่มือการใช้งาน</span></a></li> -->
       
@@ -280,7 +284,7 @@
     <div class="pull-right hidden-xs">
       <b>Version</b> 0.0.1
     </div>
-    <strong>Copyright &copy; 2019
+    <strong>Copyright &copy; 2021
   </footer>
 
   <!-- Control Sidebar -->

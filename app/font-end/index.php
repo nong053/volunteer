@@ -113,9 +113,11 @@ background:"#eee";
 
                 <div class="navbar-brand"> 
                 <span  >
-                    <img src="../imgs/logo-rtaf.png" width="50" style="position:relative; top:-5px;">
+                    <img src="../imgs/logo-rtaf.png" width="50" style="position:relative; top:-8px;">
                 </span>
-                <span style="position:relative; top:-5px;">Royal Thai Volunteers Activities</span>
+                
+                <span class="hidden-sm hidden-xs"  style="position:relative; top:-5px;  " >Royal Thai Volunteers Activities</span>
+                <span class="hidden-lg hidden-mg" style="position:relative; top:-5px;  " >Volunteers Activities</span>
                 </div>
             </div>
 
@@ -166,7 +168,7 @@ background:"#eee";
                    <li style="display: none;" id="control_panel" class="adminRole">
                         <a aria-expanded="false" role="button" href="../back-end/#/pages/user-group">
                             <i class="fa fa-user"></i>
-                            <span class='titleFullname'></span>
+                            <span class='titleFullname'></span><span> [ผู้ดูแลระบบ]</span>
                             <!-- <span id='position_top'></span>
                             <span id='role_top'></span> -->
                         </a>
@@ -174,7 +176,7 @@ background:"#eee";
                     <li id="user_area" style="display: none;" class="userRole">
                         <a aria-expanded="false" role="button" href="../back-end/#/pages/user-management">
                             <i class="fa fa-user"></i>
-                            <span class='titleFullname'></span>
+                            <span class='titleFullname'></span> [แก้ไขข้อมูลส่วนตัว]
                             <!-- <span id='position_top'></span>
                             <span id='role_top'></span> -->
                         </a>
