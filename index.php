@@ -209,7 +209,7 @@
        <i class="textShadow glyphicon glyphicon-heart-empty font-white;" style="font-size: 120px;"></i>
       
     </div>
-     <h3 class="textShadow font-white;" style="text-align: center; ">โปรแกรมบริหารจัดการกิจกรรม<br>จิตอาสาพระราชทานในส่วนของกองทัพอากาศ</h3>
+     <h3 class="textShadow font-white;" style="text-align: center; ">แอปพลิเคชัน<br>บริหารจัดการกิจกรรม<br>จิตอาสาพระราชทานในส่วนของกองทัพอากาศ</h3>
       
       <p style="text-align: center;" class="font-black">
       Royal Thai Volunteers Activities
