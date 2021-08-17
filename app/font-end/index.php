@@ -176,7 +176,7 @@ background:"#eee";
                     <li id="user_area" style="display: none;" class="userRole">
                         <a aria-expanded="false" role="button" href="../back-end/#/pages/user-management">
                             <i class="fa fa-user"></i>
-                            <span class='titleFullname'></span> [แก้ไขข้อมูลส่วนตัว]
+                            <span class='titleFullname'></span> [ข้อมูลส่วนตัว]
                             <!-- <span id='position_top'></span>
                             <span id='role_top'></span> -->
                         </a>
