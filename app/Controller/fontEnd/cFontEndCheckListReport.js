@@ -366,9 +366,9 @@ $(document).ready(function(){
               //listHTML+=indexEntry['check_list_name'];
 
               if( indexEntry['attach_file']!=null){
-                   listHTML+=indexEntry['check_list_name']+"<a class='force_download_files' href=\""+indexEntry['attach_file']+"\"><i class='fa fa-paperclip attach_file '></i></a>";
+                   listHTML+=indexEntry['check_list_name']+"("+indexEntry['date']+")"+"<a class='force_download_files' href=\""+indexEntry['attach_file']+"\"><i class='fa fa-paperclip attach_file '></i></a>";
                 }else{
-                    listHTML+=indexEntry['check_list_name']+" ("+indexEntry['date']+")";
+                    listHTML+=indexEntry['check_list_name']+"("+indexEntry['date']+")";
                 }
 
              
@@ -461,7 +461,7 @@ $(document).ready(function(){
                           //listHTML+="<img  alt=\"image\" style='width:38px; height:38px;' class=\"img-circle pull-left\" src=\"img/profile.jpg\"> <span class='pull-left' style=\"margin-top:5px;margin-left:5px;\">Kosit</span>";
                           //listHTML+="<button id='profile_tag_id-"+indexEntryTag+"-"+indexEntry['file_detail_id']+"-"+indexEntry['folder_cate_id']+"' class=\"btn btn-danger btn-xs1 profile_tag profile_tag_id-"+indexEntryTag+"-"+indexEntry['file_detail_id']+"\" data-container=\"body\" > #"+indexEntry['first_name']+"</button>";
                         }
-                        listHTML+="("+getScoreFn(indexEntry['score'])+")";
+                        listHTML+=""+getScoreFn(indexEntry['score'])+"";
                         
                        // listHTML+="<button id='profile_tag_id-"+indexEntryTag+"-"+indexEntry['file_detail_id']+"-"+indexEntry['folder_cate_id']+"' class=\"btn btn-info btn-xs profile_tag profile_tag_id-"+indexEntryTag+"-"+indexEntry['file_detail_id']+"\" data-container=\"body\" > #"+indexEntryTag+"</button>";
                   });

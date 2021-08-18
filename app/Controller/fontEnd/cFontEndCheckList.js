@@ -603,7 +603,7 @@ $(document).ready(function(){
 
             jsonData+="\"check_list_id\":"+id+",";
             jsonData+="\"check_list_type\":"+check_list_type+",";
-            jsonData+="\"check_list_name\":\""+$.trim($("#listDetailText-"+id+"-"+check_list_type).text())+"\",";
+            jsonData+="\"check_list_name\":\""+$.trim($("#listDetailText-"+id+"-"+check_list_type+" .dataTouse").text())+"\",";
             jsonData+="\"check_list_normal_status\":\""+$.trim($("#readyStatusText-"+id+"-"+check_list_type).text())+"\",";
 
             if(isMobile==true){
@@ -655,7 +655,7 @@ $(document).ready(function(){
 
           var jsonObject=eval("("+jsonData+")");
          
-         
+     
 
          if(statusValidate==false && isMobile==false){
             alert(validateText);
@@ -750,11 +750,12 @@ $(document).ready(function(){
 // fa fa-info-circle
 
     var listCheckListMasterFn = function(data_check_list,data_category){
+       
     	var htmlTR="";
     	
         var checkCategory="";
     	$.each(data_category,function(indexCate,indexEntryCate){
-    		//alert(index);
+    		
             
                 
                 if(indexEntryCate['folder_cate_grant_privileges']==1 || sessionStorage.getItem('galbalRole')==5){
@@ -835,7 +836,7 @@ $(document).ready(function(){
                     check_list_name+="<span class='visible-xs '>"+indexEntry['check_list_name']+"</span>";
                 }
 
-                check_list_name+="<span class='hidden-xs '>"+indexEntry['check_list_name']+"</span>";
+                check_list_name+="<span class='hidden-xs dataTouse'>"+indexEntry['check_list_name']+"</span>";
                 
 
 
